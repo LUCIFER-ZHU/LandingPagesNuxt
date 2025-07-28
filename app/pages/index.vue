@@ -176,7 +176,7 @@ const products = ref([
 ]);
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 /* 使用vw单位实现自适应宽度 */
 .products-page {
   width: 100vw;
@@ -188,26 +188,28 @@ const products = ref([
   top: 0;
   z-index: 10;
   background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: $shadow-sm;
 }
 
 .product-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  @include transition-base;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-lg;
+  }
 }
 
 /* 响应式调整 */
-@media (max-width: 768px) {
-  .products h1 {
-    font-size: 2.5rem;
-  }
-  
-  .products p {
-    font-size: 1rem;
+@media (max-width: $breakpoint-md) {
+  .products {
+    h1 {
+      font-size: $font-size-xxl;
+    }
+    
+    p {
+      font-size: $font-size-base;
+    }
   }
 }
 </style> 
