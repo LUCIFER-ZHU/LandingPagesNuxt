@@ -41,9 +41,3 @@ $shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
-@mixin responsive-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 $spacing-md;
-} 

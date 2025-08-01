@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
-  </div>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
 
 <script setup lang="ts">
@@ -26,51 +24,4 @@ useHead({
 </script>
 
 <style>
-/* 全局样式重置 */
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
-}
-
-/* 确保100vw不会产生水平滚动条 */
-body {
-  overflow-x: hidden;
-}
-
-/* 图片响应式 */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* 链接样式 */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* 按钮样式重置 */
-button {
-  cursor: pointer;
-}
-
-/* 确保页面最小高度 */
-#__nuxt {
-  min-height: 100vh;
-}
 </style>

@@ -6,9 +6,9 @@
         <div class="flex justify-between items-center py-4">
           <h1 class="text-2xl font-bold">公司名称</h1>
           <nav>
-            <UButton to="/" variant="ghost" class="mr-2">首页</UButton>
-            <UButton to="/about" variant="ghost" class="mr-2">关于我们</UButton>
-            <UButton to="/contact" variant="ghost">联系我们</UButton>
+            <UButton variant="ghost" class="mr-2">首页</UButton>
+            <UButton variant="ghost" class="mr-2">关于我们</UButton>
+            <UButton variant="ghost">联系我们</UButton>
           </nav>
         </div>
       </UContainer>
@@ -33,7 +33,7 @@
             <p class="mb-4">{{ product.description }}</p>
             <div class="flex justify-between items-center mt-4">
               <span class="text-lg font-semibold text-primary">¥{{ product.price }}</span>
-              <UButton color="primary" :to="`/product/${product.id}`">查看详情</UButton>
+              <UButton color="primary" :to="`/`">查看详情</UButton>
             </div>
           </UCard>
         </div>
@@ -52,7 +52,7 @@
             <p class="mb-6">
               我们拥有一支经验丰富、专业技能过硬的团队，致力于为客户提供最佳的解决方案和体验。
             </p>
-            <UButton color="primary" to="/about">了解更多</UButton>
+            <UButton color="primary" to="/">了解更多</UButton>
           </div>
           <div class="flex justify-center">
             <img src="https://via.placeholder.com/600x400" alt="公司图片" class="rounded-lg shadow-lg" />
@@ -73,9 +73,9 @@
             <h3 class="text-xl font-bold mb-4">快速链接</h3>
             <ul>
               <li class="mb-2"><a href="/" class="hover:underline">首页</a></li>
-              <li class="mb-2"><a href="/about" class="hover:underline">关于我们</a></li>
-              <li class="mb-2"><a href="/products" class="hover:underline">产品中心</a></li>
-              <li><a href="/contact" class="hover:underline">联系我们</a></li>
+              <li class="mb-2"><a href="/" class="hover:underline">关于我们</a></li>
+              <li class="mb-2"><a href="/" class="hover:underline">产品中心</a></li>
+              <li><a href="/" class="hover:underline">联系我们</a></li>
             </ul>
           </div>
           <div>
@@ -197,19 +197,6 @@ const products = ref([
   &:hover {
     transform: translateY(-5px);
     box-shadow: $shadow-lg;
-  }
-}
-
-/* 响应式调整 */
-@media (max-width: $breakpoint-md) {
-  .products {
-    h1 {
-      font-size: $font-size-xxl;
-    }
-    
-    p {
-      font-size: $font-size-base;
-    }
   }
 }
 </style> 
