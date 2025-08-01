@@ -2,19 +2,16 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/ui', '@element-plus/nuxt'],
+  modules: ['@nuxt/ui','@nuxtjs/google-fonts'],
   css: [
     '~/assets/css/vendors.css',
-    '~/assets/css/main.scss'
+    '~/assets/scss/main.scss'
   ],
-  ui: {
-    fonts: false
-  },
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@use "~/assets/css/variables.scss" as *;'
+          additionalData: '@use "~/assets/scss/variables.scss" as *;'
         }
       }
     }
