@@ -1,0 +1,6 @@
+---
+alwaysApply: true
+---
+
+UI库为"@nuxt/image": "1.11.0", 按钮等相关UI默认使用该库
+图片库为"@nuxt/ui": "^3.3.0", 遇到img默认使用该库

@@ -14,6 +14,19 @@
       </UContainer>
     </header>
 
+    <!-- API 演示区：展示如何区分环境并发起请求 -->
+    <section class="api-demo">
+      <UContainer class="py-6">
+        <h2 class="text-2xl font-bold mb-4">API 演示</h2>
+        <p class="text-gray-600 mb-4">当前 API 基地址：{{ apiBase }}</p>
+        <div class="flex items-center gap-4">
+          <UButton color="primary" :loading="isLoading" @click="onTestApi">测试请求 /todos/1</UButton>
+          <span v-if="errorMessage" class="text-red-600">{{ errorMessage }}</span>
+        </div>
+        <pre v-if="apiResult" class="mt-4 bg-gray-100 p-4 rounded text-sm overflow-auto">{{ apiResult }}</pre>
+      </UContainer>
+    </section>
+
     <!-- 产品列表 -->
     <section class="products">
       <UContainer class="py-16">
@@ -101,7 +114,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useHead } from '#imports';
+import { useHead, useRuntimeConfig } from '#imports';
 
 /**
  * 设置页面元数据，优化SEO
@@ -125,6 +138,69 @@ useHead({
     { rel: 'canonical', href: 'https://example.com' }
   ]
 });
+
+/**
+ * 当前 API 基地址（从运行时配置读取）
+ * @constant {string}
+ */
+const runtimeConfig = useRuntimeConfig();
+const apiBase: string = runtimeConfig.public.apiBase as string;
+
+/**
+ * API 请求结果
+ * @type {import('vue').Ref<any | null>}
+ */
+const apiResult = ref<any | null>(null);
+
+/**
+ * 加载状态
+ * @type {import('vue').Ref<boolean>}
+ */
+const isLoading = ref<boolean>(false);
+
+/**
+ * 错误消息
+ * @type {import('vue').Ref<string | null>}
+ */
+const errorMessage = ref<string | null>(null);
+
+/**
+ * 发起 GET 请求示例
+ * @param {string} endpoint - 业务端点（例如："/todos/1"）
+ * @returns {Promise<void>} 无显式返回，结果通过响应式变量暴露
+ * @throws {Error} 当网络异常或服务端返回错误时抛出
+ */
+const fetchExample = async (endpoint: string): Promise<void> => {
+  try {
+    isLoading.value = true; // 开始加载
+    errorMessage.value = null; // 重置错误
+    apiResult.value = null; // 清空旧数据
+
+    // 使用 ofetch 的 $fetch 发起同构请求，通过 baseURL 拼接完整地址
+    const data = await $fetch(endpoint, {
+      baseURL: apiBase,
+      method: 'GET'
+    });
+
+    apiResult.value = data;
+  } catch (err: any) {
+    // 统一错误处理，保证可观测性
+    const message = err?.data?.message || err?.message || '请求失败';
+    errorMessage.value = message;
+    // 抛出错误便于上层调用链感知
+    throw new Error(message);
+  } finally {
+    isLoading.value = false; // 结束加载
+  }
+};
+
+/**
+ * 点击触发测试请求
+ * @returns {Promise<void>} 无显式返回
+ */
+const onTestApi = async (): Promise<void> => {
+  await fetchExample('/todos/1');
+};
 
 /**
  * 产品数据
