@@ -6,8 +6,10 @@ export default defineNuxtConfig({
   css: ["~/assets/css/vendors.css", "~/assets/scss/main.scss"],
   runtimeConfig: {
     public: {
-      // 公开的 API 基地址（浏览器可见）。优先读取环境变量，未设置时使用演示地址
-      apiBase: process.env.NUXT_PUBLIC_API_BASE || 'https://jsonplaceholder.typicode.com'
+      // 公开的 API 基地址（浏览器可见）
+      apiBase: process.env.NUXT_PUBLIC_API_BASE,
+      // 图片资源基地址
+      imageBase: process.env.NUXT_PUBLIC_IMAGE_BASE
     }
   },
   vite: {
@@ -18,5 +20,5 @@ export default defineNuxtConfig({
         },
       },
     },
-  },
+  },   
 });

@@ -1,24 +1,10 @@
 <template>
   <div class="products-page">
-    <!-- 页面头部 -->
-    <header class="header">
-      <UContainer>
-        <div class="flex justify-between items-center py-4">
-          <h1 class="text-2xl font-bold">公司名称</h1>
-          <nav>
-            <UButton variant="ghost" class="mr-2">首页</UButton>
-            <UButton variant="ghost" class="mr-2">关于我们</UButton>
-            <UButton variant="ghost">联系我们</UButton>
-          </nav>
-        </div>
-      </UContainer>
-    </header>
 
     <!-- API 演示区：展示如何区分环境并发起请求 -->
     <section class="api-demo">
       <UContainer class="py-6">
         <h2 class="text-2xl font-bold mb-4">API 演示</h2>
-        <p class="text-gray-600 mb-4">当前 API 基地址：{{ apiBase }}</p>
         <div class="flex items-center gap-4">
           <UButton color="primary" :loading="isLoading" @click="onTestApi">测试请求 /todos/1</UButton>
           <span v-if="errorMessage" class="text-red-600">{{ errorMessage }}</span>
@@ -74,41 +60,7 @@
       </UContainer>
     </section>
 
-    <!-- 页脚 -->
-    <footer class="bg-gray-800 text-white">
-      <UContainer class="py-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <h3 class="text-xl font-bold mb-4">公司名称</h3>
-            <p>提供高品质的产品和服务，致力于为客户创造价值。</p>
-          </div>
-          <div>
-            <h3 class="text-xl font-bold mb-4">快速链接</h3>
-            <ul>
-              <li class="mb-2"><a href="/" class="hover:underline">首页</a></li>
-              <li class="mb-2"><a href="/" class="hover:underline">关于我们</a></li>
-              <li class="mb-2"><a href="/" class="hover:underline">产品中心</a></li>
-              <li><a href="/" class="hover:underline">联系我们</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="text-xl font-bold mb-4">联系我们</h3>
-            <div class="mb-2">
-              <strong>电话：</strong> 400-123-4567
-            </div>
-            <div class="mb-2">
-              <strong>邮箱：</strong> support@example.com
-            </div>
-            <div>
-              <strong>地址：</strong> 北京市朝阳区某某大厦123号
-            </div>
-          </div>
-        </div>
-        <div class="mt-8 pt-8 border-t border-gray-700 text-center">
-          <p>&copy; {{ new Date().getFullYear() }} 公司名称. 保留所有权利.</p>
-        </div>
-      </UContainer>
-    </footer>
+
   </div>
 </template>
 
@@ -140,13 +92,6 @@ useHead({
 });
 
 /**
- * 当前 API 基地址（从运行时配置读取）
- * @constant {string}
- */
-const runtimeConfig = useRuntimeConfig();
-const apiBase: string = runtimeConfig.public.apiBase as string;
-
-/**
  * API 请求结果
  * @type {import('vue').Ref<any | null>}
  */
@@ -176,9 +121,9 @@ const fetchExample = async (endpoint: string): Promise<void> => {
     errorMessage.value = null; // 重置错误
     apiResult.value = null; // 清空旧数据
 
-    // 使用 ofetch 的 $fetch 发起同构请求，通过 baseURL 拼接完整地址
-    const data = await $fetch(endpoint, {
-      baseURL: apiBase,
+    // 使用自定义的 $customFetch 发起同构请求，自动添加 baseURL
+    const { $customFetch } = useNuxtApp();
+    const data = await $customFetch(endpoint, {
       method: 'GET'
     });
 
