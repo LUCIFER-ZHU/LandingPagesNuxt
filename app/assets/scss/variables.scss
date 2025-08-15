@@ -13,22 +13,8 @@ $font-size-lg: 18px;
 $font-size-xl: 24px;
 $font-size-xxl: 32px;
 
-// 间距变量
-$spacing-sm: 8px;
-$spacing-md: 16px;
-$spacing-lg: 24px;
-$spacing-xl: 32px;
-
-// 断点变量
-$breakpoint-sm: 640px;
-$breakpoint-md: 768px;
-$breakpoint-lg: 1024px;
-$breakpoint-xl: 1280px;
-
-// 阴影变量
-$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+// 图片变量
+$image-base: 'http://minnuo-test.oss-cn-qingdao.aliyuncs.com/waterCooler/';
 
 // 混合器
 @mixin flex-center {
@@ -39,5 +25,21 @@ $shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
 
 @mixin transition-base {
   transition: all 0.3s ease;
+}
+
+// 按钮mixin
+@mixin default-btn {
+  padding: .625vw 1.4583vw;
+  background: #F66618;
+  border-radius: 2.5vw;
+  font-weight: bold;
+  font-size: .9375vw;
+  color: #FFFFFF;
+  line-height: 1.6667vw;
+  cursor: pointer;
+  
+  &:hover {
+    box-shadow: 0vw .2604vw .4167vw 0vw rgba(0, 0, 0, 0.3);
+  }
 }
 

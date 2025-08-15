@@ -8,4 +8,5 @@
 
 :root {
   --ui-container: var(--container-8xl);
+  --ui-primary: #092991;    /* 覆盖为蓝色 */
 }
