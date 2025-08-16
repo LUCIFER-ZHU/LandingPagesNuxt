@@ -4,7 +4,15 @@ export default defineNuxtConfig({
     devtools: { enabled: process.env.NODE_ENV !== "production" },
     modules: ["@nuxt/ui", "@nuxt/fonts", "@nuxt/image"],
     css: ["~/assets/css/vendors.css", "~/assets/scss/main.scss"],
-    // ssr: false,
+    ssr: false,
+    app: {
+      head: {
+        title: '我的Nuxt应用',
+        link: [
+          { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' } // 放在 public 目录
+        ]
+      }
+    },    
     runtimeConfig: {
         public: {
             // 公开的 API 基地址（浏览器可见）
