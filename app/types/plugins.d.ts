@@ -8,6 +8,14 @@ declare module '#app' {
     $customFetch: typeof $fetch
     $customUseFetch: typeof useFetch
     $customUseLazyFetch: typeof useLazyFetch
+    $toast: {
+      success: (message: string, options?: any) => void
+      error: (message: string, options?: any) => void
+      warning: (message: string, options?: any) => void
+      info: (message: string, options?: any) => void
+      clear: () => void
+      dismiss: (id?: string) => void
+    }
   }
 }
 
@@ -16,6 +24,14 @@ declare module '@vue/runtime-core' {
     $customFetch: typeof $fetch
     $customUseFetch: typeof useFetch
     $customUseLazyFetch: typeof useLazyFetch
+    $toast: {
+      success: (message: string, options?: any) => void
+      error: (message: string, options?: any) => void
+      warning: (message: string, options?: any) => void
+      info: (message: string, options?: any) => void
+      clear: () => void
+      dismiss: (id?: string) => void
+    }
   }
 }
 

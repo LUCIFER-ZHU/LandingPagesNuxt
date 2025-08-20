@@ -52,6 +52,8 @@
             <div class="config-section sec1 shrink-0">
               <h3 class="section-title">Cooling Capacity</h3>
               <EditorCoolingCapacitySlider v-model="contactForm.coolingCapacity" />
+              <UInputNumber v-model="contactForm.coolingCapacity" :min="3" :max="10000" orientation="vertical"
+                placeholder="Enter a number" class="float-end mt-[.5208vw]" />
             </div>
 
             <div class="config-section sec2 shrink-0">
@@ -300,6 +302,9 @@
       </div>
     </div>
 
+    <!-- Key Components of an Industrial Chiller Unit -->
+    <EditorKeyComponentTabs />
+
     <!-- Do You Need Clean -->
     <div class="need-clean">
       <div class="title">
@@ -419,7 +424,148 @@
       <UButton class="default-btn" label="Get My Cooling Solution" />
     </div>
 
+    <!-- Trust Carousel -->
     <EditorTrustCarousel />
+
+    <!-- factory-videos -->
+    <div class="factory-videos">
+      <div class="video-box-container">
+        <EditorVideoBox :videoUrl="buildImageUrl('video/video1.mp4')" :coverImage="buildImageUrl('image/img7.webp')"
+          title="Factory Videos" />
+        <div class="text">90kw high temperature oil type mold temperature controller</div>
+      </div>
+      <div class="video-box-container">
+        <EditorVideoBox :videoUrl="buildImageUrl('video/video1.mp4')" :coverImage="buildImageUrl('image/img8.webp')"
+          title="Factory Videos" />
+        <div class="text">100HP air-cooled chiller with water tank</div>
+      </div>
+      <div class="video-box-container">
+        <EditorVideoBox :videoUrl="buildImageUrl('video/video1.mp4')" :coverImage="buildImageUrl('image/img9.webp')"
+          title="Factory Videos" />
+        <div class="text">Chiller workshop display</div>
+      </div>
+    </div>
+
+    <!-- try-solve -->
+    <div class="try-solve">
+      <div class="title">What Problems Are You Trying to Solve?</div>
+      <div class="content">
+        <div class="left">
+          <div class="box">
+            <div class="num">1</div>
+            <div class="num-content">
+              <div class="title">Cooling Capacity</div>
+              <div class="text">
+                Indicates how much heat the chiller can remove per hour. Calculated based on equipment heat load:<br>
+                Q = C × M × ΔT<br>
+                (Heat capacity × Flow rate × Temp difference).<br>
+                ⚠️ Recommend reserving 10–20% extra capacity for peak loads.<br>
+                Unit: kW / kcal/h / USRT (1 USRT ≈ 3.517 kW)
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="num">2</div>
+            <div class="num-content">
+              <div class="title">Water Flow Rate</div>
+              <div class="text">
+                Matches cooling capacity. Typically:<br>
+                1 kW ≈ 3–5 L/min<br>
+                Ensures effective heat exchange.<br>
+                Unit: m³/h or L/min
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="num">3</div>
+            <div class="num-content">
+              <div class="title">Inlet/Outlet Water<br>
+                Temperature</div>
+              <div class="text">
+                Affects cooling calculation and heat exchanger sizing.<br>
+                Common ΔT: 5°C<br>
+                Smaller ΔT = higher efficiency, but requires larger heat exchanger.
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="num">4</div>
+            <div class="num-content">
+              <div class="title">Cooling Method</div>
+              <div class="text">
+                Water-cooled: Needs cooling tower, suitable for large capacity or high-temperature environments.<br>
+                Air-cooled: No water source needed, ideal for dry or mobile setups.<br>
+                ⚠️ Above 35°C, air-cooled efficiency may drop by 8–12%.
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="num">5</div>
+            <div class="num-content">
+              <div class="title">Power Supply</div>
+              <div class="text">
+                Match voltage and frequency:<br>
+                Typical: 220V / 380V / 50Hz<br>
+                Units >200 kW need 3-phase power<br>
+                Confirm max power capacity on-site.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="title">
+            Fill in your application details<br>
+            — we’ll match the right model within 24 hours.
+          </div>
+          <UForm :state="contactForm" @submit="onContactSubmit">
+            <UFormField name="name" class="form-field">
+              <UInput v-model="contactForm.name" placeholder="Name" />
+            </UFormField>
+            <UFormField name="email" class="form-field">
+              <UInput v-model="contactForm.email" placeholder="E-mail" type="email" />
+            </UFormField>
+            <UFormField name="whatsapp" class="form-field">
+              <UInput v-model="contactForm.whatsapp" placeholder="WhatApp (Tel)" />
+            </UFormField>
+            <UFormField name="message" class="form-field">
+              <UTextarea v-model="contactForm.message" placeholder="Your Message" :rows="4" />
+            </UFormField>
+            <UButton type="submit" color="primary" class="send-btn">
+              Send My Request
+            </UButton>
+            <div class="tip">Response within 24 hours</div>
+          </UForm>
+        </div>
+      </div>
+    </div>
+
+    <!-- guarantee -->
+    <div class="guarantee">
+      <div class="title">
+        Logistics and delivery guarantee
+      </div>
+      <div class="sub-title">
+        Export-Ready, Globally Trusted
+      </div>
+      <div class="content">
+        <div class="box">
+          Export-standard <br>
+          packaging
+        </div>
+        <div class="box">
+          CE, ISO, Form E/C/O <br>
+          Available
+        </div>
+        <div class="box">
+          Door-to-door logistics<br>
+          supported
+        </div>
+        <div class="box">
+          Online installation & <br>
+          after-sale guidance
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -907,7 +1053,183 @@ const onContactSubmit = () => {
     color: #000000;
     line-height: 1.875vw;
     text-align: center;
-    margin: 1.5104vw 0; 
+    margin: 1.5104vw 0;
+  }
+}
+
+.factory-videos {
+  display: flex;
+  padding: 5.2083vw 18.5938vw 2.9167vw;
+  gap: 1.25vw;
+  justify-content: center;
+  align-items: center;
+
+  .video-box-container {
+    width: 20vw;
+    height: 18.4896vw;
+    padding: 2.6042vw 1.3021vw 1.4583vw;
+    background: #FFFFFF;
+    border-radius: .625vw .625vw .625vw .625vw;
+
+    .text {
+      font-weight: 400;
+      font-size: .8333vw;
+      color: rgba(0, 0, 0, 0.6);
+      line-height: 1.25vw;
+      margin-top: 2.7083vw;
+    }
+  }
+}
+
+.try-solve {
+  >.title {
+    font-weight: bold;
+    font-size: 2.5vw;
+    color: #020202;
+    text-align: center;
+    margin-bottom: 3.0208vw;
+  }
+
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25vw;
+
+    .left {
+      min-height: 39.375vw;
+      background: #FFFFFF;
+      border-radius: 0vw 0vw 0vw 0vw;
+      padding: 2.4479vw 2.9167vw;
+      width: 47.2396vw;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.1875vw;
+
+      .box {
+        display: flex;
+        gap: 1.25vw;
+
+        .num {
+          width: 2.6042vw;
+          height: 2.6042vw;
+          background: #092991;
+          border-radius: 0vw 0vw 0vw 0vw;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-shrink: 0;
+          font-weight: bold;
+          font-size: 1.25vw;
+          color: #FFFFFF;
+        }
+
+        .num-content {
+          .title {
+            font-weight: bold;
+            font-size: 1.25vw;
+            color: #000000;
+            margin-bottom: .4167vw;
+          }
+
+          .text {
+            font-weight: 400;
+            font-size: .7292vw;
+            color: rgba(0, 0, 0, 0.6);
+            line-height: 1.0938vw;
+            text-align: left;
+          }
+        }
+      }
+    }
+
+    .right {
+      min-height: 39.375vw;
+      background: #FFFFFF;
+      border-radius: 0vw 0vw 0vw 0vw;
+      padding: 1.875vw 1.5625vw;
+      width: 25vw;
+
+      .title {
+        font-weight: bold;
+        font-size: 1.25vw;
+        color: #020202;
+        line-height: 1.875vw;
+        margin-bottom: 1.25vw;
+      }
+
+      .form-field {
+        margin-bottom: .8333vw;
+      }
+
+      :deep(input),
+      :deep(textarea) {
+        background: #F9F9FB;
+        border-radius: .4167vw .4167vw .4167vw .4167vw;
+        padding: .9375vw 1.6667vw;
+        width: 21.875vw;
+      }
+
+      :deep(.send-btn) {
+        width: 100%;
+        margin-top: 2.6563vw;
+        margin-bottom: .8333vw;
+        padding: .8333vw 1.6667vw;
+        font-weight: bold;
+        font-size: .9375vw;
+        color: #FFFFFF;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .tip {
+        font-weight: bold;
+        font-size: .8333vw;
+        color: rgba(0, 0, 0, 0.4);
+        text-align: center;
+      }
+    }
+  }
+}
+
+.guarantee {
+  padding: 6.5104vw;
+
+  .title {
+    font-weight: bold;
+    font-size: 2.5vw;
+    color: #020202;
+    text-align: center;
+    margin-bottom: .5208vw;
+  }
+
+  .sub-title {
+    font-weight: 400;
+    font-size: 1.875vw;
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 1.5625vw;
+    text-align: center;
+    margin-bottom: 3.75vw;
+  }
+
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25vw;
+
+    .box {
+      padding: 1.5625vw 3.6458vw;
+      background: #092991;
+      border-radius: .625vw .625vw .625vw .625vw;
+      font-weight: bold;
+      font-size: .8333vw;
+      color: #FFFFFF;
+      line-height: 1.6667vw;
+      text-align: center;
+    }
   }
 }
 </style>

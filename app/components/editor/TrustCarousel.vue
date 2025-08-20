@@ -9,7 +9,7 @@
       }" @select="onSlideSelect">
         <template #default="{ item }">
           <div v-if="item.number === 1" class="slide-content slide-content-1">
-            <NuxtImg densities="1" :src="buildImageUrl('image/img3.webp')" alt="Indonesia Power Company"
+            <NuxtImg densities="1" :src="buildImageUrl('image/banner3.webp')" alt="Indonesia Power Company"
               class="w-[31.1458vw] h-[23.3854vw]" />
             <div class="content">
               <div class="title">Indonesia Power Company</div>
@@ -76,7 +76,7 @@
     <div class="carousel-controls">
       <div class="control-buttons">
         <UButton :disabled="currentSlide === 0" variant="outline" @click="goToPrevious"
-          class="control-btn rounded-[50%] border-1 flex justify-center items-center">
+          class="control-btn rounded-[50%] border-1 flex justify-center items-center hover:bg-[#092991] hover:text-white disabled:bg-[#fff] disabled:text-[#092991]">
           <UIcon name="i-heroicons-chevron-left" class="size-[2.0833vw]" />
         </UButton>
 
@@ -85,7 +85,7 @@
         </div>
 
         <UButton :disabled="currentSlide === slides.length - 1" variant="outline" trailing @click="goToNext"
-          class="control-btn rounded-[50%] border-1 flex justify-center items-center">
+          class="control-btn rounded-[50%] border-1 flex justify-center items-center hover:bg-[#092991] hover:text-white disabled:bg-[#fff] disabled:text-[#092991]">
           <UIcon name="i-heroicons-chevron-right" class="size-[2.0833vw]" />
         </UButton>
       </div>
