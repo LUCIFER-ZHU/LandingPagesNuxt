@@ -111,7 +111,7 @@
           <!-- Air-Cooled Chiller -->
           <div class="product-card">
             <div class="product-image">
-              <NuxtImg densities="1" :src="buildImageUrl('image/air-cooled-chiller.webp')" alt="Air-Cooled Chiller" />
+              <NuxtImg densities="1" :src="buildImageUrl('image/img1.webp')" alt="Air-Cooled Chiller" />
             </div>
             <div class="product-info">
               <h3 class="product-name">Air-Cooled Chiller</h3>
@@ -143,8 +143,7 @@
           <!-- Water-Cooled Chiller -->
           <div class="product-card">
             <div class="product-image">
-              <NuxtImg densities="1" :src="buildImageUrl('image/water-cooled-chiller.webp')"
-                alt="Water-Cooled Chiller" />
+              <NuxtImg densities="1" :src="buildImageUrl('image/img2.webp')" alt="Water-Cooled Chiller" />
             </div>
             <div class="product-info">
               <h3 class="product-name">Water-Cooled Chiller</h3>
@@ -176,8 +175,7 @@
           <!-- Low-Temperature Chiller -->
           <div class="product-card">
             <div class="product-image">
-              <NuxtImg densities="1" :src="buildImageUrl('image/low-temp-chiller.webp')"
-                alt="Low-Temperature Chiller" />
+              <NuxtImg densities="1" :src="buildImageUrl('image/img3.webp')" alt="Low-Temperature Chiller" />
             </div>
             <div class="product-info">
               <h3 class="product-name">Low-Temperature Chiller</h3>
@@ -213,7 +211,7 @@
           <!-- Oil Type Mold Temperature Controller -->
           <div class="product-card">
             <div class="product-image">
-              <NuxtImg densities="1" :src="buildImageUrl('image/oil-type-controller.webp')"
+              <NuxtImg densities="1" :src="buildImageUrl('image/img4.webp')"
                 alt="Oil Type Mold Temperature Controller" />
             </div>
             <div class="product-info">
@@ -246,7 +244,7 @@
           <!-- Water Type Mold Temperature Controller -->
           <div class="product-card">
             <div class="product-image">
-              <NuxtImg densities="1" :src="buildImageUrl('image/water-type-controller.webp')"
+              <NuxtImg densities="1" :src="buildImageUrl('image/img5.webp')"
                 alt="Water Type Mold Temperature Controller" />
             </div>
             <div class="product-info">
@@ -284,9 +282,10 @@
 
     <!-- Not sure which system fits your process? -->
     <div class="not-sure h-[26.25vw] flex justify-center items-center">
-      <div class="img-box w-[52.4479vw] h-[26.25vw] bg-[rgba(16,75,212,0.04)] flex justify-end items-center">
-        <NuxtImg densities="1" :src="buildImageUrl('image/not-sure.webp')"
-          alt="Not sure which system fits your process?" />
+      <div
+        class="img-box w-[52.4479vw] h-[26.25vw] bg-[rgba(16,75,212,0.04)] flex justify-end items-center overflow-hidden">
+        <NuxtImg densities="1" :src="buildImageUrl('image/img6.webp')" alt="Not sure which system fits your process?"
+          class="translate-y-[-2.0833vw]" />
       </div>
       <div class="content w-[47.8125vw] pl-[4.4271vw]">
         <div class="title w-[28.9583vw]">
@@ -300,6 +299,127 @@
         </div>
       </div>
     </div>
+
+    <!-- Do You Need Clean -->
+    <div class="need-clean">
+      <div class="title">
+        Do You Need Clean, Stable Air Supply Too?
+      </div>
+      <NuxtImg densities="1" :src="buildImageUrl('image/banner2.webp')"
+        alt="Do You Need Clean, Stable Air Supply Too?" />
+      <div class="sub-title">
+        Pair your chiller with a professional air compressor solution.
+      </div>
+      <div class="btn text-center">
+        <UButton class="default-btn" label="See Our Air Compressor series" />
+      </div>
+    </div>
+
+    <!-- Who We Are -->
+    <div class="who-we-are">
+      <div class="title">
+        Who We Are
+      </div>
+      <div class="sub-title">
+        Your Cooling Solution Partner
+      </div>
+      <div class="banner">
+        <div class="text">
+          MINNUO is a professional industrial chiller manufacturer with over 38 years of experience, dedicated to
+          providing turnkey temperature control solutions for various industries.From standard units to fully customized
+          systems, we deliver reliable, energy-efficient chillers designed for your specific environment and workflow.
+        </div>
+      </div>
+      <div class="icons">
+        <div class="icon-item">
+          <NuxtImg densities="1" :src="buildImageUrl('image/icon1.webp')" alt="icon1" />
+          <div class="icon-item-title">
+            CE & ISO <br>
+            Certified Factory
+          </div>
+        </div>
+        <div class="icon-item">
+          <NuxtImg densities="1" :src="buildImageUrl('image/icon2.webp')" alt="icon2" />
+          <div class="icon-item-title">
+            3,000+ Units <br>
+            Exported Worldwide
+          </div>
+        </div>
+        <div class="icon-item">
+          <NuxtImg densities="1" :src="buildImageUrl('image/icon3.webp')" alt="icon3" />
+          <div class="icon-item-title">
+            1:1 Technical <br>
+            Guidance & Design
+          </div>
+        </div>
+        <div class="icon-item">
+          <NuxtImg densities="1" :src="buildImageUrl('image/icon4.webp')" alt="icon4" />
+          <div class="icon-item-title">
+            OEM / ODM Available
+          </div>
+        </div>
+        <div class="icon-item">
+          <NuxtImg densities="1" :src="buildImageUrl('image/icon5.webp')" alt="icon5" />
+          <div class="icon-item-title">
+            Full Documentation for Export
+          </div>
+        </div>
+      </div>
+      <div class="btn text-center">
+        <UButton class="default-btn" label="Contact Us" />
+      </div>
+    </div>
+
+    <!--what problems -->
+    <div class="what-problems">
+      <div class="left">
+        <div class="title">What Problems Are You Trying to Solve?</div>
+        <div class="content">
+          <div class="box">
+            <div class="blue-box">?</div>
+            <div class="text">Temperature fluctuation affecting your process quality?</div>
+          </div>
+          <div class="box">
+            <div class="blue-box">?</div>
+            <div class="text">Equipment overheating and frequent alarms?</div>
+          </div>
+          <div class="box">
+            <div class="blue-box">?</div>
+            <div class="text">Unsure whether to choose air-cooled or water-cooled?</div>
+          </div>
+          <div class="box">
+            <div class="blue-box">?</div>
+            <div class="text">Tight budget but complex cooling demands?</div>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="title">MINNUO doesn’t just sell chiller units — we deliver complete cooling solutions:</div>
+        <div class="content">
+          <div class="box">
+            <NuxtImg densities="1" :src="buildImageUrl('image/icon6.webp')" alt="icon" />
+            <div class="text">On-demand model selection</div>
+          </div>
+          <div class="box">
+            <NuxtImg densities="1" :src="buildImageUrl('image/icon7.webp')" alt="icon" />
+            <div class="text">Air / water cooling options based on site</div>
+          </div>
+          <div class="box">
+            <NuxtImg densities="1" :src="buildImageUrl('image/icon8.webp')" alt="icon" />
+            <div class="text">1-on-1 technical support</div>
+          </div>
+          <div class="box">
+            <NuxtImg densities="1" :src="buildImageUrl('image/icon9.webp')" alt="icon" />
+            <div class="text">Full specs and piping diagrams</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="btn text-center mb-[6.3021vw]">
+      <UButton class="default-btn" label="Get My Cooling Solution" />
+    </div>
+
+    <EditorTrustCarousel />
   </div>
 </template>
 
@@ -347,7 +467,7 @@ const onContactSubmit = () => {
 .main-page {
   background-color: #f9f9fb;
 
-  .banner {
+  >.banner {
     width: 100%;
     height: 31.25vw;
     background: url($image-base + 'image/banner.webp') no-repeat center/cover;
@@ -509,7 +629,7 @@ const onContactSubmit = () => {
 
 /* 产品展示样式 */
 .unit-types {
-  padding: 3.125vw 18.75vw 6.0938vw;
+  padding: 3.125vw 18.75vw 5.3646vw;
 
   .title {
     font-weight: bold;
@@ -565,6 +685,9 @@ const onContactSubmit = () => {
           width: 100%;
           height: 15.625vw;
           margin-bottom: .625vw;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
 
         .product-info {
@@ -615,6 +738,176 @@ const onContactSubmit = () => {
       line-height: 1.875vw;
       margin-bottom: 2.1354vw;
     }
+  }
+}
+
+.who-we-are {
+  padding-top: 7.0833vw;
+
+  .title {
+    font-weight: bold;
+    font-size: 1.875vw;
+    color: #092991;
+    text-align: center;
+    margin-bottom: .5208vw;
+  }
+
+  .sub-title {
+    font-weight: bold;
+    font-size: 2.5vw;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 1.0417vw;
+  }
+
+  .banner {
+    height: 20.8333vw;
+    background: url($image-base + 'image/banner1.webp') no-repeat center/cover;
+    font-weight: bold;
+    font-size: 1.25vw;
+    color: #FFFFFF;
+    line-height: 1.875vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .text {
+      width: 61.1979vw;
+      text-align: center;
+    }
+  }
+
+  .icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3.125vw;
+    padding: 4.0625vw 20.8854vw;
+    background-color: #FFFFFF;
+
+    .icon-item {
+      width: 100%;
+      min-height: 10.625vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .icon-item-title {
+        margin-top: 1.3542vw;
+        font-weight: bold;
+        font-size: .8333vw;
+        color: #000000;
+        line-height: 1.6667vw;
+        text-align: center;
+      }
+    }
+  }
+
+  .btn {
+    background-color: #FFFFFF;
+    padding-bottom: 3.2292vw;
+  }
+}
+
+
+.what-problems {
+  padding: 3.3333vw 18.4375vw 1.8229vw;
+  display: flex;
+  gap: 1.25vw;
+  justify-content: center;
+  align-items: center;
+
+  .left,
+  .right {
+    background: #FFFFFF;
+    border-radius: .625vw .625vw .625vw .625vw;
+    flex: 0 0 50%;
+    height: 32.1354vw;
+
+    .title {
+      font-weight: bold;
+      font-size: 1.25vw;
+      color: #000000;
+      line-height: 1.875vw;
+    }
+
+    .text {
+      font-weight: 400;
+      font-size: .9375vw;
+      color: rgba(0, 0, 0, 0.6);
+      line-height: 1.4063vw;
+    }
+  }
+
+  .left {
+    padding: 3.9063vw 2.7083vw 2.5vw;
+
+    .title {
+      margin-bottom: 3.2292vw;
+    }
+
+    .box {
+      display: flex;
+      gap: 1.6146vw;
+      align-items: center;
+      margin-bottom: 3.125vw;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .blue-box {
+        width: 2.5vw;
+        height: 2.5vw;
+        font-weight: bold;
+        font-size: .9375vw;
+        color: #FFFFFF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #092991;
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  .right {
+    padding: 2.5521vw 2.6042vw 2.8646vw;
+
+    .title {
+      margin-bottom: 3.75vw;
+    }
+
+    .box {
+      display: flex;
+      gap: 1.6146vw;
+      align-items: center;
+      margin-bottom: 2.9167vw;
+    }
+
+  }
+}
+
+.need-clean {
+  padding: 6.25vw 18.75vw 0;
+
+  .title {
+    font-weight: bold;
+    font-size: 2.5vw;
+    color: #000000;
+    line-height: 3.75vw;
+    text-align: center;
+    margin-bottom: 2.5vw;
+  }
+
+  .sub-title {
+    font-weight: 400;
+    font-size: 1.25vw;
+    color: #000000;
+    line-height: 1.875vw;
+    text-align: center;
+    margin: 1.5104vw 0; 
   }
 }
 </style>

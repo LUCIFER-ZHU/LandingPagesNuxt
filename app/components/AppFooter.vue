@@ -55,7 +55,7 @@
           <h3 class="footer-title">MINNUO</h3>
           <div class="company-info">
             <h4>Europe & North America</h4>
-            <div class="contact-item mb-[1.0417vw]">
+            <div class="contact-item mb-[1.9271vw]">
               <div class="icon-wrapper">
                 <NuxtImg :src="buildImageUrl('image/location.webp')" alt="Location" />
               </div>
@@ -63,12 +63,6 @@
                 <p>USA Office Address:</p>
                 <p>8 The Green Ste A Dover Kent 19901</p>
               </div>
-            </div>
-            <div class="contact-item mb-[1.5625vw]">
-              <div class="icon-wrapper">
-                <NuxtImg :src="buildImageUrl('image/whatsapp.webp')" alt="WhatsApp" />
-              </div>
-              <p>WhatsApp (Tel)：+1(213) 865-6075</p>
             </div>
 
             <h4>Asia-Pacific Region</h4>
