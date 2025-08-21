@@ -15,7 +15,7 @@
           <li>CE & ISO Certified Manufacturing</li>
           <li>One-to-One Engineering Support</li>
         </ul>
-        <UButton class="default-btn" label="Request Quote Now" />
+        <UButton class="default-btn" label="Request Quote Now" @click="dialogOpen = true" />
       </div>
     </div>
     <!-- Estimated chiller system Cost -->
@@ -27,7 +27,7 @@
         <!-- 左侧联系信息表单 -->
         <div class="left-form">
           <div class="form-card">
-            <UForm :state="contactForm" @submit="onContactSubmit">
+            <UForm :state="contactForm" @submit="handleFormSubmit">
               <UFormField name="name" class="form-field">
                 <UInput v-model="contactForm.name" placeholder="Name" />
               </UFormField>
@@ -66,11 +66,11 @@
               <h3 class="section-title">Preferred cooling method?</h3>
               <div class="button-group">
                 <UButton variant="outline" :color="contactForm.coolingMethod === 'air' ? 'primary' : 'neutral'"
-                  @click="contactForm.coolingMethod = 'air'">
+                  @click="updateField('coolingMethod', 'air')">
                   Air-cooled
                 </UButton>
                 <UButton variant="outline" :color="contactForm.coolingMethod === 'water' ? 'primary' : 'neutral'"
-                  @click="contactForm.coolingMethod = 'water'">
+                  @click="updateField('coolingMethod', 'water')">
                   Water-cooled
                 </UButton>
               </div>
@@ -80,15 +80,15 @@
               <h3 class="section-title">Power supply available?</h3>
               <div class="button-group">
                 <UButton variant="outline" :color="contactForm.powerSupply === '220V' ? 'primary' : 'neutral'"
-                  :class="{ 'active': contactForm.powerSupply === '220V' }" @click="contactForm.powerSupply = '220V'">
+                  :class="{ 'active': contactForm.powerSupply === '220V' }" @click="updateField('powerSupply', '220V')">
                   220V
                 </UButton>
                 <UButton variant="outline" :color="contactForm.powerSupply === '380V' ? 'primary' : 'neutral'"
-                  :class="{ 'active': contactForm.powerSupply === '380V' }" @click="contactForm.powerSupply = '380V'">
+                  :class="{ 'active': contactForm.powerSupply === '380V' }" @click="updateField('powerSupply', '380V')">
                   380V
                 </UButton>
                 <UButton variant="outline" :color="contactForm.powerSupply === '440V' ? 'primary' : 'neutral'"
-                  :class="{ 'active': contactForm.powerSupply === '440V' }" @click="contactForm.powerSupply = '440V'">
+                  :class="{ 'active': contactForm.powerSupply === '440V' }" @click="updateField('powerSupply', '440V')">
                   440V
                 </UButton>
               </div>
@@ -278,7 +278,7 @@
         </div>
       </div>
       <div class="btn text-center">
-        <UButton class="default-btn" label="Tell Us Your Needs" />
+        <UButton class="default-btn" label="Tell Us Your Needs" @click="dialogOpen = true" />
       </div>
     </div>
 
@@ -297,7 +297,7 @@
           Contact our engineers for a free consultation and selection guide.
         </div>
         <div class="btn">
-          <UButton class="default-btn" label="Get a Quote" />
+          <UButton class="default-btn" label="Get a Quote" @click="dialogOpen = true" />
         </div>
       </div>
     </div>
@@ -316,7 +316,7 @@
         Pair your chiller with a professional air compressor solution.
       </div>
       <div class="btn text-center">
-        <UButton class="default-btn" label="See Our Air Compressor series" />
+        <UButton class="default-btn" label="See Our Air Compressor series" @click="dialogOpen = true" />
       </div>
     </div>
 
@@ -371,7 +371,7 @@
         </div>
       </div>
       <div class="btn text-center">
-        <UButton class="default-btn" label="Contact Us" />
+        <UButton class="default-btn" label="Contact Us" @click="dialogOpen = true" />
       </div>
     </div>
 
@@ -421,7 +421,7 @@
       </div>
     </div>
     <div class="btn text-center mb-[6.3021vw]">
-      <UButton class="default-btn" label="Get My Cooling Solution" />
+      <UButton class="default-btn" label="Get My Cooling Solution" @click="dialogOpen = true" />
     </div>
 
     <!-- Trust Carousel -->
@@ -430,17 +430,17 @@
     <!-- factory-videos -->
     <div class="factory-videos">
       <div class="video-box-container">
-        <EditorVideoBox :videoUrl="buildImageUrl('video/video1.mp4')" :coverImage="buildImageUrl('image/img7.webp')"
+        <EditorVideoBox :videoUrl="buildImageUrl('video/90kw.mp4')" :coverImage="buildImageUrl('image/img7.webp')"
           title="Factory Videos" />
         <div class="text">90kw high temperature oil type mold temperature controller</div>
       </div>
       <div class="video-box-container">
-        <EditorVideoBox :videoUrl="buildImageUrl('video/video1.mp4')" :coverImage="buildImageUrl('image/img8.webp')"
+        <EditorVideoBox :videoUrl="buildImageUrl('video/100HP.mp4')" :coverImage="buildImageUrl('image/img8.webp')"
           title="Factory Videos" />
         <div class="text">100HP air-cooled chiller with water tank</div>
       </div>
       <div class="video-box-container">
-        <EditorVideoBox :videoUrl="buildImageUrl('video/video1.mp4')" :coverImage="buildImageUrl('image/img9.webp')"
+        <EditorVideoBox :videoUrl="buildImageUrl('video/Chiller.mp4')" :coverImage="buildImageUrl('image/img9.webp')"
           title="Factory Videos" />
         <div class="text">Chiller workshop display</div>
       </div>
@@ -517,7 +517,7 @@
             Fill in your application details<br>
             — we’ll match the right model within 24 hours.
           </div>
-          <UForm :state="contactForm" @submit="onContactSubmit">
+          <UForm :state="contactForm" @submit="handleFormSubmit">
             <UFormField name="name" class="form-field">
               <UInput v-model="contactForm.name" placeholder="Name" />
             </UFormField>
@@ -566,6 +566,9 @@
         </div>
       </div>
     </div>
+
+    <!-- 挂载对话框组件 -->
+    <EditorContactFormDialog v-model="dialogOpen" />    
   </div>
 </template>
 
@@ -573,40 +576,17 @@
 // 导入图片URL构建函数
 const { buildImageUrl } = useImageUrl();
 
-// 联系表单数据（包含冷却系统配置）
-const contactForm = ref({
-  name: '',
-  email: '',
-  whatsapp: '',
-  message: '',
-  coolingCapacity: 1250,
-  waterTempRange: '',
-  coolingMethod: 'air',
-  powerSupply: '220V'
+// 使用联系表单组合函数 - 启用冷却系统数据
+const { 
+  contactForm, 
+  handleFormSubmit,  // 添加兼容UForm的提交处理函数
+  updateField,
+} = useContactForm({
+  extraData: ['cooling']
 });
 
-/**
- * 处理联系表单提交
- */
-const onContactSubmit = () => {
-  try {
-    // 这里可以添加表单验证和提交逻辑
-    console.log('Contact form submitted:', contactForm.value);
-    // 重置表单
-    contactForm.value = {
-      name: '',
-      email: '',
-      whatsapp: '',
-      message: '',
-      coolingCapacity: 1250,
-      waterTempRange: '',
-      coolingMethod: 'air',
-      powerSupply: '220V'
-    };
-  } catch (error) {
-    console.error('Form submission error:', error);
-  }
-};
+// 控制对话框显示
+const dialogOpen = ref(false)
 </script>
 
 <style lang="scss" scoped>

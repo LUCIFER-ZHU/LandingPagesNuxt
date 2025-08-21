@@ -4,34 +4,31 @@
     <div class="relative group cursor-pointer overflow-hidden rounded-[.625vw]"
       :style="{ width: props.width, height: props.height }">
       <!-- 封面图片 -->
-      <NuxtImg  densities="1" :src="coverImage" alt="cover"
+      <NuxtImg densities="1" :src="coverImage" alt="cover"
         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
 
-              <!-- 播放按钮（无遮罩层） -->
-        <div class="absolute inset-0 flex items-center justify-center">
-          <!-- 播放按钮 -->
-          <div class="play-button-wrapper" @click="openVideoModal">
-            <div class="play-button-custom flex items-center justify-center">
-              <NuxtImg densities="1" :src="buildImageUrl('image/video-btn.webp')" alt="play" />
-            </div>
+      <!-- 播放按钮（无遮罩层） -->
+      <div class="absolute inset-0 flex items-center justify-center">
+        <!-- 播放按钮 -->
+        <div class="play-button-wrapper" @click="openVideoModal">
+          <div class="play-button-custom flex items-center justify-center">
+            <NuxtImg densities="1" :src="buildImageUrl('image/video-btn.webp')" alt="play" />
           </div>
         </div>
+      </div>
     </div>
 
     <!-- 视频模态框 -->
-    <UModal v-model:open="isModalOpen" class="video-modal max-w-[70vw] h-[70vh] overflow-visible" title="Video Modal" description="Video Modal">
+    <UModal v-model:open="isModalOpen" class="video-modal max-w-[70vw] h-[70vh] overflow-visible" title="Video Modal"
+      description="Video Modal">
       <template #content>
         <div class="video-modal-content">
           <!-- 关闭按钮 -->
-          <UButton
-            color="neutral"
-            variant="ghost"
-            class="close-button absolute top-[-2.6042vw] right-[-2.6042vw] rounded-full"
-            @click="closeVideoModal"
-          >
-            <UIcon name="i-zondicons:close-solid" size="25" class="text-[#092991]"/>
+          <UButton color="neutral" variant="ghost"
+            class="close-button absolute top-[-2.6042vw] right-[-2.6042vw] rounded-full" @click="closeVideoModal">
+            <UIcon name="i-heroicons:x-circle" size="25" class="text-[#092991]" />
           </UButton>
-          
+
           <video v-if="isModalOpen" ref="videoRef" :src="videoUrl" class="w-full h-full rounded-lg" controls autoplay
             preload="metadata" @loadstart="handleVideoLoadStart" @loadeddata="handleVideoLoadedData"
             @error="handleVideoError">

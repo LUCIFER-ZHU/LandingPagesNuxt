@@ -7,9 +7,9 @@ export default defineNuxtConfig({
     ssr: false,
     app: {
       head: {
-        title: '我的Nuxt应用',
+        title: 'Industrial Temperature Control Solutions',
         link: [
-          { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' } // 放在 public 目录
+          { rel: 'icon', type: 'image/x-icon', href: '/minnuo-logo.ico' } // 放在 public 目录
         ]
       }
     },    
