@@ -1,5 +1,6 @@
 <template>
-  <UModal v-model:open="isOpen">
+  <UModal v-model:open="isOpen" title="Request a Quote"
+  description="Fill out the form and we will get back to you within 24 hours.">
     <!-- 内容插槽 -->
     <template #content>
       <div class="p-4 max-w-lg w-full bg-white rounded-lg shadow-xl">

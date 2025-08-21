@@ -113,7 +113,7 @@
           <!-- Air-Cooled Chiller -->
           <div class="product-card">
             <div class="product-image">
-              <NuxtImg densities="1" :src="buildImageUrl('image/img1.webp')" alt="Air-Cooled Chiller" />
+              <NuxtImg densities="1" :src="buildImageUrl('image/img17.webp')" alt="Air-Cooled Chiller" />
             </div>
             <div class="product-info">
               <h3 class="product-name">Air-Cooled Chiller</h3>
@@ -145,7 +145,7 @@
           <!-- Water-Cooled Chiller -->
           <div class="product-card">
             <div class="product-image">
-              <NuxtImg densities="1" :src="buildImageUrl('image/img2.webp')" alt="Water-Cooled Chiller" />
+              <NuxtImg densities="1" :src="buildImageUrl('image/img18.webp')" alt="Water-Cooled Chiller" />
             </div>
             <div class="product-info">
               <h3 class="product-name">Water-Cooled Chiller</h3>
@@ -177,7 +177,7 @@
           <!-- Low-Temperature Chiller -->
           <div class="product-card">
             <div class="product-image">
-              <NuxtImg densities="1" :src="buildImageUrl('image/img3.webp')" alt="Low-Temperature Chiller" />
+              <NuxtImg densities="1" :src="buildImageUrl('image/img19.webp')" alt="Low-Temperature Chiller" />
             </div>
             <div class="product-info">
               <h3 class="product-name">Low-Temperature Chiller</h3>
@@ -209,8 +209,7 @@
       </div>
       <div class="controller">
         <div class="section-title">Mold Temperature Controllers</div>
-        <div class="products-grid grid2">
-          <!-- Oil Type Mold Temperature Controller -->
+        <!-- <div class="products-grid grid2">
           <div class="product-card">
             <div class="product-image">
               <NuxtImg densities="1" :src="buildImageUrl('image/img4.webp')"
@@ -242,8 +241,6 @@
               </div>
             </div>
           </div>
-
-          <!-- Water Type Mold Temperature Controller -->
           <div class="product-card">
             <div class="product-image">
               <NuxtImg densities="1" :src="buildImageUrl('image/img5.webp')"
@@ -272,6 +269,34 @@
                   <div class="label">Applications:</div>
                   <div class="value">Injection molding, Blow molding</div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <div class="oil-type">
+          <NuxtImg densities="1" :src="buildImageUrl('image/img20.webp')" alt="Oil Type Mold Temperature Controller" />
+          <div class="right">
+            <div class="title">Oil Type Mold Temperature Controller</div>
+            <div class="specs flex flex-wrap">
+              <div class="spec-item w-[25%]">
+                <div class="label">Heating Power:</div>
+                <div class="value">3 - 72 kW</div>
+              </div>
+              <div class="spec-item w-[25%]">
+                <div class="label">Heating Medium:</div>
+                <div class="value">Thermal Oil</div>
+              </div>
+              <div class="spec-item w-[25%]">
+                <div class="label">Temperature Range:</div>
+                <div class="value">3°C - 350°C</div>
+              </div>
+              <div class="spec-item w-[25%]">
+                <div class="label">Accuracy:</div>
+                <div class="value">±0.1°C</div>
+              </div>
+              <div class="spec-item w-[100%]">
+                <div class="label">Applications:</div>
+                <div class="value">Die casting, Rubber molding, High-temp processes</div>
               </div>
             </div>
           </div>
@@ -568,7 +593,7 @@
     </div>
 
     <!-- 挂载对话框组件 -->
-    <EditorContactFormDialog v-model="dialogOpen" />    
+    <EditorContactFormDialog v-model="dialogOpen" />
   </div>
 </template>
 
@@ -577,8 +602,8 @@
 const { buildImageUrl } = useImageUrl();
 
 // 使用联系表单组合函数 - 启用冷却系统数据
-const { 
-  contactForm, 
+const {
+  contactForm,
   handleFormSubmit,  // 添加兼容UForm的提交处理函数
   updateField,
 } = useContactForm({
@@ -757,7 +782,7 @@ const dialogOpen = ref(false)
 .unit-types {
   padding: 3.125vw 18.75vw 5.3646vw;
 
-  .title {
+  >.title {
     font-weight: bold;
     font-size: 2.5vw;
     color: #020202;
@@ -842,6 +867,38 @@ const dialogOpen = ref(false)
         }
 
       }
+    }
+
+    .oil-type {
+      display: flex;
+      align-items: center;
+      background: #FFFFFF;
+      border-radius: 12px 12px 12px 12px;
+      padding: 25px 2.8646vw;
+
+      .title {
+        font-weight: bold;
+        font-size: 16px;
+        color: #000000;
+        margin-bottom: 31px;
+      }
+
+      .spec-item {
+        margin-bottom: 1.3021vw;
+
+        .label {
+          font-weight: 400;
+          font-size: .625vw;
+          color: rgba(0, 0, 0, 0.6);
+        }
+
+        .value {
+          font-weight: bold;
+          font-size: .625vw;
+          color: #020202;
+        }
+      }
+
     }
   }
 }
