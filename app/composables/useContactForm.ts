@@ -19,7 +19,7 @@ type ExtraDataType = 'cooling' | 'machinery' | 'environment' | 'custom'
 interface CoolingExtraData {
   coolingCapacity: number
   waterTempRange: string
-  coolingMethod: 'air' | 'water'
+  coolingMethod: 'Air-cooled' | 'Water-cooled'
   powerSupply: '220V' | '380V' | '440V'
 }
 
@@ -109,7 +109,7 @@ export const useContactForm = (options: UseContactFormOptions = {}) => {
       Object.assign(baseData, {
         coolingCapacity: 1250,
         waterTempRange: '',
-        coolingMethod: 'air',
+        coolingMethod: 'Air-cooled',
         powerSupply: '220V'
       } as CoolingExtraData)
     }
@@ -223,16 +223,24 @@ export const useContactForm = (options: UseContactFormOptions = {}) => {
         }
       })
 
-      // 构建要发送的表单数据
-      const submitData = {
+      // 构建要发送的senderData数据（必要字段）
+      const senderData = {
         name: formData.name,
         email: formData.email,
         whatsapp: formData.whatsapp || '',
         message: formData.message || '',
-        otherFields: Object.keys(otherFields).length > 0 ? JSON.stringify(otherFields) : '',
-        submittedAt: new Date().toISOString(),
-        source: typeof window !== 'undefined' ? window.location.href : 'unknown', // 使用当前网页URL
+        source: typeof window !== 'undefined' ? window.location.href : 'unknown',
         userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : 'unknown',
+      }
+
+      // 构建要发送的表单数据
+      const submitData = {
+        senderData: JSON.stringify(senderData)
+      }
+
+      if (Object.keys(otherFields).length > 0) {
+        // 通过类型断言扩展chooseData属性，避免TS类型报错
+        (submitData as Record<string, any>).chooseData = JSON.stringify(otherFields)
       }
 
       // 使用 customFetch 进行API调用
@@ -256,7 +264,6 @@ export const useContactForm = (options: UseContactFormOptions = {}) => {
           message: response.message || 'Inquiry submitted successfully! We will contact you within 24 hours.',
           data: response.data || {
             inquiryId: response.inquiryId || `INQ-${Date.now()}`,
-            submittedAt: submitData.submittedAt
           }
         }
       } else {

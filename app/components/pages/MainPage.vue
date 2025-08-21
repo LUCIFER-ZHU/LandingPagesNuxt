@@ -65,12 +65,12 @@
             <div class="config-section sec3 shrink-0">
               <h3 class="section-title">Preferred cooling method?</h3>
               <div class="button-group">
-                <UButton variant="outline" :color="contactForm.coolingMethod === 'air' ? 'primary' : 'neutral'"
-                  @click="updateField('coolingMethod', 'air')">
+                <UButton variant="outline" :color="contactForm.coolingMethod === 'Air-cooled' ? 'primary' : 'neutral'"
+                  @click="updateField('coolingMethod', 'Air-cooled')">
                   Air-cooled
                 </UButton>
-                <UButton variant="outline" :color="contactForm.coolingMethod === 'water' ? 'primary' : 'neutral'"
-                  @click="updateField('coolingMethod', 'water')">
+                <UButton variant="outline" :color="contactForm.coolingMethod === 'Water-cooled' ? 'primary' : 'neutral'"
+                  @click="updateField('coolingMethod', 'Water-cooled')">
                   Water-cooled
                 </UButton>
               </div>
