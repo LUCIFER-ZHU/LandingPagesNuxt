@@ -116,8 +116,16 @@
 
           <!-- 订阅表单 -->
           <div class="subscribe-form">
-            <UInput placeholder="Enter Your E-mail" class="subscribe-input" />
-            <UButton class="subscribe-button rounded-none">Send</UButton>
+            <UInput 
+              v-model="contactForm.email" 
+              placeholder="Enter Your E-mail" 
+              class="subscribe-input" 
+            />
+            <UButton 
+              class="subscribe-button rounded-none" 
+              :loading="isSubmitting"
+              @click="handleFormSubmit"
+            >Send</UButton>
           </div>
         </div>
       </div>
@@ -133,6 +141,16 @@
 
 // 使用图片URL管理composable
 const { buildImageUrl } = useImageUrl();
+
+// 使用联系表单组合函数 - 仅处理邮件订阅
+const {
+  contactForm,
+  handleFormSubmit,
+  isSubmitting
+} = useContactForm({
+  customFields: { name: 'Newsletter Subscription' } // 添加订阅标记
+});
+
 </script>
 
 <style lang="scss" scoped>

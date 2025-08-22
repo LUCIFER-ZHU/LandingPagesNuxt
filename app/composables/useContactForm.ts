@@ -229,18 +229,16 @@ export const useContactForm = (options: UseContactFormOptions = {}) => {
         email: formData.email,
         whatsapp: formData.whatsapp || '',
         message: formData.message || '',
-        source: typeof window !== 'undefined' ? window.location.href : 'unknown',
-        userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : 'unknown',
       }
 
       // 构建要发送的表单数据
       const submitData = {
-        senderData: JSON.stringify(senderData)
+        senderData: senderData,
       }
 
       if (Object.keys(otherFields).length > 0) {
         // 通过类型断言扩展chooseData属性，避免TS类型报错
-        (submitData as Record<string, any>).chooseData = JSON.stringify(otherFields)
+        (submitData as Record<string, any>).chooseData = otherFields
       }
 
       // 使用 customFetch 进行API调用
@@ -249,7 +247,7 @@ export const useContactForm = (options: UseContactFormOptions = {}) => {
         message?: string
         data?: any
         inquiryId?: string
-      }>('/api/contact-inquiry', {
+      }>('/inquiry/send', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -261,7 +259,7 @@ export const useContactForm = (options: UseContactFormOptions = {}) => {
       if (response && response.success) {
         return {
           success: true,
-          message: response.message || 'Inquiry submitted successfully! We will contact you within 24 hours.',
+          message: 'Inquiry submitted successfully! We will contact you within 24 hours.',
           data: response.data || {
             inquiryId: response.inquiryId || `INQ-${Date.now()}`,
           }
@@ -270,7 +268,7 @@ export const useContactForm = (options: UseContactFormOptions = {}) => {
         // API返回失败状态
         return {
           success: false,
-          message: response?.message || 'Submission failed, please try again later.'
+          message: 'Submission failed, please try again later.'
         }
       }
 
