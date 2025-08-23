@@ -52,15 +52,9 @@ useHead({
     { name: 'format-detection', content: 'telephone=no' },
     { name: 'theme-color', content: '#092991' },
     { name: 'msapplication-TileColor', content: '#092991' },
-    { name: 'apple-mobile-web-app-capable', content: 'yes' },
     { name: 'apple-mobile-web-app-status-bar-style', content: 'default' },
     { name: 'apple-mobile-web-app-title', content: 'MINNUO Group' },
     { name: 'application-name', content: 'MINNUO Group' },
-    { name: 'msapplication-config', content: '/browserconfig.xml' },
-    { name: 'geo.region', content: 'CN' },
-    { name: 'geo.country', content: 'China' },
-    { name: 'geo.placename', content: 'China' },
-    { name: 'ICBM', content: '35.8617,104.1954' }
   ],
 })
 </script>

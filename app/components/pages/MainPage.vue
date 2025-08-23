@@ -837,10 +837,10 @@ const goExternal = () => {
         padding: .9375vw 1.25vw;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-        &:hover {
-          transform: translateY(-.2083vw);
-          box-shadow: 0 .4167vw 1.25vw rgba(0, 0, 0, 0.15);
-        }
+        // &:hover {
+        //   transform: translateY(-.2083vw);
+        //   box-shadow: 0 .4167vw 1.25vw rgba(0, 0, 0, 0.15);
+        // }
 
         .product-image {
           width: 100%;

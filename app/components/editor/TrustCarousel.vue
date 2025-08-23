@@ -225,7 +225,7 @@
             </div>
           </div>
           <div v-if="item.number === 5" class="slide-content slide-content-5">
-            <NuxtImg densities="1" :src="buildImageUrl('image/banner6.webp')" alt="Argentina"
+            <NuxtImg densities="1" :src="buildImageUrl('image/banner7.webp')" alt="Argentina"
               class="w-[31.1458vw] h-[23.3854vw]" loading="lazy"/>
             <div class="content">
               <div class="title">Argentina</div>

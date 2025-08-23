@@ -35,21 +35,17 @@
 
           <!-- 社交媒体图标 -->
           <div class="social-icons">
-            <a href="#" class="social-icon youtube">
-              <NuxtLink to="https://www.youtube.com/@MINNUOGROUP-v5r" target="_blank">
-                <NuxtImg densities="1" :src="buildImageUrl('image/youtube.webp')" alt="YouTube" />
-              </NuxtLink>
-            </a>
-            <a href="#" class="social-icon facebook">
-              <NuxtLink to="https://www.facebook.com/people/Chris-King/pfbid02taxM6qiZqwUdbM9fW2LtZeKqGYqUXHu7txgb8C6Y2mK551oJNHczcCiDBefgHfy7l/" target="_blank">
-                <NuxtImg densities="1" :src="buildImageUrl('image/facebook.webp')" alt="Facebook" />
-              </NuxtLink>
-            </a>
-            <a href="#" class="social-icon instagram">
-              <NuxtLink to="https://www.instagram.com/chrisking5538/" target="_blank">
-                <NuxtImg densities="1" :src="buildImageUrl('image/ig.webp')" alt="Instagram" />
-              </NuxtLink>
-            </a>
+            <NuxtLink to="https://www.youtube.com/@MINNUOGROUP-v5r" target="_blank">
+              <NuxtImg densities="1" :src="buildImageUrl('image/youtube.webp')" alt="YouTube" />
+            </NuxtLink>
+            <NuxtLink
+              to="https://www.facebook.com/people/Chris-King/pfbid02taxM6qiZqwUdbM9fW2LtZeKqGYqUXHu7txgb8C6Y2mK551oJNHczcCiDBefgHfy7l/"
+              target="_blank">
+              <NuxtImg densities="1" :src="buildImageUrl('image/facebook.webp')" alt="Facebook" />
+            </NuxtLink>
+            <NuxtLink to="https://www.instagram.com/chrisking5538/" target="_blank">
+              <NuxtImg densities="1" :src="buildImageUrl('image/ig.webp')" alt="Instagram" />
+            </NuxtLink>
           </div>
         </div>
       </div>
@@ -122,16 +118,9 @@
 
           <!-- 订阅表单 -->
           <div class="subscribe-form">
-            <UInput 
-              v-model="contactForm.email" 
-              placeholder="Enter Your E-mail" 
-              class="subscribe-input" 
-            />
-            <UButton 
-              class="subscribe-button rounded-none" 
-              :loading="isSubmitting"
-              @click="handleFormSubmit"
-            >Send</UButton>
+            <UInput v-model="contactForm.email" placeholder="Enter Your E-mail" class="subscribe-input" />
+            <UButton class="subscribe-button rounded-none" :loading="isSubmitting" @click="handleFormSubmit">Send
+            </UButton>
           </div>
         </div>
       </div>
@@ -304,7 +293,8 @@ const {
 
   li {
     margin-bottom: 0.5208vw;
-    a{
+
+    a {
       font-weight: 400;
       font-size: .8333vw;
       color: #B2B2B2;
@@ -335,7 +325,7 @@ const {
   .subscribe-input {
     flex: 1;
     background-color: #353535;
-    
+
     :deep(input) {
       color: #ffffff;
       padding: 0.5208vw 1.0417vw;
@@ -344,6 +334,7 @@ const {
       border: none;
       outline: none;
       box-shadow: none;
+
       &::placeholder {
         color: rgba(255, 255, 255, 0.6);
       }
@@ -352,13 +343,14 @@ const {
   }
 
   :deep(.subscribe-button) {
-      cursor: pointer;
-      background-color: #ffffff;
-      color: #000000;
-      border: none;
-      padding: 0.5208vw 1.0417vw;
-      font-size: 0.8333vw;
-      &:hover {
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 0.5208vw 1.0417vw;
+    font-size: 0.8333vw;
+
+    &:hover {
       background-color: rgba(255, 255, 255, 0.9);
     }
   }
