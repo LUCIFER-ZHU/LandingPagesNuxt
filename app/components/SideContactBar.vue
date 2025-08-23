@@ -38,7 +38,7 @@
       <!-- WhatsApp Details Popup -->
       <div v-show="showWhatsAppDetails" class="whatsapp-details">
         <div class="detail-item">
-          <a @click="handleWhatsAppClick" class="detail-link">
+          <a href="#" @click="handleWhatsAppClick" class="detail-link">
             <UIcon name="i-heroicons:phone-arrow-up-right-16-solid" />
             <span>sales1: +86 13295238763</span>
           </a>

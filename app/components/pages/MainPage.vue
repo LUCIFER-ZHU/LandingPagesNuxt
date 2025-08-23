@@ -99,7 +99,7 @@
     </div>
 
     <!-- Industrial Chiller Unit Types -->
-    <div class="unit-types">
+    <div id="factory-introduction" class="unit-types">
       <div class="title">
         Industrial Chiller Unit Types
       </div>
@@ -332,7 +332,7 @@
     <EditorKeyComponentTabs />
 
     <!-- Do You Need Clean -->
-    <div class="need-clean">
+    <div id="featured-products" class="need-clean">
       <div class="title">
         Do You Need Clean, Stable Air Supply Too?
       </div>

@@ -12,6 +12,15 @@
     <div class="tab-content mt-4">
       <!-- 根据活动标签显示相应内容 -->
       <div v-if="activeTab === 'low-temp'" class="tab-pane tab-pane-1">
+        <div v-for="item in tabPane1Content" :key="item.title" class="box">
+          <NuxtImg densities="1" :src="item.image" alt="icon" loading="lazy"/>
+          <div class="title">
+            {{ item.title }}
+          </div>
+          <div class="content">
+            {{ item.content }}
+          </div>
+        </div>        
       </div>
 
       <div v-if="activeTab === 'air-cooled'" class="tab-pane tab-pane-2">
@@ -27,18 +36,26 @@
       </div>
 
       <div v-if="activeTab === 'industrial'" class="tab-pane tab-pane-3">
-        <h3 class="text-lg font-medium">Industrial Chillers 内容</h3>
-        <div class="mt-2">
-          <!-- 这里放置第三个标签页的内容 -->
-          3
+        <div v-for="item in tabPane3Content" :key="item.title" class="box">
+          <NuxtImg densities="1" :src="item.image" alt="icon" loading="lazy"/>
+          <div class="title">
+            {{ item.title }}
+          </div>
+          <div class="content">
+            {{ item.content }}
+          </div>
         </div>
       </div>
 
       <div v-if="activeTab === 'mtc'" class="tab-pane tab-pane-4">
-        <h3 class="text-lg font-medium">MTC 内容</h3>
-        <div class="mt-2">
-          <!-- 这里放置第四个标签页的内容 -->
-          4
+        <div v-for="item in tabPane4Content" :key="item.title" class="box">
+          <NuxtImg densities="1" :src="item.image" alt="icon" loading="lazy"/>
+          <div class="title">
+            {{ item.title }}
+          </div>
+          <div class="content">
+            {{ item.content }}
+          </div>
         </div>
       </div>
     </div>
@@ -60,21 +77,18 @@ const tabItems: TabsItem[] = [
   {
     label: 'low-temp chiller',
     value: 'low-temp',
-    disabled: true
   },
   {
     label: 'air-cooled chiller',
-    value: 'air-cooled'
+    value: 'air-cooled',
   },
   {
     label: 'Industrial chillers',
     value: 'industrial',
-    disabled: true
   },
   {
     label: 'MTC',
     value: 'mtc',
-    disabled: true
   }
 ]
 
@@ -84,7 +98,51 @@ const tabItems: TabsItem[] = [
  */
 const activeTab = ref('air-cooled')
 
-
+/**
+ * 第一标签页内容
+ */
+const tabPane1Content = ref([
+  {
+    image: buildImageUrl('image/img29.webp'),
+    title: "Compound Compressor",
+    content: "Utilizes internationally top-brand Linde multi-stage compression technology, specially designed for ultra-low temperature applications down to -60°C, ensuring stable power output under high pressure ratio conditions with reliable and efficient operation."
+  },
+  {
+    image: buildImageUrl('image/img30.webp'),
+    title: "Anti-freeze Evaporator",
+    content: "Equipped with enhanced heat exchange channels and anti-freeze structural design, significantly improving the heat exchange efficiency of low-temperature refrigerants, ensuring stable cooling output under extreme operating conditions."
+  },
+  {
+    image: buildImageUrl('image/img31.webp'),
+    title: "High-efficiency Condenser System",
+    content: "Features an optimized finned copper tube combination structure and high airflow fans, achieving efficient condensation of gaseous refrigerant and ensuring the long-term operation of the refrigeration cycle system."
+  },
+  {
+    image: buildImageUrl('image/img32.webp'),
+    title: "Expansion Throttle Valve",
+    content: "Uses a stepping motor-driven precise flow regulation system, based on the superheat at the evaporator outlet, dynamically controls refrigerant flow to ensure stable evaporation pressure under low-temperature conditions, effectively preventing frost blockage."
+  },
+  {
+    image: buildImageUrl('image/img33.webp'),
+    title: "Low-temperature Circulation Pump",
+    content: "Equipped with high-quality cold-resistant impellers and energy-efficient drive systems, adapted for stable circulation of low-temperature refrigerants like glycol, meeting flow requirements under different operating conditions."
+  },
+  {
+    image: buildImageUrl('image/img34.webp'),
+    title: "Cooling Fan",
+    content: "Configured with low-noise, high-airflow dedicated fans, specifically improving condenser heat dissipation efficiency, significantly optimizing overall system energy performance and accelerating heat dissipation."
+  },
+  {
+    image: buildImageUrl('image/img35.webp'),
+    title: "Intelligent Electric Control Cabinet​",
+    content: "Cabinet body features blue and white coloring. Internally filled with wiring and components. Integrates modular control circuits and multiple safety protection mechanisms, enabling real-time monitoring of key parameters such as temperature and pressure to ensure precise temperature control and system safety under low-temperature operating conditions."
+  },
+  {
+    image: buildImageUrl('image/img36.webp'),
+    title: "Thermal Insulation Pipeline Interface",
+    content: "Pipe port materials are made of alloy with double-layer thermal insulation design, significantly reducing cold loss. Functional ports are clearly zoned with outlets, inlets, filling ports, and drain ports labeled clearly. Operation instructions and initial troubleshooting guidelines are attached."
+  },
+])
 
 /**
  * 第二标签页内容
@@ -125,9 +183,86 @@ const tabPane2Content = ref([
     title: 'Electric control cabinet',
     content: 'Equipped with high-quality electrical components and modular circuit design, it has high integration and precise control, can quickly respond to temperature adjustment needs, and ensure stable equipment temperature.'
   },
-
-
 ])
+
+/**
+ * 第三标签页内容
+ */
+const tabPane3Content = ref([
+  {
+    image: buildImageUrl('image/img21.webp'),
+    title: 'Unit structure',
+    content: 'The base is welded profile, the outer frame is formed steel, and the surface of the electric control box is treated with electrostatic spraying, which is bright and smooth. The adhesion, hardness and smoothness of the coating are all higher than the national standard.'
+  },
+  {
+    image: buildImageUrl('image/img22.webp'),
+    title: 'compressor',
+    content: 'It uses screw compressors from internationally renowned brands (Taiwan Hanbell and Bitzer), and advanced asymmetric semi-hermetic screw compressors, which are low-carbon, energy-saving and environmentally friendly; they have good performance and low noise, and are 20~30% more energy-efficient than ordinary compressors.'
+  },
+  {
+    image: buildImageUrl('image/img23.webp'),
+    title: 'Condenser (water-cooled)',
+    content: 'Efficient heat dissipation ensures refrigeration cycle, reduces compressor exhaust pressure and power consumption, improves the energy efficiency ratio of the chiller, and increases the unit COP by 5%-15%, ensuring stable operation of the unit in different seasons and working conditions.'
+  },
+  {
+    image: buildImageUrl('image/img24.webp'),
+    title: 'Condenser (air-cooled)',
+    content: 'The high-efficiency copper tube-sheathed aluminum fin condenser features high heat exchange efficiency and stable heat transfer performance. The refrigerant in the condenser flows within the heat transfer tubes, making maintenance and cleaning easy.'
+  },
+  {
+    image: buildImageUrl('image/img25.webp'),
+    title: 'Fan',
+    content: 'The Siemens microcomputer controller, a highly intelligent PLC, and PC-level computer control system with explosion-proof circuitry enable remote monitoring and control. Operation is simple, and the host and power supply are easily connected. The unit offers a low failure rate, a high safety factor, and simple installation. The system controls are intuitive and reliable, with real-time adjustments. The customizable language display and menu-driven buttons adjust the unit\'s operating status, creating a convenient operating environment.'
+  },
+  {
+    image: buildImageUrl('image/img26.webp'),
+    title: 'expansion valve',
+    content: 'The expansion valve adopts the American Emerson external balanced thermal expansion valve, which can automatically adjust the refrigerant flow according to the changes in the system load to achieve automatic balance of system operation; other major refrigeration system components such as drying filters, solenoid valves, pressure gauges, etc. are all internationally renowned brands.'
+  },
+  {
+    image: buildImageUrl('image/img27.webp'),
+    title: 'evaporador',
+    content: 'The evaporator\'s copper tubes utilize Japanese Kobe-made internal and external threaded reinforced tubes. The threads on the copper tubes create a smooth exterior for optimal cooling. The evaporator itself is insulated with 25mm thick PE insulation, preventing condensation and minimizing cooling loss. The result is a compact structure with stable performance.'
+  },
+  {
+    image: buildImageUrl('image/img28.webp'),
+    title: 'Protective device',
+    content: 'The chiller protection system devices produced by our company include: explosion-proof device, temperature control switch, antifreeze switch fusible plug, high and low pressure switch, overload protector, compressor overheat protector, compressor frequent start protector and abnormal indicator light.'
+  },
+])
+
+/**
+ * 第四标签页内容
+ */
+const tabPane4Content = ref([
+  {
+    image: buildImageUrl('image/img37.webp'),
+    title: "Mould temperature control machine",
+    content: "The mold temperature controller achieves precise temperature control for molds by circulating a heat-conducting medium (water or oil). Its core functions include: improving product quality, reducing product defects. Shortening the molding cycle, stabilizing the production process, and avoiding quality fluctuations caused by temperature fluctuations."
+  },
+  {
+    image: buildImageUrl('image/img38.webp'),
+    title: "heating tube",
+    content: "Upon energization, the resistance wire generates heat (converting electrical into thermal energy), heating the thermal medium (water/oil) flowing through the tube walls. The medium temperature can reach up to 400℃ (in oil-based thermal units). It delivers rapid temperature response, outputting heat within 10 seconds of startup to meet the fast warm-up demands of injection molding/die casting. The system maintains stable process temperatures through PID-controlled heating power adjustment with ±1% precision."
+  },
+  {
+    image: buildImageUrl('image/img39.webp'),
+    title: "circulating pump",
+    content: "propels the thermal medium (water/oil) through a closed-loop circulation, enabling highly efficient heat transfer from the heating source to the mold."
+  },
+  {
+    image: buildImageUrl('image/img40.webp'),
+    title: "electron component",
+    content: "‌Functioning as the temperature control system's nerve center, it achieves ±0.1℃ precision temperature control through a closed-loop process encompassing sensing, computing, and execution."
+  },
+  {
+    image: buildImageUrl('image/img41.webp'),
+    title: "control system",
+    content: "Serving as the intelligent command center for the entire equipment, it achieves precise thermal regulation and safety interlocking through closed-loop operations across three phases: sensing, computing, and execution. Its functionality extends far beyond basic temperature control, delivering cascade benefits for product quality, energy efficiency, and equipment longevity."
+  },
+])
+
+
 </script>
 
 <style scoped>
@@ -179,7 +314,7 @@ const tabPane2Content = ref([
   }
 }
 
-.tab-pane-2 {
+.tab-pane {
   padding: 0 18.5938vw;
   display: grid;
   grid-template-columns: repeat(3, 1fr);

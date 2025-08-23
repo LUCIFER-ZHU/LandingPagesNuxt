@@ -22,11 +22,11 @@
     <!-- 导航菜单 -->
     <nav class="navigation-menu">
       <ul class="menu-list">
-        <li class="menu-item active">
-          <NuxtLink to="#" class="menu-link">Factory Introduction</NuxtLink>
+        <li class="menu-item">
+          <NuxtLink to="#factory-introduction" class="menu-link">Factory Introduction</NuxtLink>
         </li>
         <li class="menu-item">
-          <NuxtLink to="#" class="menu-link">Featured products</NuxtLink>
+          <NuxtLink to="#featured-products" class="menu-link" >Featured products</NuxtLink>
         </li>
         <li class="menu-item">
           <NuxtLink to="#" class="menu-link">Diverse services</NuxtLink>
