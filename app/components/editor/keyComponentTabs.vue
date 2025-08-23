@@ -16,7 +16,7 @@
 
       <div v-if="activeTab === 'air-cooled'" class="tab-pane tab-pane-2">
         <div v-for="item in tabPane2Content" :key="item.title" class="box">
-          <NuxtImg densities="1" :src="item.image" alt="icon" />
+          <NuxtImg densities="1" :src="item.image" alt="icon" loading="lazy"/>
           <div class="title">
             {{ item.title }}
           </div>

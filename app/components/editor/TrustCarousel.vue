@@ -10,27 +10,27 @@
         <template #default="{ item }">
           <div v-if="item.number === 1" class="slide-content slide-content-1">
             <NuxtImg densities="1" :src="buildImageUrl('image/banner3.webp')" alt="Indonesia Power Company"
-              class="w-[31.1458vw] h-[23.3854vw]" />
+              class="w-[31.1458vw] h-[23.3854vw]" loading="lazy"/>
             <div class="content">
               <div class="title">Indonesia Power Company</div>
               <div class="sub-title">– Cooling + Heat Recovery Solution</div>
               <div class="grid3">
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon10.webp')" alt="icon" class="w-[1.6667vw]"/>
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon10.webp')" alt="icon" class="w-[1.6667vw]" loading="lazy"/>
                   <div class="item">
                     <div class="title">Location: </div>
                     <div class="text">Border region near Xinjiang, China</div>
                   </div>
                 </div>
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon11.webp')" alt="icon" class="w-[1.6667vw]"/>
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon11.webp')" alt="icon" class="w-[1.6667vw]" loading="lazy"/>
                   <div class="item">
                     <div class="title">Solution: </div>
                     <div class="text">MINNUO screw chiller + heat recovery chiller</div>
                   </div>
                 </div>
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon12.webp')" alt="icon" class="w-[1.6667vw]"/>
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon12.webp')" alt="icon" class="w-[1.6667vw]" loading="lazy"/>
                   <div class="item">
                     <div class="title">Application:  </div>
                     <div class="text">Year-round equipment cooling & hot water generation</div>
@@ -63,27 +63,27 @@
           </div>
           <div v-if="item.number === 2" class="slide-content slide-content-2">
             <NuxtImg densities="1" :src="buildImageUrl('image/banner4.webp')" alt="Tajikistan"
-              class="w-[31.1458vw] h-[23.3854vw]" />
+              class="w-[31.1458vw] h-[23.3854vw]" loading="lazy"/>
             <div class="content">
               <div class="title">Tajikistan</div>
               <div class="sub-title">– Salmon Farming Heating Project</div>
               <div class="grid3">
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon10.webp')" alt="icon" />
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon10.webp')" alt="icon" loading="lazy"/>
                   <div class="item">
                     <div class="title">Location: </div>
                     <div class="text">Border region near Xinjiang, China</div>
                   </div>
                 </div>
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon11.webp')" alt="icon" />
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon11.webp')" alt="icon" loading="lazy"/>
                   <div class="item">
                     <div class="title">Solution: </div>
                     <div class="text">Ultra-low temperature air source heat pump system by MINNUO</div>
                   </div>
                 </div>
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon12.webp')" alt="icon" />
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon12.webp')" alt="icon" loading="lazy"/>
                   <div class="item">
                     <div class="title">Application:  </div>
                     <div class="text">Constant-temperature aquaculture & heating for salmon farming</div>
@@ -117,27 +117,27 @@
           </div>
           <div v-if="item.number === 3" class="slide-content slide-content-3">
             <NuxtImg densities="1" :src="buildImageUrl('image/banner5.webp')" alt="South America"
-              class="w-[31.1458vw] h-[23.3854vw]" />
+              class="w-[31.1458vw] h-[23.3854vw]" loading="lazy"/>
             <div class="content">
               <div class="title">South America</div>
               <div class="sub-title">– Pacific White Shrimp Aquaculture Cooling Project</div>
               <div class="grid3">
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon10.webp')" alt="icon" />
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon10.webp')" alt="icon" loading="lazy"/>
                   <div class="item">
                     <div class="title">Location: </div>
                     <div class="text">South America</div>
                   </div>
                 </div>
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon11.webp')" alt="icon" />
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon11.webp')" alt="icon" loading="lazy"/>
                   <div class="item">
                     <div class="title">Solution: </div>
                     <div class="text">H.Stars water source heat pump system (by MINNUO Group)</div>
                   </div>
                 </div>
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon12.webp')" alt="icon" />
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon12.webp')" alt="icon" loading="lazy"/>
                   <div class="item">
                     <div class="title">Application:  </div>
                     <div class="text">Temperature-controlled seawater shrimp farming</div>
@@ -172,27 +172,27 @@
           </div>
           <div v-if="item.number === 4" class="slide-content slide-content-4">
             <NuxtImg densities="1" :src="buildImageUrl('image/banner6.webp')" alt="Switzerland"
-              class="w-[31.1458vw] h-[23.3854vw]" />
+              class="w-[31.1458vw] h-[23.3854vw]" loading="lazy"/>
             <div class="content">
               <div class="title">Switzerland</div>
               <div class="sub-title">– Dettwiler Production Line Cooling Project</div>
               <div class="grid3">
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon10.webp')" alt="icon" />
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon10.webp')" alt="icon" loading="lazy"/>
                   <div class="item">
                     <div class="title">Location: </div>
                     <div class="text">Switzerland</div>
                   </div>
                 </div>
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon11.webp')" alt="icon" />
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon11.webp')" alt="icon" loading="lazy"/>
                   <div class="item">
                     <div class="title">Solution: </div>
                     <div class="text">MINNUO flooded-type screw chiller unit</div>
                   </div>
                 </div>
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon12.webp')" alt="icon" />
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon12.webp')" alt="icon" loading="lazy"/>
                   <div class="item">
                     <div class="title">Application:  </div>
                     <div class="text">Industrial production line cooling</div>
@@ -226,27 +226,27 @@
           </div>
           <div v-if="item.number === 5" class="slide-content slide-content-5">
             <NuxtImg densities="1" :src="buildImageUrl('image/banner6.webp')" alt="Argentina"
-              class="w-[31.1458vw] h-[23.3854vw]" />
+              class="w-[31.1458vw] h-[23.3854vw]" loading="lazy"/>
             <div class="content">
               <div class="title">Argentina</div>
               <div class="sub-title">– Brewery Cooling & Refrigeration Project</div>
               <div class="grid3">
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon10.webp')" alt="icon" />
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon10.webp')" alt="icon" loading="lazy"/>
                   <div class="item">
                     <div class="title">Location: </div>
                     <div class="text">Argentina</div>
                   </div>
                 </div>
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon11.webp')" alt="icon" />
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon11.webp')" alt="icon" loading="lazy"/>
                   <div class="item">
                     <div class="title">Solution: </div>
                     <div class="text">Screw chiller, heat recovery chiller, and cooling tower system by MINNUO</div>
                   </div>
                 </div>
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon12.webp')" alt="icon" />
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon12.webp')" alt="icon" loading="lazy"/>
                   <div class="item">
                     <div class="title">Application:  </div>
                     <div class="text">Beer production cooling & refrigeration</div>

@@ -113,7 +113,7 @@
           <!-- Air-Cooled Chiller -->
           <div class="product-card">
             <div class="product-image">
-              <NuxtImg densities="1" :src="buildImageUrl('image/img17.webp')" alt="Air-Cooled Chiller" />
+              <NuxtImg densities="1" :src="buildImageUrl('image/img17.webp')" alt="Air-Cooled Chiller" loading="lazy"/>
             </div>
             <div class="product-info">
               <h3 class="product-name">Air-Cooled Chiller</h3>
@@ -145,7 +145,7 @@
           <!-- Water-Cooled Chiller -->
           <div class="product-card">
             <div class="product-image">
-              <NuxtImg densities="1" :src="buildImageUrl('image/img18.webp')" alt="Water-Cooled Chiller" />
+              <NuxtImg densities="1" :src="buildImageUrl('image/img18.webp')" alt="Water-Cooled Chiller" loading="lazy"/>
             </div>
             <div class="product-info">
               <h3 class="product-name">Water-Cooled Chiller</h3>
@@ -177,7 +177,7 @@
           <!-- Low-Temperature Chiller -->
           <div class="product-card">
             <div class="product-image">
-              <NuxtImg densities="1" :src="buildImageUrl('image/img19.webp')" alt="Low-Temperature Chiller" />
+              <NuxtImg densities="1" :src="buildImageUrl('image/img19.webp')" alt="Low-Temperature Chiller" loading="lazy"/>
             </div>
             <div class="product-info">
               <h3 class="product-name">Low-Temperature Chiller</h3>
@@ -213,7 +213,7 @@
           <div class="product-card">
             <div class="product-image">
               <NuxtImg densities="1" :src="buildImageUrl('image/img4.webp')"
-                alt="Oil Type Mold Temperature Controller" />
+                alt="Oil Type Mold Temperature Controller" loading="lazy"/>
             </div>
             <div class="product-info">
               <h3 class="product-name">Oil Type Mold Temperature Controller</h3>
@@ -244,7 +244,7 @@
           <div class="product-card">
             <div class="product-image">
               <NuxtImg densities="1" :src="buildImageUrl('image/img5.webp')"
-                alt="Water Type Mold Temperature Controller" />
+                alt="Water Type Mold Temperature Controller" loading="lazy"/>
             </div>
             <div class="product-info">
               <h3 class="product-name">Water Type Mold Temperature Controller</h3>
@@ -275,7 +275,7 @@
         </div> -->
         <div class="oil-type">
           <NuxtImg densities="1" :src="buildImageUrl('image/img20.webp')" alt="Oil Type Mold Temperature Controller"
-            class="w-[22.0833vw]" />
+            class="w-[22.0833vw]" loading="lazy"/>
           <div class="right">
             <div class="title">Oil Type Mold Temperature Controller</div>
             <div class="specs flex flex-wrap">
@@ -313,7 +313,7 @@
       <div
         class="img-box w-[52.4479vw] h-[26.25vw] bg-[rgba(16,75,212,0.04)] flex justify-end items-center overflow-hidden">
         <NuxtImg densities="1" :src="buildImageUrl('image/img6.webp')" alt="Not sure which system fits your process?"
-          class="translate-y-[-2.0833vw]" />
+          class="translate-y-[-2.0833vw]" loading="lazy"/>
       </div>
       <div class="content w-[47.8125vw] pl-[4.4271vw]">
         <div class="title w-[28.9583vw]">
@@ -337,7 +337,7 @@
         Do You Need Clean, Stable Air Supply Too?
       </div>
       <NuxtImg densities="1" :src="buildImageUrl('image/banner2.webp')"
-        alt="Do You Need Clean, Stable Air Supply Too?" />
+        alt="Do You Need Clean, Stable Air Supply Too?" loading="lazy"/>
       <div class="sub-title">
         Pair your chiller with a professional air compressor solution.
       </div>
@@ -363,34 +363,34 @@
       </div>
       <div class="icons">
         <div class="icon-item">
-          <NuxtImg densities="1" :src="buildImageUrl('image/icon1.webp')" alt="icon1" />
+          <NuxtImg densities="1" :src="buildImageUrl('image/icon1.webp')" alt="icon1" loading="lazy"/>
           <div class="icon-item-title">
             CE & ISO <br>
             Certified Factory
           </div>
         </div>
         <div class="icon-item">
-          <NuxtImg densities="1" :src="buildImageUrl('image/icon2.webp')" alt="icon2" />
+          <NuxtImg densities="1" :src="buildImageUrl('image/icon2.webp')" alt="icon2" loading="lazy"/>
           <div class="icon-item-title">
             3,000+ Units <br>
             Exported Worldwide
           </div>
         </div>
         <div class="icon-item">
-          <NuxtImg densities="1" :src="buildImageUrl('image/icon3.webp')" alt="icon3" />
+          <NuxtImg densities="1" :src="buildImageUrl('image/icon3.webp')" alt="icon3" loading="lazy"/>
           <div class="icon-item-title">
             1:1 Technical <br>
             Guidance & Design
           </div>
         </div>
         <div class="icon-item">
-          <NuxtImg densities="1" :src="buildImageUrl('image/icon4.webp')" alt="icon4" />
+          <NuxtImg densities="1" :src="buildImageUrl('image/icon4.webp')" alt="icon4" loading="lazy"/>
           <div class="icon-item-title">
             OEM / ODM Available
           </div>
         </div>
         <div class="icon-item">
-          <NuxtImg densities="1" :src="buildImageUrl('image/icon5.webp')" alt="icon5" />
+          <NuxtImg densities="1" :src="buildImageUrl('image/icon5.webp')" alt="icon5" loading="lazy"/>
           <div class="icon-item-title">
             Full Documentation for Export
           </div>
@@ -428,19 +428,19 @@
         <div class="title">MINNUO doesn’t just sell chiller units — we deliver complete cooling solutions:</div>
         <div class="content">
           <div class="box">
-            <NuxtImg densities="1" :src="buildImageUrl('image/icon6.webp')" alt="icon" class="w-[2.5vw]" />
+            <NuxtImg densities="1" :src="buildImageUrl('image/icon6.webp')" alt="icon" class="w-[2.5vw]" loading="lazy"/>
             <div class="text">On-demand model selection</div>
           </div>
           <div class="box">
-            <NuxtImg densities="1" :src="buildImageUrl('image/icon7.webp')" alt="icon" class="w-[2.5vw]" />
+            <NuxtImg densities="1" :src="buildImageUrl('image/icon7.webp')" alt="icon" class="w-[2.5vw]" loading="lazy"/>
             <div class="text">Air / water cooling options based on site</div>
           </div>
           <div class="box">
-            <NuxtImg densities="1" :src="buildImageUrl('image/icon8.webp')" alt="icon" class="w-[2.5vw]" />
+            <NuxtImg densities="1" :src="buildImageUrl('image/icon8.webp')" alt="icon" class="w-[2.5vw]" loading="lazy"/>
             <div class="text">1-on-1 technical support</div>
           </div>
           <div class="box">
-            <NuxtImg densities="1" :src="buildImageUrl('image/icon9.webp')" alt="icon" class="w-[2.5vw]" />
+            <NuxtImg densities="1" :src="buildImageUrl('image/icon9.webp')" alt="icon" class="w-[2.5vw]" loading="lazy"/>
             <div class="text">Full specs and piping diagrams</div>
           </div>
         </div>
@@ -631,7 +631,7 @@ const goExternal = () => {
   >.banner {
     width: 100%;
     height: 31.25vw;
-    background: url($image-base + 'image/banner.webp') no-repeat center/cover;
+    background: url($image-base + 'image/banner-m.webp') no-repeat center/cover;
     padding: 5.5729vw 55.1563vw 5.5729vw 4.8958vw;
 
     .banner-content {
