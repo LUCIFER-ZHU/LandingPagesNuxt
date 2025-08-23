@@ -234,6 +234,8 @@ export const useContactForm = (options: UseContactFormOptions = {}) => {
       // 构建要发送的表单数据
       const submitData = {
         senderData: senderData,
+        sendPage: typeof window !== 'undefined' ? window.location.href : 'unknown',
+        sendSite: typeof window !== 'undefined' ? window.location.hostname : 'unknown',        
       }
 
       if (Object.keys(otherFields).length > 0) {

@@ -36,13 +36,19 @@
           <!-- 社交媒体图标 -->
           <div class="social-icons">
             <a href="#" class="social-icon youtube">
-              <NuxtImg :src="buildImageUrl('image/youtube.webp')" alt="YouTube" />
+              <NuxtLink to="https://www.youtube.com/@MINNUOGROUP-v5r" target="_blank">
+                <NuxtImg densities="1" :src="buildImageUrl('image/youtube.webp')" alt="YouTube" />
+              </NuxtLink>
             </a>
             <a href="#" class="social-icon facebook">
-              <NuxtImg :src="buildImageUrl('image/facebook.webp')" alt="Facebook" />
+              <NuxtLink to="https://www.facebook.com/people/Chris-King/pfbid02taxM6qiZqwUdbM9fW2LtZeKqGYqUXHu7txgb8C6Y2mK551oJNHczcCiDBefgHfy7l/" target="_blank">
+                <NuxtImg densities="1" :src="buildImageUrl('image/facebook.webp')" alt="Facebook" />
+              </NuxtLink>
             </a>
             <a href="#" class="social-icon instagram">
-              <NuxtImg :src="buildImageUrl('image/ig.webp')" alt="Instagram" />
+              <NuxtLink to="https://www.instagram.com/chrisking5538/" target="_blank">
+                <NuxtImg densities="1" :src="buildImageUrl('image/ig.webp')" alt="Instagram" />
+              </NuxtLink>
             </a>
           </div>
         </div>

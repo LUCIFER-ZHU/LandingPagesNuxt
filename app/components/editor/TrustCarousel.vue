@@ -16,21 +16,21 @@
               <div class="sub-title">– Cooling + Heat Recovery Solution</div>
               <div class="grid3">
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon10.webp')" alt="icon" />
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon10.webp')" alt="icon" class="w-[1.6667vw]"/>
                   <div class="item">
                     <div class="title">Location: </div>
                     <div class="text">Border region near Xinjiang, China</div>
                   </div>
                 </div>
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon11.webp')" alt="icon" />
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon11.webp')" alt="icon" class="w-[1.6667vw]"/>
                   <div class="item">
                     <div class="title">Solution: </div>
                     <div class="text">MINNUO screw chiller + heat recovery chiller</div>
                   </div>
                 </div>
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon12.webp')" alt="icon" />
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon12.webp')" alt="icon" class="w-[1.6667vw]"/>
                   <div class="item">
                     <div class="title">Application:  </div>
                     <div class="text">Year-round equipment cooling & hot water generation</div>

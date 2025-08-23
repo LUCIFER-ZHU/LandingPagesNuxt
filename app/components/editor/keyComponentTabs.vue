@@ -5,7 +5,7 @@
     </div>
     <!-- 标签页选项卡 -->
     <UTabs v-model="activeTab" color="primary" variant="link" :content="false" :items="tabItems" :ui="{
-      indicator: 'h-2'
+      indicator: 'h-[.1042vw]'
     }" class="w-full chiller-tabs" />
 
     <!-- 自定义内容区域 -->

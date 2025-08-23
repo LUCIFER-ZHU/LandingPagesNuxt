@@ -274,7 +274,8 @@
           </div>
         </div> -->
         <div class="oil-type">
-          <NuxtImg densities="1" :src="buildImageUrl('image/img20.webp')" alt="Oil Type Mold Temperature Controller" />
+          <NuxtImg densities="1" :src="buildImageUrl('image/img20.webp')" alt="Oil Type Mold Temperature Controller"
+            class="w-[22.0833vw]" />
           <div class="right">
             <div class="title">Oil Type Mold Temperature Controller</div>
             <div class="specs flex flex-wrap">
@@ -341,7 +342,7 @@
         Pair your chiller with a professional air compressor solution.
       </div>
       <div class="btn text-center">
-        <UButton class="default-btn" label="See Our Air Compressor series" @click="dialogOpen = true" />
+        <UButton class="default-btn" label="See Our Air Compressor series" @click="goExternal" />
       </div>
     </div>
 
@@ -427,19 +428,19 @@
         <div class="title">MINNUO doesn’t just sell chiller units — we deliver complete cooling solutions:</div>
         <div class="content">
           <div class="box">
-            <NuxtImg densities="1" :src="buildImageUrl('image/icon6.webp')" alt="icon" />
+            <NuxtImg densities="1" :src="buildImageUrl('image/icon6.webp')" alt="icon" class="w-[2.5vw]" />
             <div class="text">On-demand model selection</div>
           </div>
           <div class="box">
-            <NuxtImg densities="1" :src="buildImageUrl('image/icon7.webp')" alt="icon" />
+            <NuxtImg densities="1" :src="buildImageUrl('image/icon7.webp')" alt="icon" class="w-[2.5vw]" />
             <div class="text">Air / water cooling options based on site</div>
           </div>
           <div class="box">
-            <NuxtImg densities="1" :src="buildImageUrl('image/icon8.webp')" alt="icon" />
+            <NuxtImg densities="1" :src="buildImageUrl('image/icon8.webp')" alt="icon" class="w-[2.5vw]" />
             <div class="text">1-on-1 technical support</div>
           </div>
           <div class="box">
-            <NuxtImg densities="1" :src="buildImageUrl('image/icon9.webp')" alt="icon" />
+            <NuxtImg densities="1" :src="buildImageUrl('image/icon9.webp')" alt="icon" class="w-[2.5vw]" />
             <div class="text">Full specs and piping diagrams</div>
           </div>
         </div>
@@ -612,6 +613,15 @@ const {
 
 // 控制对话框显示
 const dialogOpen = ref(false)
+
+
+const goExternal = () => {
+  navigateTo("https://mncompressor.com/screw-air-compressor/", {
+    external: true, open: {
+      target: '_blank',
+    }
+  })
+}
 </script>
 
 <style lang="scss" scoped>
@@ -873,14 +883,14 @@ const dialogOpen = ref(false)
       display: flex;
       align-items: center;
       background: #FFFFFF;
-      border-radius: 12px 12px 12px 12px;
-      padding: 25px 2.8646vw;
+      border-radius: .625vw .625vw .625vw .625vw;
+      padding: 1.3021vw 2.8646vw;
 
       .title {
         font-weight: bold;
-        font-size: 16px;
+        font-size: .8333vw;
         color: #000000;
-        margin-bottom: 31px;
+        margin-bottom: 1.6146vw;
       }
 
       .spec-item {

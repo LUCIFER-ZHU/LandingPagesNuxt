@@ -5,6 +5,8 @@
       <slot />
     </main>
     <AppFooter />
+    <!-- 侧边栏联系组件 -->
+    <SideContactBar />
   </div>
 </template>
 

@@ -4,7 +4,7 @@ export default defineNuxtConfig({
     devtools: { enabled: process.env.NODE_ENV !== "production" },
     modules: ["@nuxt/ui", "@nuxt/fonts", "@nuxt/image"],
     css: ["~/assets/css/vendors.css", "~/assets/scss/main.scss"],
-    // ssr: false,
+    ssr: false,
     app: {
       head: {
         title: 'Industrial Temperature Control Solutions',

@@ -12,7 +12,7 @@
         <!-- 播放按钮 -->
         <div class="play-button-wrapper" @click="openVideoModal">
           <div class="play-button-custom flex items-center justify-center">
-            <NuxtImg densities="1" :src="buildImageUrl('image/video-btn.webp')" alt="play" />
+            <NuxtImg densities="1" :src="buildImageUrl('image/video-btn.webp')" alt="play" class="w-[3.6458vw]"/>
           </div>
         </div>
       </div>
