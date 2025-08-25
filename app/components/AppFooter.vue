@@ -119,7 +119,8 @@
           <!-- 订阅表单 -->
           <div class="subscribe-form">
             <UInput v-model="contactForm.email" placeholder="Enter Your E-mail" class="subscribe-input" />
-            <UButton class="subscribe-button rounded-none" :loading="isSubmitting" @click="handleFormSubmit">Send
+            <UButton class="subscribe-button rounded-none" :loading="isSubmitting" :disabled="isSubmitting"
+              @click="handleFormSubmit">Send
             </UButton>
           </div>
         </div>

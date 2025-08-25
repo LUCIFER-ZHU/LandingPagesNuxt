@@ -1,6 +1,6 @@
 <template>
   <div class="main-page">
-    <div class="banner">
+    <div class="banner" id="banner-anchor">
       <div class="banner-content">
         <div class="title">
           Industrial Temperature Control Solutions — Cooling & Heating
@@ -40,8 +40,8 @@
               <UFormField name="message" class="form-field">
                 <UTextarea v-model="contactForm.message" placeholder="Your Message" :rows="4" />
               </UFormField>
-              <UButton type="submit" color="primary" class="send-btn">
-                Send
+              <UButton type="submit" color="primary" class="send-btn" :loading="isSubmitting" :disabled="isSubmitting">
+                {{ isSubmitting ? 'Sending...' : 'Send' }}
               </UButton>
             </UForm>
           </div>
@@ -99,7 +99,7 @@
     </div>
 
     <!-- Industrial Chiller Unit Types -->
-    <div id="factory-introduction" class="unit-types">
+    <div class="unit-types" id="products-anchor">
       <div class="title">
         Industrial Chiller Unit Types
       </div>
@@ -329,10 +329,10 @@
     </div>
 
     <!-- Key Components of an Industrial Chiller Unit -->
-    <EditorKeyComponentTabs />
+    <EditorKeyComponentTabs id="core-components-anchor" />
 
     <!-- Do You Need Clean -->
-    <div id="featured-products" class="need-clean">
+    <div class="need-clean">
       <div class="title">
         Do You Need Clean, Stable Air Supply Too?
       </div>
@@ -347,7 +347,7 @@
     </div>
 
     <!-- Who We Are -->
-    <div class="who-we-are">
+    <div class="who-we-are" id="about-us-anchor">
       <div class="title">
         Who We Are
       </div>
@@ -402,7 +402,7 @@
     </div>
 
     <!--what problems -->
-    <div class="what-problems">
+    <div class="what-problems" id="our-service-anchor">
       <div class="left">
         <div class="title">What Problems Are You Trying to Solve?</div>
         <div class="content">
@@ -451,7 +451,7 @@
     </div>
 
     <!-- Trust Carousel -->
-    <EditorTrustCarousel />
+    <EditorTrustCarousel id="project-cases-anchor"/>
 
     <!-- factory-videos -->
     <div class="factory-videos">
@@ -473,7 +473,7 @@
     </div>
 
     <!-- try-solve -->
-    <div class="try-solve">
+    <div class="try-solve" id="contact-us-anchor">
       <div class="title">What Problems Are You Trying to Solve?</div>
       <div class="content">
         <div class="left">
@@ -556,8 +556,8 @@
             <UFormField name="message" class="form-field">
               <UTextarea v-model="contactForm.message" placeholder="Your Message" :rows="4" />
             </UFormField>
-            <UButton type="submit" color="primary" class="send-btn">
-              Send My Request
+            <UButton type="submit" color="primary" class="send-btn" :loading="isSubmitting" :disabled="isSubmitting">
+              {{ isSubmitting ? 'Sending...' : 'Send My Request' }}
             </UButton>
             <div class="tip">Response within 24 hours</div>
           </UForm>
@@ -607,6 +607,7 @@ const {
   contactForm,
   handleFormSubmit,  // 添加兼容UForm的提交处理函数
   updateField,
+  isSubmitting,
 } = useContactForm({
   extraData: ['cooling']
 });
@@ -935,8 +936,6 @@ const goExternal = () => {
 }
 
 .who-we-are {
-  padding-top: 7.0833vw;
-
   .title {
     font-weight: bold;
     font-size: 1.875vw;
@@ -1083,7 +1082,7 @@ const goExternal = () => {
 }
 
 .need-clean {
-  padding: 6.25vw 18.75vw 0;
+  padding: 6.25vw 18.75vw 7.0833vw;
 
   .title {
     font-weight: bold;

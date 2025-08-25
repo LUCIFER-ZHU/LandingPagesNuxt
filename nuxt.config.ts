@@ -33,5 +33,10 @@ export default defineNuxtConfig({
                 },
             },
         },
+        server: {
+          allowedHosts: true // ✅ 允许任意 Host（推荐）
+          // 或者只允许特定域名：
+          // allowedHosts: ['bdb5360b5e11.ngrok-free.app']
+        }        
     },
 });

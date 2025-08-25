@@ -23,25 +23,25 @@
     <nav class="navigation-menu">
       <ul class="menu-list">
         <li class="menu-item">
-          <NuxtLink to="#factory-introduction" class="menu-link">Factory Introduction</NuxtLink>
+          <NuxtLink to="#banner-anchor" class="menu-link">Service Introduction</NuxtLink>
         </li>
         <li class="menu-item">
-          <NuxtLink to="#featured-products" class="menu-link" >Featured products</NuxtLink>
+          <NuxtLink to="#products-anchor" class="menu-link" >Featured Products</NuxtLink>
         </li>
         <li class="menu-item">
-          <NuxtLink to="#" class="menu-link">Diverse services</NuxtLink>
+          <NuxtLink to="#core-components-anchor" class="menu-link">Core Components</NuxtLink>
         </li>
         <li class="menu-item">
-          <NuxtLink to="#" class="menu-link">Empirical history</NuxtLink>
+          <NuxtLink to="#about-us-anchor" class="menu-link">About Us</NuxtLink>
         </li>
         <li class="menu-item">
-          <NuxtLink to="#" class="menu-link">Unique value</NuxtLink>
+          <NuxtLink to="#our-service-anchor" class="menu-link">Our Service</NuxtLink>
         </li>
         <li class="menu-item">
-          <NuxtLink to="#" class="menu-link">Professional technology</NuxtLink>
+          <NuxtLink to="#project-cases-anchor" class="menu-link">Project Cases</NuxtLink>
         </li>
         <li class="menu-item">
-          <NuxtLink to="#" class="menu-link">Mature product line</NuxtLink>
+          <NuxtLink to="#contact-us-anchor" class="menu-link">Contact Us</NuxtLink>
         </li>
       </ul>
     </nav>
@@ -96,7 +96,7 @@ const { buildImageUrl } = useImageUrl();
   .menu-list {
     display: flex;
     align-items: center;
-    gap: 2.2917vw;
+    gap: 3.6458vw;
     list-style: none;
     margin: 0;
     padding: 0;

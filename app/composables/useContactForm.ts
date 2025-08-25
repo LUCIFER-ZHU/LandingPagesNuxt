@@ -306,12 +306,15 @@ export const useContactForm = (options: UseContactFormOptions = {}) => {
 
   /**
    * 处理表单提交
-   * @returns {Promise<FormSubmitResponse | null>} 提交结果
+   * @returns {Promise<FormSubmitResponse | undefined>} 提交结果
    */
-  const onContactSubmit = async (): Promise<FormSubmitResponse | null> => {
+  const onContactSubmit = async (): Promise<FormSubmitResponse | undefined> => {
     try {
       // 防止重复提交
-      if (isSubmitting.value) return null
+      if (isSubmitting.value) {
+        console.log('Form submission blocked: already submitting (isSubmitting = true)');
+        return
+      }
 
       // 验证表单
       const validation = validateForm()
@@ -330,7 +333,6 @@ export const useContactForm = (options: UseContactFormOptions = {}) => {
 
       // 开始提交
       isSubmitting.value = true
-      console.log('Starting form submission:', contactForm.value)
 
       // API提交
       const response = await submitToAPI(contactForm.value)
@@ -343,7 +345,6 @@ export const useContactForm = (options: UseContactFormOptions = {}) => {
         // 重置表单
         resetForm()
         
-        console.log('Form submitted successfully:', response.data)
         
         // 可选：发送成功事件（用于analytics）
         // if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
@@ -440,6 +441,11 @@ export const useContactForm = (options: UseContactFormOptions = {}) => {
     // 阻止默认表单提交行为（如果有）
     if (event) {
       event.preventDefault()
+    }
+    
+    // 在 handleFormSubmit 层面也添加防重复提交检查
+    if (isSubmitting.value) {
+      return;
     }
     
     // 调用原始的提交方法，忽略返回值

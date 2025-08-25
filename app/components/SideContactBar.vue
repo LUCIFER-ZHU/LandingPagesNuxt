@@ -4,7 +4,7 @@
     <div class="contact-item email-item" @mouseenter="showEmailDetails = true" @mouseleave="showEmailDetails = false">
       <UButton variant="solid" color="primary" size="lg" @click="handleEmailClick" class="contact-btn">
         <template #leading>
-          <NuxtImg densities="1" src="https://minnuogas.com/wp-content/uploads/2025/03/email1.png" alt="email icon"
+          <NuxtImg densities="1" :src="buildImageUrl('/image/email1.png')" alt="email icon"
             class="contact-icon" />
         </template>
         Email
@@ -29,7 +29,7 @@
       @mouseleave="showWhatsAppDetails = false">
       <UButton variant="solid" color="primary" size="lg" @click="handleWhatsAppClick" class="contact-btn">
         <template #leading>
-          <NuxtImg densities="1" src="https://minnuogas.com/wp-content/uploads/2025/03/kefu2.png" alt="WhatsApp icon"
+          <NuxtImg densities="1" :src="buildImageUrl('/image/kefu2.png')" alt="WhatsApp icon"
             class="contact-icon" />
         </template>
         WhatsApp
@@ -52,7 +52,7 @@
     <div class="contact-item backtop-item">
       <UButton variant="solid" color="primary" size="lg" @click="scrollToTop" class="contact-btn">
         <template #leading>
-          <NuxtImg densities="1" src="https://minnuogas.com/wp-content/uploads/2025/03/backtop1.png"
+          <NuxtImg densities="1" :src="buildImageUrl('/image/backtop1.png')"
             alt="back to top icon" class="contact-icon" />
         </template>
         Backtop

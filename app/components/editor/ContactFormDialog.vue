@@ -98,7 +98,6 @@ const {
   contactForm,
   isSubmitting,
   onContactSubmit,
-  handleFormSubmit,
   getFieldError,
   resetForm
 } = useContactForm()
