@@ -4,7 +4,7 @@
     <div class="contact-item email-item" @mouseenter="showEmailDetails = true" @mouseleave="showEmailDetails = false">
       <UButton variant="solid" color="primary" size="lg" @click="handleEmailClick" class="contact-btn">
         <template #leading>
-          <NuxtImg densities="1" :src="buildImageUrl('/image/email1.png')" alt="email icon"
+          <NuxtImg densities="1" :src="buildImageUrl('/image/needful/email1.png')" alt="email icon"
             class="contact-icon" />
         </template>
         Email
@@ -29,7 +29,7 @@
       @mouseleave="showWhatsAppDetails = false">
       <UButton variant="solid" color="primary" size="lg" @click="handleWhatsAppClick" class="contact-btn">
         <template #leading>
-          <NuxtImg densities="1" :src="buildImageUrl('/image/kefu2.png')" alt="WhatsApp icon"
+          <NuxtImg densities="1" :src="buildImageUrl('/image/needful/kefu2.png')" alt="WhatsApp icon"
             class="contact-icon" />
         </template>
         WhatsApp
@@ -42,7 +42,7 @@
             <UIcon name="i-heroicons:phone-arrow-up-right-16-solid" />
             <span>sales1: +86 13295238763</span>
           </a>
-          <NuxtImg densities="1" src="https://mncnc-com.oss-us-east-1.aliyuncs.com/image85/static/img/whatsappusa.webp"
+          <NuxtImg densities="1" :src="buildImageUrl('/image/needful/whatsappusa.webp')"
             alt="WhatsApp QR Code" class="qr-code" />
         </div>
       </div>
@@ -52,7 +52,7 @@
     <div class="contact-item backtop-item">
       <UButton variant="solid" color="primary" size="lg" @click="scrollToTop" class="contact-btn">
         <template #leading>
-          <NuxtImg densities="1" :src="buildImageUrl('/image/backtop1.png')"
+          <NuxtImg densities="1" :src="buildImageUrl('/image/needful/backtop1.png')"
             alt="back to top icon" class="contact-icon" />
         </template>
         Backtop

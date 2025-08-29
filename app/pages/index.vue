@@ -1,5 +1,5 @@
 <template>
-  <PagesMainPage />
+  <PagesMainPage2 />
 </template>
 
 <script setup lang="ts">

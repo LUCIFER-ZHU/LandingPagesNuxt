@@ -2,19 +2,19 @@
   <header class="app-header">
     <div class="header-content">
       <div class="site-logo">
-        <NuxtImg densities="1" :src="buildImageUrl('image/logo.webp')" alt="Logo" class="w-[13.9583vw]"/>
+        <NuxtImg densities="1" :src="buildImageUrl('image/needful/logo.webp')" alt="Logo" class="w-[13.9583vw]"/>
       </div>
       <div class="site-contact">
-        <NuxtImg densities="1" :src="buildImageUrl('image/Mail.webp')" alt="Email" class="w-[2.0833vw]"/>
+        <NuxtImg densities="1" :src="buildImageUrl('image/needful/Mail.webp')" alt="Email" class="w-[2.0833vw]"/>
         <span class="site-contact-text">Email: consult@minnuo.com</span>
         <NuxtLink to="https://www.youtube.com/@MINNUOGROUP-v5r" target="_blank">
-          <NuxtImg densities="1" :src="buildImageUrl('image/youtube.webp')" alt="YouTube" class="w-[2.0833vw]"/>
+          <NuxtImg densities="1" :src="buildImageUrl('image/needful/youtube.webp')" alt="YouTube" class="w-[2.0833vw]"/>
         </NuxtLink>
         <NuxtLink to="https://www.facebook.com/people/Chris-King/pfbid02taxM6qiZqwUdbM9fW2LtZeKqGYqUXHu7txgb8C6Y2mK551oJNHczcCiDBefgHfy7l/" target="_blank">
-          <NuxtImg densities="1" :src="buildImageUrl('image/facebook.webp')" alt="Facebook" class="w-[1.5625vw]"/>
+          <NuxtImg densities="1" :src="buildImageUrl('image/needful/facebook.webp')" alt="Facebook" class="w-[1.5625vw]"/>
         </NuxtLink>
         <NuxtLink to="https://www.instagram.com/chrisking5538/" target="_blank">
-          <NuxtImg densities="1" :src="buildImageUrl('image/ig.webp')" alt="Instagram" class="w-[1.5625vw]"/>
+          <NuxtImg densities="1" :src="buildImageUrl('image/needful/ig.webp')" alt="Instagram" class="w-[1.5625vw]"/>
         </NuxtLink>
       </div>
     </div>

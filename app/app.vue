@@ -9,39 +9,25 @@
  * 应用入口文件
  * 设置全局配置和样式
  */
+// 导入图片URL构建函数
+const { buildImageUrl } = useImageUrl();
 useSeoMeta({
   // 主要标题
-  title: 'MINNUO - Industrial Chiller & Temperature Control Solutions | Since 1987',
-  ogTitle: 'MINNUO - Industrial Chiller & Temperature Control Solutions | Since 1987',
+  title: 'MINNUO - Casting Equipment & Die-Casting Machine Manufacturer',
+  ogTitle: 'MINNUO - Casting Equipment & Die-Casting Machine Manufacturer',
   
   // 描述
-  description: 'Professional industrial chiller manufacturer with 38+ years experience. Air-cooled & water-cooled chillers from 3KW to 10,000KW. CE & ISO certified, custom solutions for plastics, laser, HVAC industries.',
-  ogDescription: 'Professional industrial chiller manufacturer with 38+ years experience. Air-cooled & water-cooled chillers from 3KW to 10,000KW. CE & ISO certified, custom solutions for plastics, laser, HVAC industries.',
+  description: 'Leading casting equipment manufacturer with 50+ years experience. Specializing in die-casting machines, low-pressure casting machines, sand molding equipment, and complete casting production lines. CE & ISO certified, global service.',
+  ogDescription: 'Leading casting equipment manufacturer with 50+ years experience. Specializing in die-casting machines, low-pressure casting machines, sand molding equipment, and complete casting production lines. CE & ISO certified, global service.',
   
   // 关键词
-  keywords: 'industrial chiller, air cooled chiller, water cooled chiller, temperature control, cooling system, mold temperature controller, industrial cooling, HVAC equipment, manufacturing cooling, energy efficient chiller',
-  
-  // 作者和公司信息
-  author: 'MINNUO Group',
-  
-  // 社交媒体优化
-  ogType: 'website',
-  ogSiteName: 'MINNUO Group',
-  ogImage: 'https://minnuogas.com/wp-content/uploads/2025/03/logo.webp',
-  ogImageAlt: 'MINNUO Industrial Chiller Solutions',
-  ogImageWidth: '1200',
-  ogImageHeight: '630',
-  
-  // Twitter 卡片
-  twitterCard: 'summary_large_image',
-  twitterSite: '@MINNUOGROUP',
-  twitterCreator: '@MINNUOGROUP',
+  keywords: 'die-casting machine, casting equipment, low-pressure casting, sand molding, metal casting, foundry equipment, casting production line, industrial casting, aluminum casting, zinc casting, casting machine manufacturer',
   
   // 其他重要 meta 标签
   robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
 })
 
-// 使用 useHead 添加额外的 meta 标签
+// 使用 useHead 添加额外的 meta 标签和预加载资源
 useHead({
   htmlAttrs: {
     lang: 'en'
@@ -55,6 +41,18 @@ useHead({
     { name: 'apple-mobile-web-app-status-bar-style', content: 'default' },
     { name: 'apple-mobile-web-app-title', content: 'MINNUO Group' },
     { name: 'application-name', content: 'MINNUO Group' },
+    { name: 'author', content: 'MINNUO Group' },
+    { name: 'copyright', content: 'MINNUO Group' },
+    { name: 'generator', content: 'Nuxt.js' },
+  ],
+  link: [
+    // 预加载LCP关键图片资源
+    { 
+      rel: 'preload', 
+      as: 'image', 
+      href: buildImageUrl('image/img41.webp'), 
+      fetchpriority: 'high' 
+    },
   ],
 })
 </script>

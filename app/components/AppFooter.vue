@@ -36,15 +36,15 @@
           <!-- 社交媒体图标 -->
           <div class="social-icons">
             <NuxtLink to="https://www.youtube.com/@MINNUOGROUP-v5r" target="_blank">
-              <NuxtImg densities="1" :src="buildImageUrl('image/youtube.webp')" alt="YouTube" />
+              <NuxtImg densities="1" :src="buildImageUrl('image/needful/youtube.webp')" alt="YouTube" class="w-[2.2396vw]"/>
             </NuxtLink>
             <NuxtLink
               to="https://www.facebook.com/people/Chris-King/pfbid02taxM6qiZqwUdbM9fW2LtZeKqGYqUXHu7txgb8C6Y2mK551oJNHczcCiDBefgHfy7l/"
               target="_blank">
-              <NuxtImg densities="1" :src="buildImageUrl('image/facebook.webp')" alt="Facebook" />
+              <NuxtImg densities="1" :src="buildImageUrl('image/needful/facebook.webp')" alt="Facebook" class="w-[1.5625vw]"/>
             </NuxtLink>
             <NuxtLink to="https://www.instagram.com/chrisking5538/" target="_blank">
-              <NuxtImg densities="1" :src="buildImageUrl('image/ig.webp')" alt="Instagram" />
+              <NuxtImg densities="1" :src="buildImageUrl('image/needful/ig.webp')" alt="Instagram" class="w-[1.5625vw]"/>
             </NuxtLink>
           </div>
         </div>
@@ -59,7 +59,7 @@
             <h4>Europe & North America</h4>
             <div class="contact-item mb-[1.9271vw]">
               <div class="icon-wrapper">
-                <NuxtImg :src="buildImageUrl('image/location.webp')" alt="Location" />
+                <NuxtImg :src="buildImageUrl('image/needful/location.webp')" alt="Location" />
               </div>
               <div class="contact-text">
                 <p>USA Office Address:</p>
@@ -70,7 +70,7 @@
             <h4>Asia-Pacific Region</h4>
             <div class="contact-item mb-[1.0417vw]">
               <div class="icon-wrapper">
-                <NuxtImg :src="buildImageUrl('image/location.webp')" alt="Location" />
+                <NuxtImg :src="buildImageUrl('image/needful/location.webp')" alt="Location" />
               </div>
               <div class="contact-text">
                 <p>China Office:</p>
@@ -79,7 +79,7 @@
             </div>
             <div class="contact-item">
               <div class="icon-wrapper">
-                <NuxtImg :src="buildImageUrl('image/whatsapp.webp')" alt="WhatsApp" />
+                <NuxtImg :src="buildImageUrl('image/needful/whatsapp.webp')" alt="WhatsApp" />
               </div>
               <p>WhatsApp (Tel)：+86 15366749631</p>
             </div>
