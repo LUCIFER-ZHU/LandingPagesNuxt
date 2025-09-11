@@ -5,6 +5,9 @@
 </template>
 
 <script setup lang="ts">
+// 使用图片URL管理composable
+const { buildImageUrl } = useImageUrl();
+
 /**
  * 应用入口文件
  * 设置全局配置和样式
@@ -43,6 +46,15 @@ useHead({
     { name: 'apple-mobile-web-app-title', content: 'MINNUO Group' },
     { name: 'application-name', content: 'MINNUO Group' },
   ],
+  link: [
+    // 预加载LCP关键图片资源
+    // { 
+    //   rel: 'preload', 
+    //   as: 'image', 
+    //   href: buildImageUrl('image/img41.webp'), 
+    //   fetchpriority: 'high' 
+    // },
+  ],  
   script: [
     // Google Analytics 跟踪代码
     {
