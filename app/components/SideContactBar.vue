@@ -4,7 +4,7 @@
     <div class="contact-item email-item" @mouseenter="showEmailDetails = true" @mouseleave="showEmailDetails = false">
       <UButton variant="solid" color="primary" size="lg" @click="handleEmailClick" class="contact-btn">
         <template #leading>
-          <NuxtImg densities="1" :src="buildImageUrl('/image/needful/email1.png')" alt="email icon"
+          <NuxtImg densities="1" :src="buildImageUrl('/image/email1.png')" alt="email icon"
             class="contact-icon" />
         </template>
         Email
@@ -15,7 +15,7 @@
         <div class="detail-item">
           <div class="detail-info">
             <UIcon name="i-heroicons:envelope-16-solid" class="detail-icon" />
-            <span>mailto:sales@example.com</span>
+            <span>consult@minnuo.com</span>
           </div>
           <div class="detail-description">
             Send us an email
@@ -29,7 +29,7 @@
       @mouseleave="showWhatsAppDetails = false">
       <UButton variant="solid" color="primary" size="lg" @click="handleWhatsAppClick" class="contact-btn">
         <template #leading>
-          <NuxtImg densities="1" :src="buildImageUrl('/image/needful/kefu2.png')" alt="WhatsApp icon"
+          <NuxtImg densities="1" :src="buildImageUrl('/image/kefu2.png')" alt="WhatsApp icon"
             class="contact-icon" />
         </template>
         WhatsApp
@@ -40,9 +40,9 @@
         <div class="detail-item">
           <a href="#" @click="handleWhatsAppClick" class="detail-link">
             <UIcon name="i-heroicons:phone-arrow-up-right-16-solid" />
-            <span>sales1: +86 13295238763</span>
+            <span>sales1: +86 15366749631</span>
           </a>
-          <NuxtImg densities="1" :src="buildImageUrl('/image/needful/whatsappusa.webp')"
+          <NuxtImg densities="1" src="https://mncnc-com.oss-us-east-1.aliyuncs.com/image85/static/img/whatsappusa.webp"
             alt="WhatsApp QR Code" class="qr-code" />
         </div>
       </div>
@@ -52,7 +52,7 @@
     <div class="contact-item backtop-item">
       <UButton variant="solid" color="primary" size="lg" @click="scrollToTop" class="contact-btn">
         <template #leading>
-          <NuxtImg densities="1" :src="buildImageUrl('/image/needful/backtop1.png')"
+          <NuxtImg densities="1" :src="buildImageUrl('/image/backtop1.png')"
             alt="back to top icon" class="contact-icon" />
         </template>
         Backtop
@@ -80,7 +80,7 @@ const handleEmailClick = () => {
 
 // WhatsApp点击处理
 const handleWhatsAppClick = () => {
-  navigateTo('https://wa.me/8613295238763?text=Hello%20%20I%20am%20interested%20in%20your%20products.', {
+  navigateTo('https://wa.me/8615366749631?text=Hello%20%20I%20am%20interested%20in%20your%20products.', {
     external: true,
     open: {
       target: '_blank'
@@ -250,20 +250,23 @@ onMounted(() => {
   object-fit: contain;
 }
 
+// 移动端---------------------------------------------------------------------
 // 响应式设计
 @media (max-width: 768px) {
   .side-contact-bar {
     right: 2vw;
     gap: 1vw;
+    top: 80%;
   }
 
-  .contact-btn {
-    width: 12vw;
-    height: 6vw;
-    font-size: 1.5vw;
+  .email-item, .whatsapp-item{
+    display: none;
   }
 
   :deep(.contact-btn) {
+    width: 12vw;
+    height: 12vw;
+    font-size: 2.6667vw;
     .contact-icon {
       width: 2.5vw;
       height: 2.5vw;
@@ -285,8 +288,12 @@ onMounted(() => {
   }
 
   .qr-code {
-    width: 10vw;
-    height: 10vw;
+    width: 20vw;
+    height: 20vw;
   }
 }
+
+
+
+
 </style>

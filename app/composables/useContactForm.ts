@@ -345,16 +345,18 @@ export const useContactForm = (options: UseContactFormOptions = {}) => {
         // 重置表单
         resetForm()
         
-        
-        // 可选：发送成功事件（用于analytics）
-        // if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
-        //   (window as any).gtag('event', 'inquiry_submitted', {
-        //     'event_category': 'engagement',
-        //     'cooling_capacity': contactForm.value.coolingCapacity,
-        //     'cooling_method': contactForm.value.coolingMethod,
-        //     'power_supply': contactForm.value.powerSupply
-        //   })
-        // }
+        // 触发 Google Ads 转化跟踪
+        if (typeof window !== 'undefined' && typeof gtag === 'function') {
+          // 调用转化跟踪函数
+          gtag('event', 'conversion', {
+            'send_to': 'AW-11209752310/v9qVCMyHi8MZEPb9nOEp',
+            'value': 1.0,
+            'currency': 'CNY',
+            'event_callback': function() {
+              console.log('Conversion tracking successful');
+            }
+          });
+        }
         
       } else {
         // 提交失败

@@ -124,6 +124,57 @@ const labelsToShow = computed(() => props.labels)
   color: #6b7280;
   width: 100%;
 }
+
+.is-mob {
+  .slider-container {
+  position: relative;
+  width: 100%;
+}
+
+.value-display {
+  position: absolute;
+  top: -45px;
+  left: 0; /* 初始位置 */
+  transform: translateX(-50%);
+  background: #092991;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+  transition: left 0.2s ease;
+  pointer-events: none;
+  
+  /* 添加小三角 */
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; /* 三角形位置 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #092991; /* 与背景色相同 */
+  }
+}
+
+.capacity-slider {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #6b7280;
+  width: 100%;
+}
+}
 </style>
 
 

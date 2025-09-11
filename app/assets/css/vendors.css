@@ -11,5 +11,16 @@
   --ui-primary: #092991;    /* 覆盖为蓝色 */
   --text-sm: .7292vw;
   --text-xs: .625vw;
-  --spacing: .2083vw
+  --spacing: .2083vw;
+  --tw-ring-offset-width: 1px;
+}
+
+
+:root.is-mob{
+  --ui-container: var(--container-8xl);
+  --ui-primary: #092991;    /* 覆盖为蓝色 */
+  --text-sm: 14px;
+  --text-xs: 12px;
+  --spacing: 4px;
+  --tw-ring-offset-width: 1px;
 }

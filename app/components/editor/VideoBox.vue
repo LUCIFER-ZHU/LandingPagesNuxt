@@ -12,7 +12,7 @@
         <!-- 播放按钮 -->
         <div class="play-button-wrapper" @click="openVideoModal">
           <div class="play-button-custom flex items-center justify-center">
-            <NuxtImg densities="1" :src="buildImageUrl('image/video-btn.webp')" alt="play" class="w-[3.6458vw]"/>
+            <NuxtImg densities="1" :src="buildImageUrl('image/video-btn.webp')" alt="play" :style="{ width: props.iconSize, height: props.iconSize }"/>
           </div>
         </div>
       </div>
@@ -76,12 +76,15 @@ interface VideoBoxProps {
   width?: string;
   /** 视频高度（可选） */
   height?: string;
+  /** 图标大小（可选） */
+  iconSize?: string;
 }
 
 // 定义组件属性和默认值
 const props = withDefaults(defineProps<VideoBoxProps>(), {
   width: '17.5521vw',
-  height: '9.2708vw'
+  height: '9.2708vw',
+  iconSize: '3.6458vw'
 });
 
 // 组件状态管理

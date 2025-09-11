@@ -4,7 +4,7 @@
 
     <!-- 轮播图主体 -->
     <div class="carousel-container">
-      <UCarousel ref="carouselRef" :items="slides" :ui="{
+      <UCarousel ref="carouselRef" :items="slides" :dots="isMob()" :ui="{
         item: 'basis-full',
       }" @select="onSlideSelect">
         <template #default="{ item }">
@@ -69,21 +69,21 @@
               <div class="sub-title">– Salmon Farming Heating Project</div>
               <div class="grid3">
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon10.webp')" alt="icon" loading="lazy"/>
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon10.webp')" alt="icon"  class="w-[1.6667vw]" loading="lazy"/>
                   <div class="item">
                     <div class="title">Location: </div>
                     <div class="text">Border region near Xinjiang, China</div>
                   </div>
                 </div>
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon11.webp')" alt="icon" loading="lazy"/>
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon11.webp')" alt="icon" class="w-[1.6667vw]" loading="lazy"/>
                   <div class="item">
                     <div class="title">Solution: </div>
                     <div class="text">Ultra-low temperature air source heat pump system by MINNUO</div>
                   </div>
                 </div>
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon12.webp')" alt="icon" loading="lazy"/>
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon12.webp')" alt="icon" class="w-[1.6667vw]" loading="lazy"/>
                   <div class="item">
                     <div class="title">Application:  </div>
                     <div class="text">Constant-temperature aquaculture & heating for salmon farming</div>
@@ -123,21 +123,21 @@
               <div class="sub-title">– Pacific White Shrimp Aquaculture Cooling Project</div>
               <div class="grid3">
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon10.webp')" alt="icon" loading="lazy"/>
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon10.webp')" alt="icon" class="w-[1.6667vw]" loading="lazy"/>
                   <div class="item">
                     <div class="title">Location: </div>
                     <div class="text">South America</div>
                   </div>
                 </div>
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon11.webp')" alt="icon" loading="lazy"/>
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon11.webp')" alt="icon" class="w-[1.6667vw]" loading="lazy"/>
                   <div class="item">
                     <div class="title">Solution: </div>
                     <div class="text">H.Stars water source heat pump system (by MINNUO Group)</div>
                   </div>
                 </div>
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon12.webp')" alt="icon" loading="lazy"/>
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon12.webp')" alt="icon" class="w-[1.6667vw]" loading="lazy"/>
                   <div class="item">
                     <div class="title">Application:  </div>
                     <div class="text">Temperature-controlled seawater shrimp farming</div>
@@ -178,21 +178,21 @@
               <div class="sub-title">– Dettwiler Production Line Cooling Project</div>
               <div class="grid3">
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon10.webp')" alt="icon" loading="lazy"/>
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon10.webp')" alt="icon" class="w-[1.6667vw]" loading="lazy"/>
                   <div class="item">
                     <div class="title">Location: </div>
                     <div class="text">Switzerland</div>
                   </div>
                 </div>
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon11.webp')" alt="icon" loading="lazy"/>
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon11.webp')" alt="icon" class="w-[1.6667vw]" loading="lazy"/>
                   <div class="item">
                     <div class="title">Solution: </div>
                     <div class="text">MINNUO flooded-type screw chiller unit</div>
                   </div>
                 </div>
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon12.webp')" alt="icon" loading="lazy"/>
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon12.webp')" alt="icon" class="w-[1.6667vw]" loading="lazy"/>
                   <div class="item">
                     <div class="title">Application:  </div>
                     <div class="text">Industrial production line cooling</div>
@@ -232,21 +232,21 @@
               <div class="sub-title">– Brewery Cooling & Refrigeration Project</div>
               <div class="grid3">
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon10.webp')" alt="icon" loading="lazy"/>
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon10.webp')" alt="icon" class="w-[1.6667vw]" loading="lazy"/>
                   <div class="item">
                     <div class="title">Location: </div>
                     <div class="text">Argentina</div>
                   </div>
                 </div>
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon11.webp')" alt="icon" loading="lazy"/>
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon11.webp')" alt="icon" class="w-[1.6667vw]" loading="lazy"/>
                   <div class="item">
                     <div class="title">Solution: </div>
                     <div class="text">Screw chiller, heat recovery chiller, and cooling tower system by MINNUO</div>
                   </div>
                 </div>
                 <div class="grid3-item">
-                  <NuxtImg densities="1" :src="buildImageUrl('image/icon12.webp')" alt="icon" loading="lazy"/>
+                  <NuxtImg densities="1" :src="buildImageUrl('image/icon12.webp')" alt="icon" class="w-[1.6667vw]" loading="lazy"/>
                   <div class="item">
                     <div class="title">Application:  </div>
                     <div class="text">Beer production cooling & refrigeration</div>
@@ -303,6 +303,9 @@
 </template>
 
 <script setup lang="ts">
+// 使用设备检测组合函数
+const { isMob } = useDeviceDetection()
+
 // 导入图片URL构建函数
 const { buildImageUrl } = useImageUrl();
 /**
@@ -551,8 +554,83 @@ defineExpose({
         height: 4.6875vw;
       }
     }
+  }  
+}
+// 移动端---------------------------------------------------------------------
+// 响应式设计
+@media (max-width: 768px) {
+  .trust-carousel{
+    >.title{
+      display: none;
+    }
+
+    .carousel-container{
+      .slide-content{
+        height: auto;
+        flex-direction: column;
+
+        >img{
+          width: 79.7333vw;
+          height: 59.8667vw;
+        }
+
+        .content{
+          .title{
+            font-size: 4.8vw;
+          }
+
+          .sub-title{
+            font-size: 2.4vw;
+          }
+
+          .grid3{
+            width: 100%;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5.3333vw;
+
+            .grid3-item{
+              >img{
+                width: 4.2667vw;
+              }
+
+              .item{
+                .title{
+                  font-size: 2.6667vw;
+                }
+                .text{
+                  font-size: 2.4vw;
+                  line-height: 3.2vw;
+                }
+              }
+            }
+          }
+
+
+          .grid2{
+            grid-template-columns: repeat(1, 1fr);
+            gap: 2.2667vw;
+            .grid2-item{
+              padding: 4.5333vw 4vw;
+              background: rgba(16,75,212,0.04);
+
+              .title{
+                font-size: 2.6667vw;    
+                margin-bottom: 3.3333vw;            
+              }
+
+              .text{
+                font-size: 2.4vw;
+                line-height: 3.2vw;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .carousel-controls{
+      display: none;
+    }
   }
-
-
 }
 </style>

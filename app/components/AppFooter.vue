@@ -1,6 +1,6 @@
 <template>
   <footer class="app-footer">
-    <div class="footer-content">
+    <div v-if="!isMob()" class="footer-content">
       <!-- 第一行：三列布局 -->
       <div class="footer-top">
         <!-- 工厂介绍 -->
@@ -33,20 +33,6 @@
             machines.
           </p>
 
-          <!-- 社交媒体图标 -->
-          <div class="social-icons">
-            <NuxtLink to="https://www.youtube.com/@MINNUOGROUP-v5r" target="_blank">
-              <NuxtImg densities="1" :src="buildImageUrl('image/needful/youtube.webp')" alt="YouTube" class="w-[2.2396vw]"/>
-            </NuxtLink>
-            <NuxtLink
-              to="https://www.facebook.com/people/Chris-King/pfbid02taxM6qiZqwUdbM9fW2LtZeKqGYqUXHu7txgb8C6Y2mK551oJNHczcCiDBefgHfy7l/"
-              target="_blank">
-              <NuxtImg densities="1" :src="buildImageUrl('image/needful/facebook.webp')" alt="Facebook" class="w-[1.5625vw]"/>
-            </NuxtLink>
-            <NuxtLink to="https://www.instagram.com/chrisking5538/" target="_blank">
-              <NuxtImg densities="1" :src="buildImageUrl('image/needful/ig.webp')" alt="Instagram" class="w-[1.5625vw]"/>
-            </NuxtLink>
-          </div>
         </div>
       </div>
 
@@ -56,21 +42,10 @@
         <div class="footer-column">
           <h3 class="footer-title">MINNUO</h3>
           <div class="company-info">
-            <h4>Europe & North America</h4>
-            <div class="contact-item mb-[1.9271vw]">
-              <div class="icon-wrapper">
-                <NuxtImg :src="buildImageUrl('image/needful/location.webp')" alt="Location" />
-              </div>
-              <div class="contact-text">
-                <p>USA Office Address:</p>
-                <p>8 The Green Ste A Dover Kent 19901</p>
-              </div>
-            </div>
-
             <h4>Asia-Pacific Region</h4>
             <div class="contact-item mb-[1.0417vw]">
               <div class="icon-wrapper">
-                <NuxtImg :src="buildImageUrl('image/needful/location.webp')" alt="Location" />
+                <NuxtImg :src="buildImageUrl('image/location.webp')" alt="Location" />
               </div>
               <div class="contact-text">
                 <p>China Office:</p>
@@ -79,7 +54,7 @@
             </div>
             <div class="contact-item">
               <div class="icon-wrapper">
-                <NuxtImg :src="buildImageUrl('image/needful/whatsapp.webp')" alt="WhatsApp" />
+                <NuxtImg :src="buildImageUrl('image/whatsapp.webp')" alt="WhatsApp" />
               </div>
               <p>WhatsApp (Tel)：+86 15366749631</p>
             </div>
@@ -91,19 +66,25 @@
           <h3 class="footer-title">Product</h3>
           <ul class="footer-nav">
             <li>
-              <NuxtLink to="#">HOME</NuxtLink>
+              <NuxtLink to="#banner-anchor" class="menu-link">Service Introduction</NuxtLink>
             </li>
             <li>
-              <NuxtLink to="#">PRODUCT</NuxtLink>
+              <NuxtLink to="#products-anchor" class="menu-link">Featured Products</NuxtLink>
             </li>
             <li>
-              <NuxtLink to="#">NEWS</NuxtLink>
+              <NuxtLink to="#core-components-anchor" class="menu-link">Core Components</NuxtLink>
             </li>
             <li>
-              <NuxtLink to="#">ABOUT US</NuxtLink>
+              <NuxtLink to="#about-us-anchor" class="menu-link">About Us</NuxtLink>
             </li>
             <li>
-              <NuxtLink to="#">CONTACTS</NuxtLink>
+              <NuxtLink to="#our-service-anchor" class="menu-link">Our Service</NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="#project-cases-anchor" class="menu-link">Project Cases</NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="#contact-us-anchor" class="menu-link">Contact Us</NuxtLink>
             </li>
           </ul>
         </div>
@@ -126,6 +107,43 @@
         </div>
       </div>
     </div>
+
+    <div v-else class="footer-mob-content">
+      <!-- 服务介绍 -->
+      <div class="footer-column">
+        <h3 class="footer-title">Our Service</h3>
+        <div class="service-item pr-[2.0833vw]">
+          <h4>On-Time Delivery:</h4>
+          <p>Ensuring timely delivery to support your production.</p>
+        </div>
+        <div class="service-item">
+          <h4>Expert Support:</h4>
+          <p>Offering professional consultation and service throughout.</p>
+        </div>
+      </div>
+      <!-- 公司信息 -->
+      <div class="footer-column">
+        <h3 class="footer-title">MINNUO</h3>
+        <div class="company-info">
+          <h4>Asia-Pacific Region</h4>
+          <div class="contact-item mb-[1.0417vw]">
+            <div class="icon-wrapper">
+              <NuxtImg :src="buildImageUrl('image/location.webp')" alt="Location" />
+            </div>
+            <div class="contact-text">
+              <p>China Office:</p>
+              <p>Lishi Exploit Park,Xinqiao Industrial Park, Jingjiang City</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon-wrapper">
+              <NuxtImg :src="buildImageUrl('image/whatsapp.webp')" alt="WhatsApp" />
+            </div>
+            <p>WhatsApp (Tel)：+86 15366749631</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </footer>
 </template>
 
@@ -137,6 +155,9 @@
 
 // 使用图片URL管理composable
 const { buildImageUrl } = useImageUrl();
+
+// 使用设备检测组合函数
+const { isMob } = useDeviceDetection()
 
 // 使用联系表单组合函数 - 仅处理邮件订阅
 const {
@@ -289,7 +310,7 @@ const {
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: 30% 20%;
+  grid-template-columns: 50% 50%;
   gap: 1.4583vw 1.8229vw;
 
   li {
@@ -354,6 +375,51 @@ const {
     &:hover {
       background-color: rgba(255, 255, 255, 0.9);
     }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .footer-mob-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.0417vw;
+
+    .footer-title {
+      font-size: 2.6667vw;
+    }
+
+    .service-item {
+      h4 {
+        font-size: 2.6667vw;
+      }
+
+      p {
+        font-size: 2.6667vw;
+      }
+    }
+
+    .company-info {
+      h4 {
+        font-size: 2.6667vw;
+      }
+    }
+
+    .contact-item {
+      p {
+        font-size: 2.6667vw;
+      }
+
+      .icon-wrapper {
+        width: 3.3333vw;
+        height: 3.3333vw;
+      }
+
+      .contact-text p {
+        font-size: 2.6667vw;
+      }
+    }
+
   }
 }
 </style>

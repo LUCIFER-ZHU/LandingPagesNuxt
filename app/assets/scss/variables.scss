@@ -14,7 +14,7 @@ $font-size-xl: 24px;
 $font-size-xxl: 32px;
 
 // 图片变量
-$image-base: 'https://minnuo-test.oss-cn-qingdao.aliyuncs.com/castMachine/';
+$image-base: 'https://minnuo-test.oss-cn-qingdao.aliyuncs.com/waterCooler/';
 
 // 混合器
 @mixin flex-center {
@@ -40,6 +40,116 @@ $image-base: 'https://minnuo-test.oss-cn-qingdao.aliyuncs.com/castMachine/';
   
   &:hover {
     box-shadow: 0vw .2604vw .4167vw 0vw rgba(0, 0, 0, 0.3);
+  }
+}
+
+@mixin default-btn-mob {
+  padding: 1.6vw 3.7333vw;
+  background: #F66618;
+  border-radius: 6.4vw;
+  font-weight: bold;
+  font-size: 2.6667vw;
+  color: #FFFFFF;
+  line-height: 4.2667vw;
+  cursor: pointer;
+}
+
+// 悬浮特效mixin
+@mixin hover-lift-effect($lift-distance: -0.1vw, $scale: 1.02, $shadow-color: rgba(0, 0, 0, 0.15)) {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  // 悬浮时的3D变换效果
+  &:hover {
+    transform: translateY($lift-distance) scale($scale);
+    box-shadow: 0 1vw 2vw 0 $shadow-color;
+  }
+}
+
+// 发光边框悬浮特效mixin
+@mixin hover-glow-effect($lift-distance: -0.1vw, $scale: 1.02, $glow-color: #092991, $secondary-color: #3B82F6) {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  // 悬浮时的3D变换效果
+  &:hover {
+    transform: translateY($lift-distance) scale($scale);
+    box-shadow: 0 1vw 2vw 0 rgba(0, 0, 0, 0.15);
+    
+    // 悬浮时的发光效果
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  // 发光边框效果
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(45deg, $glow-color, $secondary-color, $glow-color);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none; // 避免遮挡内部可点击元素
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+}
+
+// 按钮悬浮特效mixin
+@mixin button-hover-effect($hover-lift: -2px, $hover-scale: 1.05, $active-scale: 0.98) {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  
+  // 悬浮效果
+  &:hover {
+    transform: translateY($hover-lift) scale($hover-scale);
+  }
+  
+  // 点击效果
+  &:active {
+    transform: translateY(0) scale($active-scale);
+    transition: all 0.1s ease;
+  }
+  
+  // 波纹效果
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+  
+  &:active::before {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+// 文字标题悬浮动画mixin（无下划线版本）
+@mixin title-hover-effect($scale: 1.02, $duration: 0.3s) {
+  transition: transform $duration ease;
+  cursor: pointer;
+  
+  // 悬浮时的轻微放大效果
+  &:hover {
+    transform: scale($scale);
   }
 }
 

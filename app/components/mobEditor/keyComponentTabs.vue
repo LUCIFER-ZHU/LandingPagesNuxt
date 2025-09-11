@@ -3,29 +3,32 @@
     <div class="title">
       Key Components of an Industrial Chiller Unit
     </div>
-    <!-- 标签页选项卡 -->
-    <UTabs v-model="activeTab" color="primary" variant="link" :content="false" :items="tabItems" :ui="{
-      indicator: 'h-[.1042vw]'
-    }" class="w-full chiller-tabs" />
+    <!-- 自定义标签页按钮 -->
+    <div class="custom-tabs">
+      <button v-for="item in tabItems" :key="item.value" :class="['tab-button', { 'active': activeTab === item.value }]"
+        @click="activeTab = item.value as string">
+        {{ item.label }}
+      </button>
+    </div>
 
     <!-- 自定义内容区域 -->
     <div class="tab-content mt-4">
       <!-- 根据活动标签显示相应内容 -->
       <div v-if="activeTab === 'low-temp'" class="tab-pane tab-pane-1">
         <div v-for="item in tabPane1Content" :key="item.title" class="box">
-          <NuxtImg densities="1" :src="item.image" alt="icon" loading="lazy"/>
+          <NuxtImg densities="1" :src="item.image" alt="icon" loading="lazy" />
           <div class="title">
             {{ item.title }}
           </div>
           <div class="content">
             {{ item.content }}
           </div>
-        </div>        
+        </div>
       </div>
 
       <div v-if="activeTab === 'air-cooled'" class="tab-pane tab-pane-2">
         <div v-for="item in tabPane2Content" :key="item.title" class="box">
-          <NuxtImg densities="1" :src="item.image" alt="icon" loading="lazy"/>
+          <NuxtImg densities="1" :src="item.image" alt="icon" loading="lazy" />
           <div class="title">
             {{ item.title }}
           </div>
@@ -37,7 +40,7 @@
 
       <div v-if="activeTab === 'industrial'" class="tab-pane tab-pane-3">
         <div v-for="item in tabPane3Content" :key="item.title" class="box">
-          <NuxtImg densities="1" :src="item.image" alt="icon" loading="lazy"/>
+          <NuxtImg densities="1" :src="item.image" alt="icon" loading="lazy" />
           <div class="title">
             {{ item.title }}
           </div>
@@ -49,7 +52,7 @@
 
       <div v-if="activeTab === 'mtc'" class="tab-pane tab-pane-4">
         <div v-for="item in tabPane4Content" :key="item.title" class="box">
-          <NuxtImg densities="1" :src="item.image" alt="icon" loading="lazy"/>
+          <NuxtImg densities="1" :src="item.image" alt="icon" loading="lazy" />
           <div class="title">
             {{ item.title }}
           </div>
@@ -263,26 +266,55 @@ const tabPane4Content = ref([
 <style scoped lang="scss">
 .key-component-tabs {
   width: 100%;
+  padding: 6.6667vw 6.6667vw 6.4vw;
 
   >.title {
     font-weight: bold;
-    font-size: 2.5vw;
+    font-size: 4.8vw;
     color: #000000;
     text-align: center;
-    margin: 6.875vw 5.2083vw 1.9792vw;
   }
 }
 
-.chiller-tabs :deep(.flex) {
-  justify-content: center;
+// 自定义标签页按钮样式
+.custom-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-  border-bottom: none;
+  margin: 2rem 0;
+  padding: 0 1rem;
 
-  button {
-    font-size: .9375vw;
+  // 移动端适配
+  @media (max-width: 768px) {
+    gap: 0.8rem;
+    margin: 1.5rem 0;
+    padding: 0 0.5rem;
+  }
+}
 
-    &[data-state="active"] {
-      font-weight: bold;
+.tab-button {
+  border: 1px solid #000;
+  background: #fff;
+  color: #000;
+  border-radius: 2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1rem;
+  font-size: 0.8rem;
+  min-height: 18.6667vw;
+
+  &.active {
+    background: #092991;
+    color: #fff;
+    border-color: #092991;
+
+    &:hover {
+      background: #0a2a7a;
     }
   }
 }
@@ -309,33 +341,27 @@ const tabPane4Content = ref([
 }
 
 .tab-pane {
-  padding: 0 18.5938vw;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.6042vw 1.25vw;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.6667vw 6.6667vw;
 
   .box {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    min-height: 22.3958vw;
-    
-    img {
-      @include hover-glow-effect(-0.1vw, 1.02, #fff, #fff);
-    }
 
     .title {
       font-weight: bold;
-      font-size: .8333vw;
+      font-size: 2.9333vw;
       color: #000000;
-      margin: .8333vw 0 .4167vw;
+      margin: 2.6667vw 0 1.3333vw;
     }
 
     .content {
       font-weight: 400;
-      font-size: .7292vw;
+      font-size: 2.6667vw;
       color: rgba(0, 0, 0, 0.6);
-      line-height: 1.0938vw;
+      line-height: 3.6vw;
     }
   }
 }
