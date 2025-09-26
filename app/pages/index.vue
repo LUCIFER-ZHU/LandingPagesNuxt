@@ -1,7 +1,6 @@
 <template>
   <!-- 根据设备类型渲染不同的组件 -->
-  <PagesMainPage v-if="!isMob()" />
-  <PagesMainPageMob v-else />
+  <PagesMainPage />
 </template>
 
 <script setup lang="ts">

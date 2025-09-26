@@ -45,7 +45,7 @@
             <h4>Asia-Pacific Region</h4>
             <div class="contact-item mb-[1.0417vw]">
               <div class="icon-wrapper">
-                <NuxtImg :src="buildImageUrl('image/location.webp')" alt="Location" />
+                <NuxtImg :src="buildImageUrl('/image/needful/location.webp')" alt="Location" />
               </div>
               <div class="contact-text">
                 <p>China Office:</p>
@@ -54,7 +54,7 @@
             </div>
             <div class="contact-item">
               <div class="icon-wrapper">
-                <NuxtImg :src="buildImageUrl('image/whatsapp.webp')" alt="WhatsApp" />
+                <NuxtImg :src="buildImageUrl('/image/needful/whatsapp.webp')" alt="WhatsApp" />
               </div>
               <p>WhatsApp (Tel)：+86 15366749631</p>
             </div>
@@ -63,27 +63,27 @@
 
         <!-- 产品导航 -->
         <div class="footer-column">
-          <h3 class="footer-title">Product</h3>
+          <h3 class="footer-title">Navigation</h3>
           <ul class="footer-nav">
-            <li>
+            <li class="menu-item">
               <NuxtLink to="#banner-anchor" class="menu-link">Service Introduction</NuxtLink>
             </li>
-            <li>
-              <NuxtLink to="#products-anchor" class="menu-link">Featured Products</NuxtLink>
+            <li class="menu-item">
+              <NuxtLink to="#application-scenarios-anchor" class="menu-link">Application scenarios</NuxtLink>
             </li>
-            <li>
-              <NuxtLink to="#core-components-anchor" class="menu-link">Core Components</NuxtLink>
-            </li>
-            <li>
+            <li class="menu-item">
               <NuxtLink to="#about-us-anchor" class="menu-link">About Us</NuxtLink>
             </li>
-            <li>
+            <li class="menu-item">
               <NuxtLink to="#our-service-anchor" class="menu-link">Our Service</NuxtLink>
             </li>
-            <li>
+            <li class="menu-item">
+              <NuxtLink to="#products-anchor" class="menu-link">Featured Products</NuxtLink>
+            </li>
+            <li class="menu-item">
               <NuxtLink to="#project-cases-anchor" class="menu-link">Project Cases</NuxtLink>
             </li>
-            <li>
+            <li class="menu-item">
               <NuxtLink to="#contact-us-anchor" class="menu-link">Contact Us</NuxtLink>
             </li>
           </ul>
@@ -128,7 +128,7 @@
           <h4>Asia-Pacific Region</h4>
           <div class="contact-item mb-[1.0417vw]">
             <div class="icon-wrapper">
-              <NuxtImg :src="buildImageUrl('image/location.webp')" alt="Location" />
+              <NuxtImg :src="buildImageUrl('/image/needful/location.webp')" alt="Location" />
             </div>
             <div class="contact-text">
               <p>China Office:</p>
@@ -137,7 +137,7 @@
           </div>
           <div class="contact-item">
             <div class="icon-wrapper">
-              <NuxtImg :src="buildImageUrl('image/whatsapp.webp')" alt="WhatsApp" />
+              <NuxtImg :src="buildImageUrl('/image/needful/whatsapp.webp')" alt="WhatsApp" />
             </div>
             <p>WhatsApp (Tel)：+86 15366749631</p>
           </div>

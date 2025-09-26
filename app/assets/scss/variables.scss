@@ -14,7 +14,7 @@ $font-size-xl: 24px;
 $font-size-xxl: 32px;
 
 // 图片变量
-$image-base: 'https://minnuo-test.oss-cn-qingdao.aliyuncs.com/waterCooler/';
+$image-base: 'https://minnuo-test.oss-cn-qingdao.aliyuncs.com/hydrogen';
 
 // 混合器
 @mixin flex-center {
@@ -29,13 +29,12 @@ $image-base: 'https://minnuo-test.oss-cn-qingdao.aliyuncs.com/waterCooler/';
 
 // 按钮mixin
 @mixin default-btn {
-  padding: .625vw 1.4583vw;
+  padding: clamp(6px, .625vw, .625vw) clamp(14px, 1.4583vw, 1.4583vw);
   background: #F66618;
   border-radius: 2.5vw;
   font-weight: bold;
-  font-size: .9375vw;
+  font-size: clamp(12px, .9375vw, .9375vw);
   color: #FFFFFF;
-  line-height: 1.6667vw;
   cursor: pointer;
   
   &:hover {
@@ -48,9 +47,8 @@ $image-base: 'https://minnuo-test.oss-cn-qingdao.aliyuncs.com/waterCooler/';
   background: #F66618;
   border-radius: 6.4vw;
   font-weight: bold;
-  font-size: 2.6667vw;
+  font-size: clamp(10px, 2.6667vw, 2.6667vw);
   color: #FFFFFF;
-  line-height: 4.2667vw;
   cursor: pointer;
 }
 

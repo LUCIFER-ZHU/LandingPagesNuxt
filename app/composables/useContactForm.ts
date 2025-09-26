@@ -167,6 +167,19 @@ export const useContactForm = (options: UseContactFormOptions = {}) => {
   }
 
   /**
+   * 验证电话号码格式（用于氢压缩机表单）
+   * @param {string} phoneNumber - 要验证的电话号码
+   * @returns {boolean} 验证结果
+   */
+  const validatePhoneNumber = (phoneNumber: string): boolean => {
+    if (!phoneNumber) return true // 选填字段，空值有效
+    // 电话号码正则：支持各种国际格式
+    const phoneRegex = /^[\d\s\-()]{7,}$/
+    return phoneRegex.test(phoneNumber)
+  }
+
+
+  /**
    * 表单验证函数
    * @returns {FormValidationResult} 验证结果对象
    */
@@ -192,10 +205,17 @@ export const useContactForm = (options: UseContactFormOptions = {}) => {
       errors.whatsapp = 'Please enter a valid phone number'
     }
 
+    // 电话号码验证（氢压缩机表单专用）
+    if (contactForm.value.phoneNumber && !validatePhoneNumber(contactForm.value.phoneNumber)) {
+      errors.phoneNumber = 'Please enter a valid phone number'
+    }
+
     // 冷却容量验证（有值时才验证）
     if (contactForm.value.coolingCapacity && (contactForm.value.coolingCapacity < 3 || contactForm.value.coolingCapacity > 10000)) {
       errors.coolingCapacity = 'Cooling capacity must be between 3-10000KW'
     }
+
+    // 氢压缩机技术参数验证已移除，只保留基础字段验证
 
     // 更新验证错误状态
     validationErrors.value = errors
@@ -346,16 +366,26 @@ export const useContactForm = (options: UseContactFormOptions = {}) => {
         resetForm()
         
         // 触发 Google Ads 转化跟踪
-        if (typeof window !== 'undefined' && typeof gtag === 'function') {
-          // 调用转化跟踪函数
-          gtag('event', 'conversion', {
-            'send_to': 'AW-11209752310/v9qVCMyHi8MZEPb9nOEp',
-            'value': 1.0,
-            'currency': 'CNY',
-            'event_callback': function() {
-              console.log('Conversion tracking successful');
+        if (typeof window !== 'undefined') {
+          try {
+            // 优先使用全局封装的转化上报方法（与 app.vue 中保持一致）
+            const reporter = (window as any).gtag_report_conversion as undefined | ((url?: string) => boolean)
+            if (typeof reporter === 'function') {
+              reporter()
+            } else if (typeof gtag === 'function') {
+              // 回退：直接调用 gtag 事件上报（新账号与事件ID）
+              gtag('event', 'conversion', {
+                'send_to': 'AW-10801798623/mSIWCPH6iIMYEN-72Z4o',
+                'value': 1.0,
+                'currency': 'CNY',
+                'event_callback': function() {
+                  console.log('Conversion tracking successful')
+                }
+              })
             }
-          });
+          } catch (e) {
+            console.warn('Conversion tracking failed:', e)
+          }
         }
         
       } else {

@@ -8,6 +8,10 @@ declare module '#app' {
     $customFetch: typeof $fetch
     $customUseFetch: typeof useFetch
     $customUseLazyFetch: typeof useLazyFetch
+    /**
+     * AOS 实例（滚动进入视窗动画库）
+     */
+    $aos: typeof import('aos')
     $toast: {
       success: (message: string, options?: any) => void
       error: (message: string, options?: any) => void
@@ -24,6 +28,10 @@ declare module '@vue/runtime-core' {
     $customFetch: typeof $fetch
     $customUseFetch: typeof useFetch
     $customUseLazyFetch: typeof useLazyFetch
+    /**
+     * AOS 实例（滚动进入视窗动画库）
+     */
+    $aos: typeof import('aos')
     $toast: {
       success: (message: string, options?: any) => void
       error: (message: string, options?: any) => void

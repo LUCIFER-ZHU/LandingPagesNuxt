@@ -4,7 +4,7 @@
     <div class="contact-item email-item" @mouseenter="showEmailDetails = true" @mouseleave="showEmailDetails = false">
       <UButton variant="solid" color="primary" size="lg" @click="handleEmailClick" class="contact-btn">
         <template #leading>
-          <NuxtImg densities="1" :src="buildImageUrl('/image/email1.png')" alt="email icon"
+          <NuxtImg densities="1" :src="buildImageUrl('/image/needful/email1.png')" alt="email icon"
             class="contact-icon" />
         </template>
         Email
@@ -15,7 +15,7 @@
         <div class="detail-item">
           <div class="detail-info">
             <UIcon name="i-heroicons:envelope-16-solid" class="detail-icon" />
-            <span>consult@minnuo.com</span>
+            <span>engineer@minnuo.com</span>
           </div>
           <div class="detail-description">
             Send us an email
@@ -29,7 +29,7 @@
       @mouseleave="showWhatsAppDetails = false">
       <UButton variant="solid" color="primary" size="lg" @click="handleWhatsAppClick" class="contact-btn">
         <template #leading>
-          <NuxtImg densities="1" :src="buildImageUrl('/image/kefu2.png')" alt="WhatsApp icon"
+          <NuxtImg densities="1" :src="buildImageUrl('/image/needful/kefu2.png')" alt="WhatsApp icon"
             class="contact-icon" />
         </template>
         WhatsApp
@@ -52,7 +52,7 @@
     <div class="contact-item backtop-item">
       <UButton variant="solid" color="primary" size="lg" @click="scrollToTop" class="contact-btn">
         <template #leading>
-          <NuxtImg densities="1" :src="buildImageUrl('/image/backtop1.png')"
+          <NuxtImg densities="1" :src="buildImageUrl('/image/needful/backtop1.png')"
             alt="back to top icon" class="contact-icon" />
         </template>
         Backtop
@@ -75,12 +75,14 @@ const showWhatsAppDetails = ref(false);
 
 // Email点击处理
 const handleEmailClick = () => {
-  window.location.href = 'mailto:sales@example.com'
+  window.location.href = 'mailto:engineer@minnuo.com'
 }
 
 // WhatsApp点击处理
 const handleWhatsAppClick = () => {
-  navigateTo('https://wa.me/8615366749631?text=Hello%20%20I%20am%20interested%20in%20your%20products.', {
+  const message = 'Hello I am interested in your diaphragm compressors.'
+  const encodedMessage = encodeURIComponent(message)
+  navigateTo(`https://wa.me/8615366749631?text=${encodedMessage}`, {
     external: true,
     open: {
       target: '_blank'
