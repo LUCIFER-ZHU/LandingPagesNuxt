@@ -22,6 +22,8 @@ export default defineNuxtConfig({
             apiBase: process.env.NUXT_PUBLIC_API_BASE,
             // 图片资源基地址
             imageBase: process.env.NUXT_PUBLIC_IMAGE_BASE,
+            // 应用版本号（构建时通过 APP_VERSION 注入，回退为 'dev'）
+            appVersion: process.env.APP_VERSION || 'dev',
         },
     },
     image: {

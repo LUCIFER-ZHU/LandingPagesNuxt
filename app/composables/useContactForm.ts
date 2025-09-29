@@ -143,40 +143,6 @@ export const useContactForm = (options: UseContactFormOptions = {}) => {
   // 表单验证状态
   const validationErrors = ref<Record<string, string>>({})
 
-  /**
-   * 验证邮箱格式
-   * @param {string} email - 要验证的邮箱地址
-   * @returns {boolean} 验证结果
-   */
-  const validateEmail = (email: string): boolean => {
-    // 邮箱正则表达式：基本格式验证
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    return emailRegex.test(email)
-  }
-
-  /**
-   * 验证WhatsApp号码格式
-   * @param {string} whatsapp - 要验证的WhatsApp号码
-   * @returns {boolean} 验证结果
-   */
-  const validateWhatsApp = (whatsapp: string): boolean => {
-    if (!whatsapp) return true // 选填字段，空值有效
-    // 电话号码正则：支持各种国际格式
-    const phoneRegex = /^[+]?[\d\s\-()]{8,}$/
-    return phoneRegex.test(whatsapp)
-  }
-
-  /**
-   * 验证电话号码格式（用于氢压缩机表单）
-   * @param {string} phoneNumber - 要验证的电话号码
-   * @returns {boolean} 验证结果
-   */
-  const validatePhoneNumber = (phoneNumber: string): boolean => {
-    if (!phoneNumber) return true // 选填字段，空值有效
-    // 电话号码正则：支持各种国际格式
-    const phoneRegex = /^[\d\s\-()]{7,}$/
-    return phoneRegex.test(phoneNumber)
-  }
 
 
   /**
@@ -189,33 +155,12 @@ export const useContactForm = (options: UseContactFormOptions = {}) => {
     // 姓名验证（必填）
     if (!contactForm.value.name.trim()) {
       errors.name = 'Please enter your name'
-    } else if (contactForm.value.name.trim().length < 2) {
-      errors.name = 'Name must be at least 2 characters'
     }
 
     // 邮箱验证（必填）
     if (!contactForm.value.email.trim()) {
       errors.email = 'Please enter your email address'
-    } else if (!validateEmail(contactForm.value.email)) {
-      errors.email = 'Please enter a valid email address'
     }
-
-    // WhatsApp验证（选填，但有值时格式需正确）
-    if (contactForm.value.whatsapp && !validateWhatsApp(contactForm.value.whatsapp)) {
-      errors.whatsapp = 'Please enter a valid phone number'
-    }
-
-    // 电话号码验证（氢压缩机表单专用）
-    if (contactForm.value.phoneNumber && !validatePhoneNumber(contactForm.value.phoneNumber)) {
-      errors.phoneNumber = 'Please enter a valid phone number'
-    }
-
-    // 冷却容量验证（有值时才验证）
-    if (contactForm.value.coolingCapacity && (contactForm.value.coolingCapacity < 3 || contactForm.value.coolingCapacity > 10000)) {
-      errors.coolingCapacity = 'Cooling capacity must be between 3-10000KW'
-    }
-
-    // 氢压缩机技术参数验证已移除，只保留基础字段验证
 
     // 更新验证错误状态
     validationErrors.value = errors

@@ -144,6 +144,8 @@
         </div>
       </div>
     </div>
+    <!-- 隐藏的版本显示：用于单点核验，生产环境 display none -->
+    <div style="display: none">Version: {{ appVersion }}</div>
   </footer>
 </template>
 
@@ -152,6 +154,9 @@
  * 应用底部组件
  * 提供公司信息、服务介绍、联系方式和订阅功能
  */
+
+// Vue reactivity helpers
+import { computed } from 'vue'
 
 // 使用图片URL管理composable
 const { buildImageUrl } = useImageUrl();
@@ -167,6 +172,13 @@ const {
 } = useContactForm({
   customFields: { name: 'Newsletter Subscription' } // 添加订阅标记
 });
+
+/**
+ * 运行时配置：读取应用版本号
+ * 在构建时通过环境变量 APP_VERSION 注入到 runtimeConfig.public.appVersion
+ */
+const runtimeConfig = useRuntimeConfig();
+const appVersion = computed(() => String(runtimeConfig.public.appVersion || 'dev'));
 
 </script>
 
