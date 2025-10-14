@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     plugins: [
       { src: "~/plugins/aos.client", mode: "client" },
     ],
-    // ssr: false,
+    ssr: false,
     app: {
       head: {
         title: 'Industrial Temperature Control Solutions',
@@ -30,6 +30,13 @@ export default defineNuxtConfig({
         // 默认使用原图
         densities: [1],
     },
+    fonts: {
+      // 不使用 Google 提供商
+      providers: {
+        google: false,
+        googleicons: false
+      }
+    },    
     vite: {
         css: {
             preprocessorOptions: {
