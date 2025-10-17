@@ -11,7 +11,7 @@
     </div>
 
     <!-- 导航菜单 -->
-    <nav class="navigation-menu">
+    <!-- <nav class="navigation-menu">
       <ul class="menu-list">
         <li class="menu-item">
           <NuxtLink to="#banner-anchor" class="menu-link">Service Introduction</NuxtLink>
@@ -35,7 +35,7 @@
           <NuxtLink to="#contact-us-anchor" class="menu-link">Contact Us</NuxtLink>
         </li>
       </ul>
-    </nav>
+    </nav> -->
   </header>
 </template>
 
@@ -65,7 +65,7 @@ const handleEmailClick = () => {
   // position: sticky;
   top: 0;
   z-index: 10;
-  padding: 1.7708vw 13.5938vw 1.4583vw;
+  padding: .5208vw 13.5938vw .5208vw;
 }
 
 .header-content {

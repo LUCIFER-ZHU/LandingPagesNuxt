@@ -1,6 +1,6 @@
 <template>
   <!-- 根据设备类型渲染不同的组件 -->
-  <PagesMainPage />
+  进首页了
 </template>
 
 <script setup lang="ts">

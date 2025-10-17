@@ -7,7 +7,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   if (import.meta.client) {
     // 首次加载
     AOS.init({
-      duration: 800, // 动画时长（毫秒）
+      duration: 1000, // 动画时长（毫秒）
       easing: 'ease-out-quart', // 缓动函数
       once: false, // 是否仅在第一次滚动时触发
       offset: 40, // 触发偏移（像素）
