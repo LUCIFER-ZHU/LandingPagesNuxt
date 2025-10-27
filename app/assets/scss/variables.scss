@@ -1,20 +1,16 @@
 // 颜色变量
-$primary-color: #3B82F6;
-$secondary-color: #10B981;
+$primary-color: #071C63;
+$primary-color-disable: #2A2A4D;
+
 $text-color: #1F2937;
-$light-text-color: #6B7280;
 $background-color: #F9FAFB;
-$border-color: #E5E7EB;
 
 // 字体变量
 $font-family: "Microsoft YaHei", Arial, sans-serif;
 $font-size-base: 16px;
-$font-size-lg: 18px;
-$font-size-xl: 24px;
-$font-size-xxl: 32px;
 
 // 图片变量
-$image-base: 'https://minnuo-test.oss-cn-qingdao.aliyuncs.com/trucks';
+$image-base: 'https://minnuo-test.oss-cn-qingdao.aliyuncs.com/reNew';
 
 // 混合器
 @mixin flex-center {
@@ -27,37 +23,38 @@ $image-base: 'https://minnuo-test.oss-cn-qingdao.aliyuncs.com/trucks';
   transition: all 0.3s ease;
 }
 
-// 按钮mixin
+// 单页按钮mixin
 @mixin default-btn {
-  padding: clamp(6px, .625vw, .625vw) clamp(14px, 1.4583vw, 1.4583vw);
-  background: #F66618;
-  border-radius: 2.5vw;
-  font-weight: bold;
-  font-size: clamp(12px, .9375vw, .9375vw);
-  color: #FFFFFF;
-  cursor: pointer;
+  & {
+    padding: clamp(6px, .625vw, .625vw) clamp(14px, 1.4583vw, 1.4583vw);
+    background: #DA5400;
+    border-radius: 2.5vw;
+    font-weight: bold;
+    font-size: clamp(12px, .9375vw, 18px);
+    color: #FFFFFF;
+    cursor: pointer;
+  }
   
   &:hover {
     box-shadow: 0vw .2604vw .4167vw 0vw rgba(0, 0, 0, 0.3);
   }
-}
 
-@mixin default-btn-mob {
-  padding: 1.6vw 3.7333vw;
-  background: #F66618;
-  border-radius: 6.4vw;
-  font-weight: bold;
-  font-size: clamp(10px, 2.6667vw, 2.6667vw);
-  color: #FFFFFF;
-  cursor: pointer;
+  @media (max-width: 768px) {
+    padding: 1.6vw 3.7333vw;
+    border-radius: 6.4vw;
+    font-size: clamp(10px, 2.6667vw, 14vw);
+  }
 }
 
 // 悬浮特效mixin
 @mixin hover-lift-effect($lift-distance: -0.1vw, $scale: 1.02, $shadow-color: rgba(0, 0, 0, 0.15)) {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
+
+  & {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
 
   // 悬浮时的3D变换效果
   &:hover {
@@ -68,10 +65,13 @@ $image-base: 'https://minnuo-test.oss-cn-qingdao.aliyuncs.com/trucks';
 
 // 发光边框悬浮特效mixin
 @mixin hover-glow-effect($lift-distance: -0.1vw, $scale: 1.02, $glow-color: #092991, $secondary-color: #3B82F6) {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
+
+  & {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
 
   // 悬浮时的3D变换效果
   &:hover {
@@ -105,9 +105,12 @@ $image-base: 'https://minnuo-test.oss-cn-qingdao.aliyuncs.com/trucks';
 
 // 按钮悬浮特效mixin
 @mixin button-hover-effect($hover-lift: -2px, $hover-scale: 1.05, $active-scale: 0.98) {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
+
+  & {
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
   
   // 悬浮效果
   &:hover {
@@ -142,8 +145,11 @@ $image-base: 'https://minnuo-test.oss-cn-qingdao.aliyuncs.com/trucks';
 
 // 文字标题悬浮动画mixin（无下划线版本）
 @mixin title-hover-effect($scale: 1.02, $duration: 0.3s) {
-  transition: transform $duration ease;
-  cursor: pointer;
+
+  & {
+    transition: transform $duration ease;
+    cursor: pointer;
+  }
   
   // 悬浮时的轻微放大效果
   &:hover {

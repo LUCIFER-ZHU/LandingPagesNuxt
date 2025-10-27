@@ -8,7 +8,7 @@
 
 :root {
   --ui-container: var(--container-8xl);
-  --ui-primary: #092991;    /* 覆盖为蓝色 */
+  --ui-primary: #071C63;    /* 覆盖为蓝色 */
   --text-sm: .7292vw;
   --text-xs: .625vw;
   --spacing: .2083vw;
@@ -18,7 +18,7 @@
 
 :root.is-mob{
   --ui-container: var(--container-8xl);
-  --ui-primary: #092991;    /* 覆盖为蓝色 */
+  --ui-primary: #071C63;    /* 覆盖为蓝色 */
   --text-sm: 14px;
   --text-xs: 12px;
   --spacing: 4px;

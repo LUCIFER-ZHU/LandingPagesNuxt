@@ -14,6 +14,7 @@ export default defineNuxtPlugin(() => {
   // 创建自定义的 $fetch 实例，自动添加 baseURL
   const customFetch = $fetch.create({
     baseURL: apiBase,
+    credentials: 'include', // 允许发送和接收 cookies（包括 http-only）
     // 请求拦截器
     onRequest({ request, options }) {
       // 打印请求信息，区分服务端和客户端

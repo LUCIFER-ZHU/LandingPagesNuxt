@@ -3,14 +3,14 @@
  * 统一管理所有认证接口调用
  */
 
-import { useCustomFetch, useCustomUseFetch } from './request'
+import { useCustomFetch } from './request'
 
 /**
  * 发送注册验证码
  * @param email 邮箱地址
  */
 export const sendRegisterCode = (email: string) => {
-  return useCustomFetch()('/business/customer/sendCode', {
+  return useCustomFetch()('/web/customer/sendCode', {
     method: 'POST',
     body: { email }
   })
@@ -28,7 +28,7 @@ export interface RegisterRequest {
 }
 
 export const register = (data: RegisterRequest) => {
-  return useCustomFetch()('/business/customer/register', {
+  return useCustomFetch()('/web/customer/register', {
     method: 'POST',
     body: data
   })
@@ -44,7 +44,7 @@ export interface LoginRequest {
 }
 
 export const login = (data: LoginRequest) => {
-  return useCustomFetch()('/business/customer/login', {
+  return useCustomFetch()('/web/customer/login', {
     method: 'POST',
     body: data
   })
@@ -55,7 +55,7 @@ export const login = (data: LoginRequest) => {
  * @param email 邮箱地址
  */
 export const sendResetCode = (email: string) => {
-  return useCustomFetch()('/business/customer/sendResetCode', {
+  return useCustomFetch()('/web/customer/sendResetCode', {
     method: 'POST',
     body: { email }
   })
@@ -72,28 +72,25 @@ export interface ResetPasswordRequest {
 }
 
 export const resetPassword = (data: ResetPasswordRequest) => {
-  return useCustomFetch()('/business/customer/resetPassword', {
+  return useCustomFetch()('/web/customer/resetPassword', {
     method: 'POST',
     body: data
   })
 }
 
-
-export const testCode = () => {
-  return useCustomFetch()('/business/customer/testCode', {
-    method: 'GET',
-  })
+/**
+ * 用户登出
+ * @param data 登出数据（customerId 和 email）
+ */
+export interface LogoutRequest {
+  customerId: string | number
+  email: string
 }
 
-/**
- * 测试代码 - 用于 SSR 测试（使用 useFetch）
- * 可以在服务端渲染时调用
- * server: true 确保只在服务端执行一次，客户端导航时不会重新请求
- */
-export const testCodeSSR = () => {
-  return useCustomUseFetch('/business/customer/testCode', {
-    method: 'GET',
-    server: true,  // 只在服务端执行
+export const logout = (data: LogoutRequest) => {
+  return useCustomFetch()('/web/customer/logout', {
+    method: 'POST',
+    body: data
   })
 }
 

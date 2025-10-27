@@ -1,16 +1,27 @@
 <template>
-  <!-- 根据设备类型渲染不同的组件 -->
-  进首页了
+  <div class="index-page">
+    <!-- 使用新的头部组件 -->
+    <ReNewAppHeader />
+    <PagesIndexNoAuth v-if="!authStore.isLoggedIn" />
+    <PagesIndexAuth v-else />
+  </div>
 </template>
 
 <script setup lang="ts">
+import { useAuthStore } from '~/stores/auth'
+
 /**
  * 首页组件
- * 根据设备类型自动切换桌面端和移动端版本
+ * 显示用户信息和退出登录功能
  */
+
+const { $toast } = useNuxtApp()
+const authStore = useAuthStore()
 
 // 使用设备检测组合函数
 const { isMob } = useDeviceDetection()
+
+
 </script>
 
 <style lang="scss" scoped>

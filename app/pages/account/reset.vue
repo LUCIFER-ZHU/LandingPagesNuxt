@@ -1,92 +1,62 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-md w-full space-y-8">
-      <div>
-        <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white">
-          Reset your password
-        </h2>
-        <p class="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">
-          Remember your password?
-          <NuxtLink
-            to="/account/login"
-            class="font-medium text-primary-600 hover:text-primary-500"
-          >
-            Sign in here
-          </NuxtLink>
-        </p>
-      </div>
+  <div class="reset-page">
+    <div class="form-container">
+      <div class="form-card">
+        <h2 class="form-title">Reset password</h2>
 
-      <UCard>
-        <form @submit.prevent="handleResetPassword" class="space-y-6">
+        <form @submit.prevent="handleResetPassword" class="reset-form">
           <!-- Email -->
-          <div>
-            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Email address <span class="text-red-500">*</span>
-            </label>
-            <UInput
-              id="email"
-              v-model="form.email"
-              type="email"
-              placeholder="your@email.com"
-              size="lg"
-              :disabled="loading"
-            />
+          <div class="form-group flex items-center gap-2">
+            <div class="input-wrapper flex-1">
+              <span class="input-icon">
+                <i class="icon mnfont mn-Mail-open"></i>
+              </span>
+              <UInput id="email" v-model="form.email" type="email" placeholder="mail" :disabled="loading"
+                class="form-input" :ui="{ base: 'custom-input' }" />
+            </div>
+            <UButton type="button" @click="handleSendResetCode"
+              :disabled="!form.email || countdown > 0 || sendingCode" :loading="sendingCode" class="send-btn"
+              color="primary">
+              {{ countdown > 0 ? `${countdown}s` : 'Send' }}
+            </UButton>
           </div>
 
           <!-- Verification Code -->
-          <div>
-            <label for="code" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Verification Code <span class="text-red-500">*</span>
-            </label>
-            <div class="flex gap-2">
-              <UInput
-                id="code"
-                v-model="form.code"
-                placeholder="Enter code"
-                size="lg"
-                class="flex-1"
-                :disabled="loading"
-              />
-              <UButton
-                @click="handleSendResetCode"
-                :disabled="!form.email || countdown > 0 || sendingCode"
-                :loading="sendingCode"
-                size="lg"
-                color="gray"
-                variant="solid"
-              >
-                {{ countdown > 0 ? `${countdown}s` : 'Send Code' }}
-              </UButton>
+          <div class="form-group">
+            <div class="input-wrapper">
+              <span class="input-icon">
+                <i class="icon mnfont mn-Comment"></i>
+              </span>
+              <UInput id="code" v-model="form.code" placeholder="Verification code" :disabled="loading"
+                class="form-input" :ui="{ base: 'custom-input' }" />
             </div>
           </div>
 
           <!-- New Password -->
-          <div>
-            <label for="newPassword" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              New Password <span class="text-red-500">*</span>
-            </label>
-            <UInput
-              id="newPassword"
-              v-model="form.newPassword"
-              type="password"
-              placeholder="Enter your new password"
-              size="lg"
-              :disabled="loading"
-            />
+          <div class="form-group">
+            <div class="input-wrapper">
+              <span class="input-icon">
+                <i class="icon mnfont mn-Password"></i>
+              </span>
+              <UInput id="newPassword" v-model="form.newPassword" type="password" placeholder="New Password"
+                :disabled="loading" class="form-input" :ui="{ base: 'custom-input' }" />
+            </div>
           </div>
 
           <!-- Submit Button -->
-          <UButton
-            type="submit"
-            :loading="loading"
-            :disabled="!isFormValid"
-            block
-            size="lg"
-          >
+          <UButton type="submit" :disabled="!isFormValid || loading" :loading="loading" class="submit-btn" block
+            color="primary">
             Reset Password
           </UButton>
         </form>
-      </UCard>
+
+        <p class="signin-link">
+          Remember your password?
+          <NuxtLink to="/account/login">
+            Sign in here
+          </NuxtLink>
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -95,6 +65,11 @@
 import { sendResetCode, resetPassword, type ResetPasswordRequest } from '~/api/auth'
 
 const { $toast } = useNuxtApp()
+const { buildImageUrl } = useImageUrl()
+
+definePageMeta({
+  layout: 'account'
+})
 
 // 表单数据
 const form = ref({
@@ -221,7 +196,176 @@ useHead({
 })
 </script>
 
-<style scoped>
-/* 额外样式可以在这里添加 */
+<style scoped lang="scss">
+.reset-page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #D9D9D9;
+  overflow: hidden;
+}
+
+.form-container {
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  max-width: 28vw;
+  min-width: 320px;
+
+  @media (max-width: 768px) {
+    left: 50%;
+  }
+}
+
+.form-card {
+  background: #FFFFFF;
+  border-radius: 1.25vw;
+  padding: 6.25vw 2.1875vw;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+  @media (max-width: 768px) {
+    padding: 6vw;
+    border-radius: 3vw;
+  }
+}
+
+.form-title {
+  font-size: 2.2vw;
+  font-weight: 600;
+  color: $primary-color;
+  margin: 0 0 2.5vw 0;
+
+  @media (max-width: 768px) {
+    font-size: 6vw;
+    margin-bottom: 5vw;
+  }
+}
+
+.reset-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.0417vw;
+
+  @media (max-width: 768px) {
+    gap: 3vw;
+  }
+}
+
+.form-group {
+  width: 100%;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #F9F9FB;
+  border-radius: 0.5vw;
+  padding: 0.8vw 1vw;
+  gap: 0.8vw;
+
+  @media (max-width: 768px) {
+    border-radius: 1.5vw;
+    padding: 2vw 3vw;
+    gap: 2vw;
+  }
+}
+
+.input-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  :deep(img) {
+    width: 1.7708vw;
+    height: 1.7708vw;
+    object-fit: contain;
+
+    @media (max-width: 768px) {
+      width: 4vw;
+      height: 4vw;
+    }
+  }
+}
+
+.form-input {
+  flex: 1;
+
+  :deep(input) {
+    border: none;
+    background: transparent;
+    outline: none;
+    box-shadow: none;
+    font-size: 1vw;
+    color: #333333;
+    padding: 0;
+
+    &::placeholder {
+      color: #8D8D8D;
+    }
+
+    &:focus {
+      border: none;
+      box-shadow: none;
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 3.5vw;
+    }
+  }
+}
+
+:deep(.send-btn) {
+  flex-shrink: 0;
+  border-radius: .625vw;
+  padding: .6771vw 1.5625vw;
+  font-size: clamp(10px, 1.25vw, 1.25vw);
+
+  @media (max-width: 768px) {
+    padding: 2vw 4vw;
+    border-radius: 1.2vw;
+    font-size: 3vw;
+  }
+}
+
+:deep(.submit-btn) {
+  padding: .6771vw 1.5625vw;
+  border-radius: .625vw;
+  font-size: clamp(10px, 1.25vw, 1.25vw);
+
+  @media (max-width: 768px) {
+    padding: 2vw 4vw;
+    border-radius: 1.2vw;
+    font-size: 3vw;
+  }
+}
+
+.signin-link {
+  text-align: center;
+  font-size: 0.9vw;
+  color: #666666;
+  margin-top: 2vw;
+
+  a {
+    color: #1a1a3d;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #2a2a4d;
+      text-decoration: underline;
+    }
+  }
+
+  @media (max-width: 768px) {
+    font-size: 3.2vw;
+    margin-top: 4vw;
+  }
+}
 </style>
 

@@ -1,12 +1,12 @@
 <template>
   <div class="default-layout">
-    <AppHeader />
+    <!-- <AppHeader /> -->
     <main class="main-content">
       <slot />
     </main>
-    <AppFooter />
+    <!-- <AppFooter /> -->
     <!-- 侧边栏联系组件 -->
-    <SideContactBar />
+    <!-- <SideContactBar /> -->
   </div>
 </template>
 

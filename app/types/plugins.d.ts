@@ -20,6 +20,10 @@ declare module '#app' {
       clear: () => void
       dismiss: (id?: string) => void
     }
+    /**
+     * CookieConsent 实例
+     */
+    $cookieConsent: typeof import('vanilla-cookieconsent')
   }
 }
 
@@ -40,6 +44,21 @@ declare module '@vue/runtime-core' {
       clear: () => void
       dismiss: (id?: string) => void
     }
+    /**
+     * CookieConsent 实例
+     */
+    $cookieConsent: typeof import('vanilla-cookieconsent')
+  }
+}
+
+/**
+ * Google Analytics (gtag.js) type declarations
+ */
+declare global {
+  interface Window {
+    dataLayer: any[];
+    gtag: (...args: any[]) => void;
+    gtag_report_conversion: (url?: string) => boolean;
   }
 }
 

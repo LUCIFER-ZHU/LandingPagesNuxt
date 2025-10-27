@@ -2,6 +2,9 @@
 export default defineNuxtConfig({
     compatibilityDate: "2025-07-15",
     devtools: { enabled: process.env.NODE_ENV !== "production" },
+    devServer: {
+        host: '0.0.0.0',
+    },
     modules: [
         "@nuxt/ui",
         "@nuxt/fonts",
@@ -9,7 +12,7 @@ export default defineNuxtConfig({
         "@pinia/nuxt",
         "pinia-plugin-persistedstate/nuxt",
     ],
-    css: ["~/assets/css/vendors.css", "~/assets/scss/main.scss"],
+    css: ["~/assets/css/vendors.css", "~/assets/iconfont/iconfont.css", "~/assets/scss/main.scss"],
     plugins: [{ src: "~/plugins/aos.client", mode: "client" }],
     // ssr: false,
     app: {
@@ -51,8 +54,24 @@ export default defineNuxtConfig({
         },
         server: {
             allowedHosts: true, // ✅ 允许任意 Host（推荐）
-            // 或者只允许特定域名：
-            // allowedHosts: ['bdb5360b5e11.ngrok-free.app']
+            fs: {
+              allow: ['.'] // 放宽本地文件系统访问限制
+            }
         },
     },
+    // 在生产环境下排除开发测试页面
+    hooks: {
+        'pages:extend'(pages) {
+            if (process.env.NODE_ENV === 'production') {
+                // 移除所有 /dev/ 路径的页面
+                const pagesToRemove = pages.filter(page => page.path.includes('/dev'))
+                pagesToRemove.forEach(page => {
+                    pages.splice(pages.indexOf(page), 1)
+                })
+            }
+        }
+    },
+    build: {
+      transpile: ['vue-countup-v3'],
+    },    
 });
