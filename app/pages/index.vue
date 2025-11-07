@@ -1,7 +1,5 @@
 <template>
   <div class="index-page">
-    <!-- 使用新的头部组件 -->
-    <ReNewAppHeader />
     <!-- 添加 key 确保组件正确切换 -->
     <PagesIndexNoAuth v-if="!authStore.isLoggedIn" key="no-auth" />
     <PagesIndexAuth v-else key="auth" />
