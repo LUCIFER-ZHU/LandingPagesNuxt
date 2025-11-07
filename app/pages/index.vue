@@ -2,8 +2,9 @@
   <div class="index-page">
     <!-- 使用新的头部组件 -->
     <ReNewAppHeader />
-    <PagesIndexNoAuth v-if="!authStore.isLoggedIn" />
-    <PagesIndexAuth v-else />
+    <!-- 添加 key 确保组件正确切换 -->
+    <PagesIndexNoAuth v-if="!authStore.isLoggedIn" key="no-auth" />
+    <PagesIndexAuth v-else key="auth" />
   </div>
 </template>
 
@@ -20,7 +21,6 @@ const authStore = useAuthStore()
 
 // 使用设备检测组合函数
 const { isMob } = useDeviceDetection()
-
 
 </script>
 

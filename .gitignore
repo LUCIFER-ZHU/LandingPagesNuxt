@@ -20,3 +20,8 @@ logs
 
 promot.md
 
+
+.cert/
+*.pem
+*-key.pem
+

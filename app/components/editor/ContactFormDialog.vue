@@ -1,71 +1,76 @@
 <template>
-  <UModal v-model:open="isOpen" title="Request a Quote"
-  description="Fill out the form and we will get back to you within 24 hours.">
-    <!-- 内容插槽 -->
-    <template #content>
-      <div class="p-4 max-w-lg w-full bg-white rounded-lg shadow-xl">
-        <div class="flex items-center justify-between mb-4">
-          <div class="space-y-1">
-            <div class="text-lg font-semibold">Request a Quote</div>
-            <div class="text-sm text-gray-500">Fill out the form and we will get back to you within 24 hours.</div>
+  <ClientOnly>
+    <UModal v-model:open="isOpen" title="Request a Quote"
+    description="Fill out the form and we will get back to you within 24 hours.">
+      <!-- 内容插槽 -->
+      <template #content>
+        <div class="p-4 max-w-lg w-full bg-white rounded-lg shadow-xl">
+          <div class="flex items-center justify-between mb-4">
+            <div class="space-y-1">
+              <div class="text-lg font-semibold">Request a Quote</div>
+              <div class="text-sm text-gray-500">Fill out the form and we will get back to you within 24 hours.</div>
+            </div>
+            <UButton icon="i-heroicons-x-mark" variant="ghost" color="neutral" @click="close" />
           </div>
-          <UButton icon="i-heroicons-x-mark" variant="ghost" color="neutral" @click="close" />
-        </div>
 
-        <UForm :state="contactForm" @submit="handleSubmit" class="space-y-3">
-          <UFormField name="name" :error="getFieldError('name')">
-            <UInput 
-              v-model="contactForm.name" 
-              placeholder="Your Name *" 
-              size="lg" 
-              class="w-full"
-            />
-          </UFormField>
+          <UForm :state="contactForm" @submit="handleSubmit" class="space-y-3">
+            <UFormField name="name" :error="getFieldError('name')">
+              <UInput 
+                v-model="contactForm.name" 
+                placeholder="Your Name *" 
+                size="lg" 
+                class="w-full"
+              />
+            </UFormField>
 
-          <UFormField name="email" :error="getFieldError('email')">
-            <UInput 
-              v-model="contactForm.email" 
-              placeholder="Your Email *" 
-              type="email" 
-              size="lg"
-              class="w-full"
-            />
-          </UFormField>
+            <UFormField name="email" :error="getFieldError('email')">
+              <UInput 
+                v-model="contactForm.email" 
+                placeholder="Your Email *" 
+                type="email" 
+                size="lg"
+                class="w-full"
+              />
+            </UFormField>
 
-          <UFormField name="whatsapp" :error="getFieldError('whatsapp')">
-            <UInput 
-              v-model="contactForm.whatsapp" 
-              placeholder="WhatsApp / Phone (optional)" 
-              size="lg"
-              class="w-full"
-            />
-          </UFormField>
+            <UFormField name="whatsapp" :error="getFieldError('whatsapp')">
+              <UInput 
+                v-model="contactForm.whatsapp" 
+                placeholder="WhatsApp / Phone (optional)" 
+                size="lg"
+                class="w-full"
+              />
+            </UFormField>
 
-          <UFormField name="message" :error="getFieldError('message')">
-            <UTextarea 
-              v-model="contactForm.message" 
-              placeholder="Your Message (optional)" 
-              :rows="4"
-              class="w-full"
-            />
-          </UFormField>
+            <UFormField name="message" :error="getFieldError('message')">
+              <UTextarea 
+                v-model="contactForm.message" 
+                placeholder="Your Message (optional)" 
+                :rows="4"
+                class="w-full"
+              />
+            </UFormField>
 
-          <div class="text-xs text-gray-500 mb-4">
-            By submitting this form, you agree to be contacted about your request.
+            <div class="text-xs text-gray-500 mb-4">
+              By submitting this form, you agree to be contacted about your request.
+            </div>
+          </UForm>
+
+          <div class="flex items-center justify-end gap-3 mt-6 pt-4 border-t border-gray-100">
+            <UButton variant="ghost" color="neutral" @click="close" :disabled="isSubmitting">
+              Cancel
+            </UButton>
+            <UButton color="primary" :loading="isSubmitting" :disabled="isSubmitting" @click="submit">
+              {{ isSubmitting ? 'Submitting...' : 'Send Request' }}
+            </UButton>
           </div>
-        </UForm>
-
-        <div class="flex items-center justify-end gap-3 mt-6 pt-4 border-t border-gray-100">
-          <UButton variant="ghost" color="neutral" @click="close" :disabled="isSubmitting">
-            Cancel
-          </UButton>
-          <UButton color="primary" :loading="isSubmitting" :disabled="isSubmitting" @click="submit">
-            {{ isSubmitting ? 'Submitting...' : 'Send Request' }}
-          </UButton>
         </div>
-      </div>
+      </template>
+    </UModal>
+    <template #fallback>
+      <!-- SSR fallback: 空内容，模态框只在客户端显示 -->
     </template>
-  </UModal>
+  </ClientOnly>
 </template>
 
 <script setup lang="ts">

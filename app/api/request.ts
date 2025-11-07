@@ -7,9 +7,9 @@
  * 获取自定义 fetch 实例（用于客户端命令式调用）
  * 使用方式：const response = await useCustomFetch('/api/xxx', { method: 'POST' })
  */
-export const useCustomFetch = () => {
+export const useCustomFetch = (url: string, options: any = {}) => {
   const { $customFetch } = useNuxtApp()
-  return $customFetch
+  return $customFetch(url, options)
 }
 
 /**

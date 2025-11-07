@@ -12,6 +12,9 @@ $font-size-base: 16px;
 // 图片变量
 $image-base: 'https://minnuo-test.oss-cn-qingdao.aliyuncs.com/reNew';
 
+// 后台图片资源基地址
+$backend-image-base: 'https://minnuo-test.oss-cn-qingdao.aliyuncs.com/';
+
 // 混合器
 @mixin flex-center {
   display: flex;
@@ -157,3 +160,32 @@ $image-base: 'https://minnuo-test.oss-cn-qingdao.aliyuncs.com/reNew';
   }
 }
 
+@mixin chat-btn {
+
+  & {
+    min-width: 6.7708vw;
+    padding: .4167vw;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 1.3542vw;
+    font-size: clamp(10px, .8333vw, 16px);
+    font-weight: 500;
+    color: #000000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    background: $primary-color;
+    color: #FFFFFF;
+  }
+  
+  &:active {
+    transform: scale(0.98);
+  }
+
+  @media (max-width: 768px) {
+    padding: 8px 16px;
+    border-radius: 8px;
+  }
+}

@@ -90,8 +90,12 @@ interface FormSubmitResponse {
  * @returns {Object} 包含表单状态和操作方法的对象
  */
 export const useContactForm = (options: UseContactFormOptions = {}) => {
+  // 获取环境变量中的后台API地址
+  const config = useRuntimeConfig()
+  const API_BASE_URL = config.public.apiBase
+  
   // 获取 Nuxt 应用实例和相关功能
-  const { $toast, $customFetch } = useNuxtApp()
+  const { $toast } = useNuxtApp()
   
   /**
    * 根据配置生成初始表单数据
@@ -208,13 +212,13 @@ export const useContactForm = (options: UseContactFormOptions = {}) => {
         (submitData as Record<string, any>).chooseData = otherFields
       }
 
-      // 使用 customFetch 进行API调用
-      const response = await $customFetch<{
+      // 使用 Nuxt 自带的 $fetch 进行API调用
+      const response = await $fetch<{
         success: boolean
         message?: string
         data?: any
         inquiryId?: string
-      }>('/inquiry/send', {
+      }>(`${API_BASE_URL}/inquiry/send`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

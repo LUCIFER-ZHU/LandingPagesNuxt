@@ -10,7 +10,7 @@ import { useCustomFetch } from './request'
  * @param email 邮箱地址
  */
 export const sendRegisterCode = (email: string) => {
-  return useCustomFetch()('/web/customer/sendCode', {
+  return useCustomFetch('/web/customer/sendCode', {
     method: 'POST',
     body: { email }
   })
@@ -28,7 +28,7 @@ export interface RegisterRequest {
 }
 
 export const register = (data: RegisterRequest) => {
-  return useCustomFetch()('/web/customer/register', {
+  return useCustomFetch('/web/customer/register', {
     method: 'POST',
     body: data
   })
@@ -44,7 +44,7 @@ export interface LoginRequest {
 }
 
 export const login = (data: LoginRequest) => {
-  return useCustomFetch()('/web/customer/login', {
+  return useCustomFetch('/web/customer/login', {
     method: 'POST',
     body: data
   })
@@ -55,7 +55,7 @@ export const login = (data: LoginRequest) => {
  * @param email 邮箱地址
  */
 export const sendResetCode = (email: string) => {
-  return useCustomFetch()('/web/customer/sendResetCode', {
+  return useCustomFetch('/web/customer/sendResetCode', {
     method: 'POST',
     body: { email }
   })
@@ -72,7 +72,7 @@ export interface ResetPasswordRequest {
 }
 
 export const resetPassword = (data: ResetPasswordRequest) => {
-  return useCustomFetch()('/web/customer/resetPassword', {
+  return useCustomFetch('/web/customer/resetPassword', {
     method: 'POST',
     body: data
   })
@@ -88,9 +88,24 @@ export interface LogoutRequest {
 }
 
 export const logout = (data: LogoutRequest) => {
-  return useCustomFetch()('/web/customer/logout', {
+  return useCustomFetch('/web/customer/logout', {
     method: 'POST',
     body: data
+  })
+}
+
+/**
+ * 刷新 access_token
+ * 当 access_token 过期时，调用此接口刷新 token
+ * 后端会返回新的 access_token 并设置到 HttpOnly cookie 中
+ * 
+ * 注意：如果后端暂不支持此接口，会返回 404，前端会处理这种情况
+ */
+export const refreshAccessToken = () => {
+  return useCustomFetch('/web/customer/refreshToken', {
+    method: 'POST',
+    // 不需要 body，后端会从 HttpOnly cookie 中读取 refresh_token
+    // credentials: 'include' 已经在拦截器中配置，会自动携带 cookie
   })
 }
 

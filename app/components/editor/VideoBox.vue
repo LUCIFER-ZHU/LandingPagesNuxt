@@ -19,24 +19,29 @@
     </div>
 
     <!-- 视频模态框 -->
-    <UModal v-model:open="isModalOpen" class="video-modal max-w-[70vw] h-[70vh] overflow-visible" title="Video Modal"
-      description="Video Modal">
-      <template #content>
-        <div class="video-modal-content">
-          <!-- 关闭按钮 -->
-          <UButton color="neutral" variant="ghost"
-            class="close-button absolute top-[-2.6042vw] right-[-2.6042vw] rounded-full" @click="closeVideoModal">
-            <UIcon name="i-heroicons:x-circle" size="25" class="text-[#092991]" />
-          </UButton>
+    <ClientOnly>
+      <UModal v-model:open="isModalOpen" class="video-modal max-w-[70vw] h-[70vh] overflow-visible" title="Video Modal"
+        description="Video Modal">
+        <template #content>
+          <div class="video-modal-content">
+            <!-- 关闭按钮 -->
+            <UButton color="neutral" variant="ghost"
+              class="close-button absolute top-[-2.6042vw] right-[-2.6042vw] rounded-full" @click="closeVideoModal">
+              <UIcon name="i-heroicons:x-circle" size="25" class="text-[#092991]" />
+            </UButton>
 
-          <video v-if="isModalOpen" ref="videoRef" :src="videoUrl" class="w-full h-full rounded-lg" controls autoplay
-            preload="metadata" @loadstart="handleVideoLoadStart" @loadeddata="handleVideoLoadedData"
-            @error="handleVideoError">
-            Your browser does not support video playback.
-          </video>
-        </div>
+            <video v-if="isModalOpen" ref="videoRef" :src="videoUrl" class="w-full h-full rounded-lg" controls autoplay
+              preload="metadata" @loadstart="handleVideoLoadStart" @loadeddata="handleVideoLoadedData"
+              @error="handleVideoError">
+              Your browser does not support video playback.
+            </video>
+          </div>
+        </template>
+      </UModal>
+      <template #fallback>
+        <!-- SSR fallback: 空内容，模态框只在客户端显示 -->
       </template>
-    </UModal>
+    </ClientOnly>
   </div>
 </template>
 
