@@ -6,7 +6,7 @@
 const isDev = process.env.NODE_ENV !== "production";
 
 // 从环境变量读取是否生成 sourcemap（默认为 true）
-const enableSourcemap = process.env.ENABLE_SOURCEMAP !== 'false';
+const enableSourcemap = process.env.ENABLE_SOURCEMAP !== "false";
 
 export default defineNuxtConfig({
     compatibilityDate: "2025-07-15",
@@ -36,7 +36,13 @@ export default defineNuxtConfig({
         // 保持动态导入，便于 sourcemap 映射
         inlineDynamicImports: false,
         // 不压缩，保持可读性（可选，如果需要压缩可设为 true）
-        minify: false        
+        minify: false,
+        // ✅ 生产环境移除 console 和 debugger（服务端代码）
+        esbuild: {
+            options: {
+                drop: isDev ? [] : ["console", "debugger"],
+            },
+        },
     },
     modules: [
         "@nuxt/ui",
@@ -44,6 +50,8 @@ export default defineNuxtConfig({
         "@nuxt/image",
         "@pinia/nuxt",
         "pinia-plugin-persistedstate/nuxt",
+        "@nuxtjs/seo",
+        "@nuxtjs/turnstile",
     ],
     css: [
         "~/assets/css/vendors.css",
@@ -54,13 +62,17 @@ export default defineNuxtConfig({
     // ssr: false,
     app: {
         head: {
-            title: "Industrial Temperature Control Solutions",
+            title: "Precision Renewed. Value Redefined",
             link: [
                 { rel: "icon", type: "image/x-icon", href: "/minnuo-logo.ico" }, // 放在 public 目录
             ],
         },
     },
     runtimeConfig: {
+        // Turnstile 密钥（服务端使用，不暴露给客户端）
+        turnstile: {
+            secretKey: process.env.NUXT_TURNSTILE_SECRET_KEY || "",
+        },
         public: {
             // 公开的 API 基地址（浏览器可见）
             apiBase: process.env.NUXT_PUBLIC_API_BASE,
@@ -70,6 +82,12 @@ export default defineNuxtConfig({
             backendImageBase: process.env.NUXT_BACKEND_IMAGE_BASE,
             // 应用版本号（构建时通过 APP_VERSION 注入，回退为 'dev'）
             appVersion: process.env.APP_VERSION || "dev",
+            // 站点 URL（用于 SEO）
+            siteUrl: process.env.NUXT_PUBLIC_SITE_URL || "https://example.com",
+            // Turnstile 站点密钥（客户端可见）
+            turnstile: {
+                siteKey: process.env.NUXT_PUBLIC_TURNSTILE_SITE_KEY || "",
+            },
         },
     },
     image: {
@@ -100,6 +118,10 @@ export default defineNuxtConfig({
         build: {
             // ✅ 通过环境变量控制是否生成 sourcemap
             sourcemap: enableSourcemap,
+        },
+        esbuild: {
+            // ✅ 生产环境移除 console 和 debugger
+            drop: isDev ? [] : ["console", "debugger"],
         },
     },
     // 在生产环境下排除开发测试页面
