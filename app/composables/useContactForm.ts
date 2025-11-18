@@ -91,8 +91,7 @@ interface FormSubmitResponse {
  */
 export const useContactForm = (options: UseContactFormOptions = {}) => {
   // 获取环境变量中的后台API地址
-  const config = useRuntimeConfig()
-  const API_BASE_URL = config.public.apiBase
+  const API_BASE_URL = 'https://common.minnuo.group'
   
   // 获取 Nuxt 应用实例和相关功能
   const { $toast } = useNuxtApp()
