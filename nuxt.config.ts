@@ -90,6 +90,12 @@ export default defineNuxtConfig({
             },
         },
     },
+    // Nuxt SEO 配置
+    site: {
+        url: process.env.NUXT_PUBLIC_SITE_URL || "https://example.com",
+        // 开发环境禁止索引，生产环境允许
+        indexable: process.env.NODE_ENV === 'production',
+    },    
     image: {
         // 默认使用原图
         densities: [1],
