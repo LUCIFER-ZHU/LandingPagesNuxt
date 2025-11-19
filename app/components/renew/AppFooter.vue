@@ -86,6 +86,9 @@
             <li class="menu-item">
               <NuxtLink to="#contact-us-anchor" class="menu-link">Contact Us</NuxtLink>
             </li>
+            <li class="menu-item">
+              <a href="#" data-cc="show-preferencesModal" class="menu-link">Cookie Settings</a>
+            </li>
           </ul>
         </div>
 

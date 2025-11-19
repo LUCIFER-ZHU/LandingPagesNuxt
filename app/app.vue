@@ -13,18 +13,18 @@ const { buildImageUrl } = useImageUrl();
  * 设置全局配置和样式
  * */
 
-// 初始化认证状态（从 Cookie 恢复）
-const authStore = useAuthStore()
+// // 初始化认证状态（从 Cookie 恢复）
+// const authStore = useAuthStore()
 
-// 在服务端和客户端都初始化认证状态
-authStore.initFromCookie()
+// // 在服务端和客户端都初始化认证状态
+// authStore.initFromCookie()
 
-console.log('🚀 App.vue - 认证状态已初始化:', {
-  isLoggedIn: authStore.isLoggedIn,
-  user: authStore.user,
-  isServer: process.server,
-  isClient: process.client
-})
+// console.log('🚀 App.vue - 认证状态已初始化:', {
+//   isLoggedIn: authStore.isLoggedIn,
+//   user: authStore.user,
+//   isServer: process.server,
+//   isClient: process.client
+// })
 
 // 使用 useHead 添加额外的 meta 标签和 Google Analytics 跟踪代码
 useHead({
