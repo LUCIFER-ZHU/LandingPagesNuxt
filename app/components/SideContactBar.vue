@@ -15,7 +15,7 @@
         <div class="detail-item">
           <div class="detail-info">
             <UIcon name="i-heroicons:envelope-16-solid" class="detail-icon" />
-            <span>engineer@minnuo.com</span>
+            <span>consult@minnuo.com</span>
           </div>
           <div class="detail-description">
             Send us an email
@@ -42,7 +42,7 @@
             <UIcon name="i-heroicons:phone-arrow-up-right-16-solid" />
             <span>sales1: +86 15366749631</span>
           </a>
-          <NuxtImg densities="1" src="https://mncnc-com.oss-us-east-1.aliyuncs.com/image85/static/img/whatsappusa.webp"
+          <NuxtImg densities="1" src="https://minnuo-test.oss-cn-qingdao.aliyuncs.com/waterCooler/image/carina-whatsapp.png"
             alt="WhatsApp QR Code" class="qr-code" />
         </div>
       </div>
@@ -75,20 +75,11 @@ const showWhatsAppDetails = ref(false);
 
 // Email点击处理
 const handleEmailClick = () => {
-  window.location.href = 'mailto:engineer@minnuo.com'
+  window.location.href = 'mailto:consult@minnuo.com'
 }
 
-// WhatsApp点击处理
-const handleWhatsAppClick = () => {
-  const message = 'Hello I am interested in your diaphragm compressors.'
-  const encodedMessage = encodeURIComponent(message)
-  navigateTo(`https://wa.me/8615366749631?text=${encodedMessage}`, {
-    external: true,
-    open: {
-      target: '_blank'
-    }
-  })
-}
+// WhatsApp点击处理 - 使用统一的 composable
+const { handleWhatsAppClick } = useWhatsApp()
 
 // 回到顶部功能
 const scrollToTop = () => {

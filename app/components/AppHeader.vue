@@ -6,7 +6,7 @@
       </div>
       <div class="site-contact">
         <NuxtImg densities="1" :src="buildImageUrl('/image/needful/Mail.webp')" alt="Email" class="w-[2.0833vw]"/>
-        <span class="site-contact-text" @click="handleEmailClick">Email: engineer@minnuo.com</span>
+        <span class="site-contact-text" @click="handleEmailClick">Email: consult@minnuo.com</span>
       </div>
     </div>
 
@@ -53,7 +53,7 @@ const { buildImageUrl } = useImageUrl();
  * 打开默认邮件客户端并预填充收件人地址
  */
 const handleEmailClick = () => {
-  window.location.href = 'mailto:engineer@minnuo.com'
+  window.location.href = 'mailto:consult@minnuo.com'
 }
 </script>
 

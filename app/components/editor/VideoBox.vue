@@ -12,7 +12,7 @@
         <!-- 播放按钮 -->
         <div class="play-button-wrapper" @click="openVideoModal">
           <div class="play-button-custom flex items-center justify-center">
-            <NuxtImg densities="1" :src="buildImageUrl('/image/needful/video-btn.webp')" alt="play" :style="{ width: props.iconSize, height: props.iconSize }"/>
+            <NuxtImg densities="1" :src="buildImageUrl('/image/needful/video-btn2.webp')" alt="play" :style="{ width: computedIconSize, height: computedIconSize }"/>
           </div>
         </div>
       </div>
@@ -26,7 +26,8 @@
           <div class="video-modal-content">
             <!-- 关闭按钮 -->
             <UButton color="neutral" variant="ghost"
-              class="close-button absolute top-[-2.6042vw] right-[-2.6042vw] rounded-full" @click="closeVideoModal">
+              class="close-button absolute top-[-8vw] right-[-8vw] lg:top-[-2.6042vw] lg:right-[-2.6042vw] rounded-full" 
+              @click="closeVideoModal">
               <UIcon name="i-heroicons:x-circle" size="25" class="text-[#092991]" />
             </UButton>
 
@@ -71,6 +72,9 @@ const { buildImageUrl } = useImageUrl();
 // 使用全局的 $toast (由 vue-toastification 插件提供)
 const { $toast } = useNuxtApp();
 
+// 设备检测
+const { isMobile } = useDeviceDetection();
+
 // 组件属性接口定义
 interface VideoBoxProps {
   /** 视频文件URL地址（必填） */
@@ -89,7 +93,17 @@ interface VideoBoxProps {
 const props = withDefaults(defineProps<VideoBoxProps>(), {
   width: '17.5521vw',
   height: '9.2708vw',
-  iconSize: '3.6458vw'
+  iconSize: undefined // 不设置默认值，使用计算属性动态计算
+});
+
+// 根据设备类型动态计算图标大小
+const computedIconSize = computed(() => {
+  // 如果外部传入了 iconSize，优先使用外部值
+  if (props.iconSize) {
+    return props.iconSize;
+  }
+  // 否则根据设备类型返回默认值
+  return isMobile.value ? '8vw' : '3.6458vw';
 });
 
 // 组件状态管理
@@ -212,7 +226,7 @@ onUnmounted(() => {
   left: -6px;
   right: -6px;
   bottom: -6px;
-  box-shadow: 0 0 0 0 rgba(9, 41, 145, 0.4);
+  box-shadow: 0 0 0 0 rgba(246, 102, 24, 0.4);
 }
 
 /* 播放按钮点击效果 */
@@ -224,17 +238,17 @@ onUnmounted(() => {
 @keyframes pulse-ripple {
   0% {
     transform: scale(1.1);
-    box-shadow: 0 0 0 0 rgba(9, 41, 145, 0.6);
+    box-shadow: 0 0 0 0 rgba(246, 102, 24, 0.6);
   }
 
   70% {
     transform: scale(1.1);
-    box-shadow: 0 0 0 12px rgba(9, 41, 145, 0);
+    box-shadow: 0 0 0 12px rgba(246, 102, 24, 0);
   }
 
   100% {
     transform: scale(1.1);
-    box-shadow: 0 0 0 0 rgba(9, 41, 145, 0);
+    box-shadow: 0 0 0 0 rgba(246, 102, 24, 0);
   }
 }
 
