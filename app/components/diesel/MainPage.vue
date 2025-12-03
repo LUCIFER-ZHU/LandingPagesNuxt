@@ -1,10 +1,10 @@
 <template>
   <div class="main-page" :class="{ 'is-mobile': isMobile }">
-    <AppHeader />
+    <DieselHeader />
     <div class="banner" id="banner-anchor">
       <div class="banner-content" v-if="!isMobile">
         <div class="title">
-          Reliable Diesel Portable Air<br>
+          Reliable Diesel Portable Screw Air<br>
           Compressors for Outdoor Projects
         </div>
         <div class="sub-title">
@@ -19,7 +19,7 @@
     </div>
     <div class="mob-banner-content" v-if="isMobile">
       <div class="title">
-        Reliable Diesel Portable Air<br>
+        Reliable Diesel Portable Screw Air<br>
         Compressors for Outdoor Projects
       </div>
       <div class="sub-title">
@@ -32,10 +32,10 @@
     </div>
 
     <!-- 产品选择区域 -->
-    <div class="compressor-types-section">
+    <div class="compressor-types-section" id="product-types-anchor">
       <div class="section-header">
-        <h2 class="main-title">Choose the Right Diesel Air Compressor for Your Project</h2>
-        <p class="intro-text">From city construction to remote mining areas, Minnuo offer three types of diesel air
+        <h2 class="main-title">Choose the Right Diesel Screw Air Compressor for Your Project</h2>
+        <p class="intro-text">From city construction to remote mining areas, Minnuo offer three types of diesel screw air
           compressors to meet your working conditions — all fuel-efficient, durable, and built for outdoor toughest
           environments.</p>
       </div>
@@ -44,10 +44,10 @@
         <!-- 轮式便携式 -->
         <div class="compressor-item" data-aos="fade-right">
           <div class="compressor-image">
-            <NuxtImg :src="buildImageUrl('/image/2.webp')" alt="Wheeled Portable Type Diesel Air Compressor" />
+            <NuxtImg :src="buildImageUrl('/image/2.webp')" alt="Wheeled Portable Type Diesel Screw Air Compressor" />
           </div>
           <div class="compressor-content">
-            <h3 class="compressor-title">Wheeled Portable Type Diesel Air Compressor</h3>
+            <h3 class="compressor-title">Wheeled Portable Type Diesel Screw Air Compressor</h3>
             <p class="compressor-description">The most popular choice for road construction, drilling, and maintenance
               work. <br>
               Easy to tow, low fuel consumption, and simple to operate — ideal for mobile projects where you need <br>
@@ -80,10 +80,10 @@
         <!-- 履带式 -->
         <div class="compressor-item" data-aos="fade-left">
           <div class="compressor-image">
-            <NuxtImg :src="buildImageUrl('/image/3.webp')" alt="Crawler Type Diesel Air Compressor" />
+            <NuxtImg :src="buildImageUrl('/image/3.webp')" alt="Crawler Type Diesel Screw Air Compressor" />
           </div>
           <div class="compressor-content">
-            <h3 class="compressor-title">Crawler Type Diesel Air Compressor</h3>
+            <h3 class="compressor-title">Crawler Type Diesel Screw Air Compressor</h3>
             <p class="compressor-description">Designed for mining, quarrying, and rugged off-road environments.<br>
               Crawler chassis provides excellent traction and stability on muddy or rocky ground, ensuring continuous
               <br>
@@ -117,10 +117,10 @@
         <!-- 固定式 -->
         <div class="compressor-item" data-aos="fade-right">
           <div class="compressor-image">
-            <NuxtImg :src="buildImageUrl('/image/4.webp')" alt="Stationary Type Diesel Air Compressor" />
+            <NuxtImg :src="buildImageUrl('/image/4.webp')" alt="Stationary Type Diesel Screw Air Compressor" />
           </div>
           <div class="compressor-content">
-            <h3 class="compressor-title">Stationary Type Diesel Air Compressor</h3>
+            <h3 class="compressor-title">Stationary Type Diesel Screw Air Compressor</h3>
             <p class="compressor-description">Ideal for industrial plants, mining bases, or construction sites that
               require continuous air supply without mobility. <br>
               Provides stable pressure output and reliable long-hour operation — perfect for areas with unstable or
@@ -158,7 +158,7 @@
       </div>
     </div>
 
-    <div class="built-by">
+    <div class="built-by" id="about-minnuo-anchor">
       <div class="title">Built by MINNUO</div>
       <div class="sub-title">– a trusted manufacturer since 1987.</div>
       <div class="text">With over 30 years of experience in air compressors and gas equipment, MINNUO products are now
@@ -240,7 +240,7 @@
       </div>
     </div>
 
-    <div class="built-with">
+    <div class="built-with" id="product-details-anchor">
       <div class="title">Built with Reliable Components for Long-Term Performance</div>
       <div class="sub-title">Every compressor is engineered with carefully selected parts to guarantee stable pressure,
         low fuel consumption, and reliable<br> operation — even under outdoor toughest working conditions.</div>
@@ -301,7 +301,7 @@
       </div>
     </div>
 
-    <div class="videos">
+    <div class="videos" id="video-showcase-anchor">
       <div class="videos-item" data-aos="fade-right">
         <EditorVideoBox :videoUrl="buildImageUrl('/video/1.mp4')" :coverImage="buildImageUrl('/image/13.webp')"
           title="videos" :width="isMobile? '76.8vw' : '30vw'" :height="isMobile? '50.4vw' : '19.6875vw'" />
@@ -324,7 +324,7 @@
       </div>
     </div>
 
-    <div class="customer-success">
+    <div class="customer-success" id="client-cases-anchor">
       <div class="title">Customer Success Stories from World</div>
       <div class="grid3">
         <div class="grid3-item" data-aos="fade-right">
@@ -404,7 +404,7 @@
         </div>
       </div>
       <div class="customer-success-text">
-        More contractors worldwide are choosing MINNUO diesel air compressors for their<br> reliable performance and
+        More contractors worldwide are choosing MINNUO diesel screw air compressors for their<br> reliable performance and
         lower
         fuel costs.
       </div>
@@ -415,7 +415,7 @@
       </div>
     </div>
 
-    <div class="faq-area" :class="{ 'is-mobile': isMobile }">
+    <div class="faq-area" :class="{ 'is-mobile': isMobile }" id="faq-anchor">
       <div class="faq-title">FAQ - Common Questions from Our Customers</div>
       <div class="faq-content">
         <!-- 左侧表单 -->
@@ -527,24 +527,59 @@
       </div>
     </div>
 
-    <AppFooter />
+    <DieselFooter />
     <!-- 侧边栏联系组件 -->
-    <SideContactBar />
+    <DieselSideContactBar />
     <!-- 挂载对话框组件 -->
     <EditorContactFormDialog v-model="dialogOpen" />
   </div>
 </template>
 
 <script setup lang="ts">
-// 导入图片URL构建函数
-const { buildImageUrl } = useImageUrl();
+// 图片地址配置
+const imageUrlConfig = {
+  imageBase: 'https://minnuo-test.oss-cn-qingdao.aliyuncs.com/diesel',
+  backendImageBase: 'https://minnuo-test.oss-cn-qingdao.aliyuncs.com/'
+}
 
-// 使用联系表单组合函数
+// 导入图片URL构建函数，注入页面级别的图片地址配置
+const { buildImageUrl } = useImageUrl(imageUrlConfig)
+
+// 提供给子组件使用
+provide('imageUrlConfig', imageUrlConfig)
+
+// 配置页面级别的 Google Analytics 和转化跟踪
+const { reportConversion, loadGoogleAnalytics } = usePageAnalytics({
+  conversionId: 'AW-10801798623',
+  conversionLabel: 'mSIWCPH6iIMYEN-72Z4o',
+  autoLoad: false // 手动控制加载时机
+})
+
+// 提供给子组件使用
+provide('pageConversionTrack', reportConversion)
+
+// 初始化 Cookie Consent，传入 GA 加载回调
+const { hasAnalyticsConsent } = useCookieConsent({
+  onAnalyticsConsent: () => {
+    loadGoogleAnalytics()
+  }
+});
+
+// 如果用户已经同意过分析 Cookie，立即加载 GA
+onMounted(() => {
+  if (hasAnalyticsConsent()) {
+    loadGoogleAnalytics()
+  }
+})
+
+// 使用联系表单组合函数，传入页面级别的转化跟踪函数
 const {
   contactForm,
   handleFormSubmit,
   isSubmitting,
-} = useContactForm();
+} = useContactForm({
+  onConversionTrack: reportConversion
+});
 
 // 设备检测
 const { isMobile } = useDeviceDetection();
@@ -553,28 +588,34 @@ const { isMobile } = useDeviceDetection();
 const dialogOpen = ref(false)
 
 // WhatsApp点击处理 - 使用统一的 composable
-const { handleWhatsAppClick } = useWhatsApp()
+const { handleWhatsAppClick } = useWhatsApp({
+  phoneNumber: '8615366749631',
+  defaultMessage: 'Hello I am interested in your Diesel Portable Air Compressors.'
+})
 
 // 页面 SEO 元信息（根据主页面内容定制）
 useSeoMeta({
   // 标题
-  title: 'Hydrogen Diaphragm Compressors | Up to 1000 bar | Oil‑Free | MINNUO',
-  ogTitle: 'Hydrogen Diaphragm Compressors | Up to 1000 bar | Oil‑Free',
+  title: 'Diesel Portable Air Compressors | Mining, Drilling & Construction | Factory Direct | MINNUO',
+  ogTitle: 'Diesel Portable Air Compressors | Mining, Drilling & Construction | Factory Direct',
 
   // 描述
-  description: 'High-pressure oil-free diaphragm compressors for hydrogen and other specialty gases. Up to 1000 bar, CE/ISO certified. Reliable solutions for refueling stations, cylinder filling, storage, transportation, and fuel cell supply.',
-  ogDescription: 'High-pressure oil-free diaphragm compressors for hydrogen and specialty gases. Up to 1000 bar, CE/ISO certified. Reliable, clean and safe compression for refueling, storage and fuel cells.',
+  description: 'Reliable diesel portable air compressors for outdoor projects. No power supply required. Wheeled, crawler, and stationary types available. Ideal for mining, drilling, construction sites. 3.6-35 m³/min, 7-25 bar. Factory direct from China. Fast delivery to Africa.',
+  ogDescription: 'Diesel portable air compressors for mining, drilling, and construction. No electricity needed. Wheeled, crawler, and stationary types. 3.6-35 m³/min, 7-25 bar. Factory direct pricing. Fast delivery to Africa.',
 
   // 关键词
-  keywords: 'hydrogen compressor, diaphragm compressor, oil-free compressor, 1000 bar, CE ISO certified, hydrogen refueling station, cylinder filling, syngas, nitrogen compressor, oxygen compressor, helium compressor',
-
-  // 其他
-  robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+  keywords: 'diesel Screw air compressor, portable air compressor, diesel compressor, mining compressor, drilling compressor, construction air compressor, wheeled compressor, crawler compressor, stationary compressor, Africa compressor, Cummins compressor, Weichai compressor, Yuchai compressor, no power compressor, remote site compressor, factory direct compressor',
 })
 
 </script>
 
 <style lang="scss" scoped>
+// 图片变量
+$image-base: 'https://minnuo-test.oss-cn-qingdao.aliyuncs.com/diesel/';
+
+// 后台图片资源基地址
+$backend-image-base: 'https://minnuo-test.oss-cn-qingdao.aliyuncs.com/';
+
 .main-page {
   background-color: #f9f9fb;
 }
@@ -601,7 +642,7 @@ useSeoMeta({
 .banner {
   width: 100%;
   height: clamp(210px, 31.25vw, 31.25vw);
-  background: url($image-base + '/image/1.webp') no-repeat center/cover;
+  background: url($image-base + 'image/1.webp') no-repeat center/cover;
   padding: 6.0417vw 5.8854vw 0;
 
   .banner-content {
@@ -881,7 +922,7 @@ useSeoMeta({
 
 .built-with {
 
-  padding: 0 0 10.4167vw;
+  padding: 0 0 5.4167vw;
 
   .title {
     font-weight: bold;
@@ -1126,6 +1167,10 @@ useSeoMeta({
           padding: 2.6667vw 4vw;
           border-radius: 1.6vw;
 
+          .text-box-title{
+            margin-bottom: 2vw;
+          }
+
           .text-box-text{
             text-align: right;
           }
@@ -1133,12 +1178,16 @@ useSeoMeta({
       }
     }
 
+    .customer-success-text{
+      margin: 2.6667vw 0 1.3333vw;
+    }
+
     .bottom-btn{
       padding: 0;
-      width: 100%;
+      text-align: center;
 
       button {
-        width: 100%;
+        width: 70%;
 
         :deep(.truncate){
           white-space: wrap;
@@ -1278,7 +1327,7 @@ useSeoMeta({
 
   /* ---Mobile样式----*/
   &.is-mobile {
-    padding: 5.3333vw 4.2667vw;
+    padding: 5.3333vw 0;
     background: #e8f4f8;
 
     .faq-title {
@@ -1293,6 +1342,8 @@ useSeoMeta({
     }
 
     .faq-form-section {
+      width: 100%;
+      
       .form-wrapper {
         padding: 5.3333vw 4.2667vw;
         border-radius: 2.6667vw;

@@ -66,28 +66,23 @@
           <h3 class="footer-title">Navigation</h3>
           <ul class="footer-nav">
             <li class="menu-item">
-              <NuxtLink to="#banner-anchor" class="menu-link">Service Introduction</NuxtLink>
+              <NuxtLink to="#product-types-anchor" class="menu-link">Product Types</NuxtLink>
             </li>
             <li class="menu-item">
-              <NuxtLink to="#application-scenarios-anchor" class="menu-link">Application scenarios</NuxtLink>
+              <NuxtLink to="#about-minnuo-anchor" class="menu-link">About MINNUO</NuxtLink>
+            </li>
+            
+            <li class="menu-item">
+              <NuxtLink to="#product-details-anchor" class="menu-link">Product Details</NuxtLink>
             </li>
             <li class="menu-item">
-              <NuxtLink to="#about-us-anchor" class="menu-link">About Us</NuxtLink>
+              <NuxtLink to="#video-showcase-anchor" class="menu-link">Video Showcase</NuxtLink>
             </li>
             <li class="menu-item">
-              <NuxtLink to="#our-service-anchor" class="menu-link">Our Service</NuxtLink>
+              <NuxtLink to="#client-cases-anchor" class="menu-link">Client Cases</NuxtLink>
             </li>
             <li class="menu-item">
-              <NuxtLink to="#products-anchor" class="menu-link">Featured Products</NuxtLink>
-            </li>
-            <li class="menu-item">
-              <NuxtLink to="#project-cases-anchor" class="menu-link">Project Cases</NuxtLink>
-            </li>
-            <li class="menu-item">
-              <NuxtLink to="#contact-us-anchor" class="menu-link">Contact Us</NuxtLink>
-            </li>
-            <li class="menu-item">
-              <a href="#" data-cc="show-preferencesModal" class="menu-link">Cookie Settings</a>
+              <NuxtLink to="#faq-anchor" class="menu-link">FAQ</NuxtLink>
             </li>
           </ul>
         </div>
@@ -161,19 +156,24 @@
 // Vue reactivity helpers
 import { computed } from 'vue'
 
-// 使用图片URL管理composable
-const { buildImageUrl } = useImageUrl();
+// 从父组件获取图片配置和转化跟踪函数
+const imageUrlConfig = inject<{ imageBase?: string; backendImageBase?: string }>('imageUrlConfig')
+const pageConversionTrack = inject<(() => void) | undefined>('pageConversionTrack')
+
+// 使用图片URL管理composable，注入页面级别的图片地址配置
+const { buildImageUrl } = useImageUrl(imageUrlConfig || {})
 
 // 使用设备检测组合函数
 const { isMob } = useDeviceDetection()
 
-// 使用联系表单组合函数 - 仅处理邮件订阅
+// 使用联系表单组合函数 - 仅处理邮件订阅，传入转化跟踪函数
 const {
   contactForm,
   handleFormSubmit,
   isSubmitting
 } = useContactForm({
-  customFields: { name: 'Newsletter Subscription' } // 添加订阅标记
+  customFields: { name: 'Newsletter Subscription' }, // 添加订阅标记
+  onConversionTrack: pageConversionTrack
 });
 
 /**

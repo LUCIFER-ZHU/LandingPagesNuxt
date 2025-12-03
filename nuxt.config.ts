@@ -40,7 +40,7 @@ export default defineNuxtConfig({
         // ✅ 生产环境移除 console 和 debugger（服务端代码）
         esbuild: {
             options: {
-                drop: isDev ? [] : ["console", "debugger"],
+                // drop: isDev ? [] : ["console", "debugger"],
             },
         },
     },
@@ -82,20 +82,12 @@ export default defineNuxtConfig({
             backendImageBase: process.env.NUXT_BACKEND_IMAGE_BASE,
             // 应用版本号（构建时通过 APP_VERSION 注入，回退为 'dev'）
             appVersion: process.env.APP_VERSION || "dev",
-            // 站点 URL（用于 SEO）
-            siteUrl: process.env.NUXT_PUBLIC_SITE_URL || "https://example.com",
             // Turnstile 站点密钥（客户端可见）
             turnstile: {
                 siteKey: process.env.NUXT_PUBLIC_TURNSTILE_SITE_KEY || "",
             },
         },
-    },
-    // Nuxt SEO 配置
-    site: {
-        url: process.env.NUXT_PUBLIC_SITE_URL || "https://example.com",
-        // 开发环境禁止索引，生产环境允许
-        indexable: process.env.NODE_ENV === 'production',
-    },    
+    },  
     image: {
         // 默认使用原图
         densities: [1],
@@ -127,7 +119,7 @@ export default defineNuxtConfig({
         },
         esbuild: {
             // ✅ 生产环境移除 console 和 debugger
-            drop: isDev ? [] : ["console", "debugger"],
+            // drop: isDev ? [] : ["console", "debugger"],
         },
     },
     // 在生产环境下排除开发测试页面

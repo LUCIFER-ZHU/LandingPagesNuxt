@@ -64,8 +64,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-// 导入图片URL构建函数
-const { buildImageUrl } = useImageUrl();
+// 从父组件获取图片配置
+const imageUrlConfig = inject<{ imageBase?: string; backendImageBase?: string }>('imageUrlConfig')
+
+// 导入图片URL构建函数，注入页面级别的图片地址配置
+const { buildImageUrl } = useImageUrl(imageUrlConfig || {})
 
 // Email详情显示状态
 const showEmailDetails = ref(false);

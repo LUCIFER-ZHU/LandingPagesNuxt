@@ -1,6 +1,7 @@
 <template>
   <NuxtLayout>
-    <NuxtPage />
+    <!-- <NuxtPage /> -->
+    <component :is="pageComponent" />
   </NuxtLayout>
 </template>
 
@@ -31,6 +32,27 @@ useHead({
   ]
   // Note: Google Analytics is now loaded by the Cookie Consent plugin
   // only when the user accepts analytics cookies (GDPR compliant)
+})
+
+import { useRoute } from 'vue-router'
+import { computed } from 'vue'
+import IndexPage from '~/pages/index.vue'
+import DieselPage from '~/pages/diesel/index.vue'
+import ChillerPage from '~/pages/chiller/index.vue'
+
+const route = useRoute()
+
+// 仅 SSR 时读取 host
+const host = process.server
+  ? useRequestEvent()?.node?.req?.headers.host || ''
+  : window.location.host
+
+const pageComponent = computed(() => {
+  switch (host) {
+    case 'mobile.test': return DieselPage
+    case 'mobile.test2': return ChillerPage
+    default: return IndexPage
+  }
 })
 </script>
 

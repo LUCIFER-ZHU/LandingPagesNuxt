@@ -14,7 +14,7 @@
 
 ```env
 # 前端静态资源图片基地址
-NUXT_PUBLIC_IMAGE_BASE=https://minnuo-test.oss-cn-qingdao.aliyuncs.com/reNew
+NUXT_PUBLIC_IMAGE_BASE=https://minnuo-test.oss-cn-qingdao.aliyuncs.com/diesel
 
 # 后端返回的图片基地址
 NUXT_BACKEND_IMAGE_BASE=https://minnuo-test.oss-cn-qingdao.aliyuncs.com/
@@ -36,7 +36,7 @@ NUXT_BACKEND_IMAGE_BASE=https://minnuo-test.oss-cn-qingdao.aliyuncs.com/
 const { buildImageUrl } = useImageUrl()
 
 // 输入: 'image/logo.webp'
-// 输出: 'https://minnuo-test.oss-cn-qingdao.aliyuncs.com/reNew/image/logo.webp'
+// 输出: 'https://minnuo-test.oss-cn-qingdao.aliyuncs.com/diesel/image/logo.webp'
 const logoUrl = buildImageUrl('image/logo.webp')
 
 // 如果已经是完整URL，直接返回
@@ -69,7 +69,7 @@ const imageUrl = buildBackendImageUrl('uploads/machine/abc123.jpg')
 
 // 后端返回空值，使用默认图片
 // 输入: null 或 undefined
-// 输出: 'https://minnuo-test.oss-cn-qingdao.aliyuncs.com/reNew/image/img1.webp'
+// 输出: 'https://minnuo-test.oss-cn-qingdao.aliyuncs.com/diesel/image/img1.webp'
 const defaultUrl = buildBackendImageUrl(null)
 
 // 后端返回完整URL，直接返回

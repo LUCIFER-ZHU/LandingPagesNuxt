@@ -14,25 +14,22 @@
     <nav class="navigation-menu">
       <ul class="menu-list">
         <li class="menu-item">
-          <NuxtLink to="#banner-anchor" class="menu-link">Service Introduction</NuxtLink>
+          <NuxtLink to="#product-types-anchor" class="menu-link">Product Types</NuxtLink>
         </li>
         <li class="menu-item">
-          <NuxtLink to="#application-scenarios-anchor" class="menu-link">Application scenarios</NuxtLink>
+          <NuxtLink to="#about-minnuo-anchor" class="menu-link">About MINNUO</NuxtLink>
         </li>
         <li class="menu-item">
-          <NuxtLink to="#about-us-anchor" class="menu-link">About Us</NuxtLink>
+          <NuxtLink to="#product-details-anchor" class="menu-link">Product Details</NuxtLink>
         </li>
         <li class="menu-item">
-          <NuxtLink to="#our-service-anchor" class="menu-link">Our Service</NuxtLink>
+          <NuxtLink to="#video-showcase-anchor" class="menu-link">Video Showcase</NuxtLink>
         </li>
         <li class="menu-item">
-          <NuxtLink to="#products-anchor" class="menu-link" >Featured Products</NuxtLink>
+          <NuxtLink to="#client-cases-anchor" class="menu-link">Client Cases</NuxtLink>
         </li>
         <li class="menu-item">
-          <NuxtLink to="#project-cases-anchor" class="menu-link">Project Cases</NuxtLink>
-        </li>
-        <li class="menu-item">
-          <NuxtLink to="#contact-us-anchor" class="menu-link">Contact Us</NuxtLink>
+          <NuxtLink to="#faq-anchor" class="menu-link">FAQ</NuxtLink>
         </li>
       </ul>
     </nav>
@@ -45,8 +42,11 @@
  * 提供网站logo、联系信息和导航菜单
  */
 
-// 使用图片URL管理composable
-const { buildImageUrl } = useImageUrl();
+// 从父组件获取图片配置
+const imageUrlConfig = inject<{ imageBase?: string; backendImageBase?: string }>('imageUrlConfig')
+
+// 使用图片URL管理composable，注入页面级别的图片地址配置
+const { buildImageUrl } = useImageUrl(imageUrlConfig || {})
 
 /**
  * 邮箱点击处理函数
@@ -101,7 +101,7 @@ const handleEmailClick = () => {
   .menu-list {
     display: flex;
     align-items: center;
-    gap: 3.6458vw;
+    gap: 6.6458vw;
     list-style: none;
     margin: 0;
     padding: 0;

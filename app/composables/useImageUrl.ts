@@ -1,17 +1,31 @@
 /**
  * 图片URL管理组合式函数
  * 提供全局的图片URL构建功能，自动使用环境变量中的baseURL
+ * 支持页面级别的配置注入
  */
 
 /**
- * 构建完整的图片URL
- * @param path - 图片相对路径（例如：'image/logo.webp'）
- * @returns 完整的图片URL
+ * 图片URL配置选项
  */
-export const useImageUrl = () => {
+export interface ImageUrlOptions {
+  /** 前端图片基础URL（可选，默认使用环境变量） */
+  imageBase?: string
+  /** 后端图片基础URL（可选，默认使用环境变量） */
+  backendImageBase?: string
+}
+
+/**
+ * 构建完整的图片URL
+ * @param options - 配置选项（可选）
+ * @param options.imageBase - 前端图片基础URL
+ * @param options.backendImageBase - 后端图片基础URL
+ * @returns 包含图片URL构建方法的对象
+ */
+export const useImageUrl = (options?: ImageUrlOptions) => {
   const config = useRuntimeConfig();
-  const imageBase = config.public.imageBase;
-  const backendImageBase = config.public.backendImageBase;
+  // 优先使用页面传入的配置，否则使用环境变量
+  const imageBase = options?.imageBase || config.public.imageBase;
+  const backendImageBase = options?.backendImageBase || config.public.backendImageBase;
   
   /**
    * 构建前端静态资源图片URL

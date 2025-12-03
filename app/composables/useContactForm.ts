@@ -57,6 +57,8 @@ interface ContactFormData extends ContactFormBaseData {
 interface UseContactFormOptions {
   extraData?: ExtraDataType[]
   customFields?: Record<string, any>
+  /** 页面级别的转化跟踪函数（可选） */
+  onConversionTrack?: () => void
 }
 
 /**
@@ -314,26 +316,13 @@ export const useContactForm = (options: UseContactFormOptions = {}) => {
         // 重置表单
         resetForm()
         
-        // 触发 Google Ads 转化跟踪
-        if (typeof window !== 'undefined') {
+        // 触发转化跟踪
+        // 优先使用页面级别的转化跟踪函数
+        if (options.onConversionTrack && typeof options.onConversionTrack === 'function') {
           try {
-            // 优先使用全局封装的转化上报方法（与 app.vue 中保持一致）
-            const reporter = (window as any).gtag_report_conversion as undefined | ((url?: string) => boolean)
-            if (typeof reporter === 'function') {
-              reporter()
-            } else if (typeof gtag === 'function') {
-              // 回退：直接调用 gtag 事件上报（新账号与事件ID）
-              gtag('event', 'conversion', {
-                'send_to': 'AW-10801798623/mSIWCPH6iIMYEN-72Z4o',
-                'value': 1.0,
-                'currency': 'CNY',
-                'event_callback': function() {
-                  console.log('Conversion tracking successful')
-                }
-              })
-            }
+            options.onConversionTrack()
           } catch (e) {
-            console.warn('Conversion tracking failed:', e)
+            console.warn('Page-level conversion tracking failed:', e)
           }
         }
         
